@@ -65,7 +65,7 @@ preprocess:
     # Districts where the header is only one row - Kolar, Raichur, Udupi
     no_merge_headers: ["district_542", "district_546", "district_549"] 
 
-    column_mapper:
+    header_mapper:
         district_specific_errors:
             district_543:
                 event.test.sampleCollectionCenter: ["date of sampl collected at"]
@@ -99,7 +99,7 @@ preprocess:
             case.opd_ipd: ["opd ipd"]
 
 
-    required_columns:
+    required_headers:
         district_specific:
             district_631: ['metadata.name', 'metadata.address',
                            'demographics.age', 'demographics.gender',
