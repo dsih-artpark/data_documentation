@@ -10,10 +10,12 @@ dataset_info:
         Contains: ''
         Suffix: '.csv'
     standardised:
-        Bucket:
-        Prefix:
-        Contains:
-        Suffix:
+        v2:
+            Bucket: 'dsih-artpark-03-standardised-data'
+            Prefix: "EP0005DS0014-KA_Dengue_LL/"
+        v1: 
+            Bucket: "artpark-1health-hh-live-data"
+            Prefix: "state-karnataka/line-lists/"
 
 datadictionary_github_raw_url: "https://raw.githubusercontent.com/dsih-artpark/data-documentation/production/EP/EP0005DS0014-KA_Dengue_LL/datadictionary.yaml"
 
