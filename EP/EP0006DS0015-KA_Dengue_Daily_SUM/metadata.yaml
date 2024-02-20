@@ -1,1 +1,65 @@
+dataset_info:
+    raw:
+        Bucket: 'dsih-artpark-01-raw-data'
+        Prefix: 'EPRDS8-KA_Dengue_Chikungunya_SUM/Daily/'
+        Contains: ''
+        Suffix: '.xlsx'
+    preprocessed:
+    standardised:
+        v3:
+            Bucket: "dsih-artpark-03-standardised-data"
+            Prefix: "EP0006DS0015-KA_Dengue_Daily_SUM"
+        v2:
+            Bucket: "artpark-1health-hh-live-data"
+            Prefix: "state-karnataka/summaries_daily_v2/"
+        v1: 
+            Bucket: "artpark-1health-hh-live-data"
+            Prefix: "state-karnataka/summaries-daily/"
 
+datadictionary_github_raw_url: "https://raw.githubusercontent.com/dsih-artpark/data-documentation/production/EP/EP0006DS0015-KA_Dengue_Daily_SUM/datadictionary.yaml" #noqa
+preprocess:
+    indices:
+        header_row_indices: [2,3,4]
+        row_indices: 'list(range(5, 36)) + [38]'
+        col_indices: '[0, 1] + list(range(7, 19))'
+    reference_headers: ['sl no', 'district', 'dengue (on the day)suspected cases', 'blood sample collected', 
+        'samples positive igm mac elisa', 'ns1 antign', 'total +ves', 'death', 
+        'cumalative (from 01-01-2024)suspected cases', 'blood sample collected', 
+        'no of samples positive igm mac elisa', 'ns1 antign', 'total +ves', 'death']
+    preprocessed_headers: ["s.no", "regionName", "daily.suspected", "daily.tested", "daily.igm_positives", 
+        "daily.ns1_positives", "daily.total_positives", "daily.deaths", 
+        "cumulative.suspected", "cumulative.tested", "cumulative.igm_positives", 
+        "cumulative.ns1_positives", "cumulative.total_positives", "cumulative.deaths"]
+    district_mapping:
+        district_525: "Bangaluru (U)"
+        district_526: "Bangaluru (R) "
+        district_631: "Ramanagar"
+        district_542: "Kolar"
+        district_630: "Chikkaballapura"
+        district_548: "Tumakuru"
+        district_533: "Chitradurga"
+        district_535: "Davanagere"
+        district_547: "Shivamogga"
+        district_527: "Belagavi"
+        district_530: "Vijayapura"
+        district_524: "Bagalkote"
+        district_536: "Dharwada"
+        district_537: "Gadag"
+        district_540: "Haveri"
+        district_550: "Uttara kannada"
+        district_538: "Kalaburagi"
+        district_635: "Yadageri"
+        district_529: "Bidar"
+        district_528: "Ballari"
+        district_738: "Vijaya nagar"
+        district_546: "Raichur"
+        district_543: "Koppal"
+        district_545: "Mysuru"
+        district_531: "Chamarajanagar"
+        district_544: "Mandya"
+        district_539: "Hassan"
+        district_534: "Dakshina Kannada"
+        district_549: "Udupi"
+        district_532: "Chikkamagaluru"
+        district_541: "Kodagu"
+        ulb_276600: "BBMP"
