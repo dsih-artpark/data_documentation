@@ -15,7 +15,7 @@ dataset_info:
         v1: 
             Bucket: "artpark-1health-hh-live-data"
             Prefix: "state-karnataka/summaries-daily/"
-dataset_URIs:
+dataset_URI_Prefixes:
     v1:
         raw: "s3://artpark-1health-data-dumps/mohfw_gok/daily_reports/"
         std: "s3://artpark-1health-hh-live-data/state-karnataka/summaries-daily/"
