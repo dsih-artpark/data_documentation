@@ -21,5 +21,5 @@ def datadict_yaml2md(yaml_path: str):
 
 
 if __name__ == "__main__":
-
+    datadict_yaml2md("documentation/EP/EP0006DS0015-KA_Dengue_Daily_SUM/datadictionary.yaml")
     datadict_yaml2md("documentation/EP/EP0005DS0014-KA_Dengue_LL/datadictionary.yaml")
