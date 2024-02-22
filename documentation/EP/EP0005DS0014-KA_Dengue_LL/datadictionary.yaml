@@ -1,7 +1,12 @@
 metadata.recordID:
-  description: "A unique ID assigned to a particular linelist record. Based on Python's UUID4"
+  description: "UUID for the given linelist record. based on UUID4 from python3. Not yet stable."
+  comments: "patients with repeat infections can have multiple entries, and this cannot be verified as the entries are deidentified."
 metadata.patientID:
+  description:
+  comments:
 metadata.primaryDate:
+  description: "primary date associated with the case. Compliant with ISO 8601 format."
+  comments: "calculated based on dates available, event.symptomOnset.date given preference, followed by event.test.date and event.test.resultDate"
 metadata.name:
 metadata.address:
 metadata.nameAddress:
