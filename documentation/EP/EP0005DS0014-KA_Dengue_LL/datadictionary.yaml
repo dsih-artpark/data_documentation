@@ -1,75 +1,76 @@
-metadata.recordID:
-  description: "UUID for the given linelist record. based on UUID4 from python3. Not yet stable."
-  comments: "patients with repeat infections can have multiple entries, and this cannot be verified as the entries are deidentified."
-metadata.patientID:
-  description:
-  comments:
-metadata.primaryDate:
-  description: "primary date associated with the case. Compliant with ISO 8601 format."
-  comments: "calculated based on dates available, event.symptomOnset.date given preference, followed by event.test.date and event.test.resultDate"
-metadata.name:
-metadata.address:
-metadata.nameAddress:
-metadata.contact:
-metadata.diseaseName:
-metadata.diseaseCode:
-
-demographics.age:
-demographics.ageRange:
-demographics.gender:
-demographics.ageGender:
-
-location.country.ID:
-location.country.name:
-location.admin.hierarchy:
-location.state.ID:
-location.state.name:
-location.ut.ID:
-location.ut.name:
-location.district.ID:
-location.district.name:
-location.subdistrict.ID:
-location.subdistrict.name:
-location.village.ID:
-location.village.name:
-location.ulb.ID:
-location.ulb.name:
-location.zone.ID:
-location.zone.name:
-location.ward.ID:
-location.ward.name:
-location.prabhag.ID:
-location.prabhag.name:
-location.geometry.latitude:
-location.geometry.longitude:
-location.healthcenter.phc:
-location.healthcenter.subcenter:
-location.healthcenter.ssh:
-location.healthcenter.hospital:
-
-event.symptomOnset:
-event.symptomOnsetDate:
-event.test:
-event.test.sampleCollectionDate:
-event.test.sampleCollectionCenter:
-event.test.testingLab:
-event.test.test1.code:
-event.test.test1.name:
-event.test.test1.result:
-event.test.test2.code:
-event.test.test2.name:
-event.test.test2.result:
-event.test.test3.code:
-event.test.test3.name:
-event.test.test3.result:
-event.test.resultDate:
-event.test.value:
-event.test.numberOfTests:
-event.test.additionalTests.notes:
-event.admissionOrOPDRegistrationDate:
-event.notes:
-
-case.urban_rural:
-case.public_private:
-case.surveillance:
-case.opd_ipd:
+fields:
+  metadata.recordID:
+    description: "UUID for the given linelist record. based on UUID4 from python3. Not yet stable."
+    comments: "patients with repeat infections can have multiple entries, and this cannot be verified as the entries are deidentified."
+  metadata.patientID:
+    description:
+    comments:
+  metadata.primaryDate:
+    description: "primary date associated with the case. Compliant with ISO 8601 format."
+    comments: "calculated based on dates available, event.symptomOnset.date given preference, followed by event.test.date and event.test.resultDate"
+  metadata.name:
+  metadata.address:
+  metadata.nameAddress:
+  metadata.contact:
+  metadata.diseaseName:
+  metadata.diseaseCode:
+  
+  demographics.age:
+  demographics.ageRange:
+  demographics.gender:
+  demographics.ageGender:
+  
+  location.country.ID:
+  location.country.name:
+  location.admin.hierarchy:
+  location.state.ID:
+  location.state.name:
+  location.ut.ID:
+  location.ut.name:
+  location.district.ID:
+  location.district.name:
+  location.subdistrict.ID:
+  location.subdistrict.name:
+  location.village.ID:
+  location.village.name:
+  location.ulb.ID:
+  location.ulb.name:
+  location.zone.ID:
+  location.zone.name:
+  location.ward.ID:
+  location.ward.name:
+  location.prabhag.ID:
+  location.prabhag.name:
+  location.geometry.latitude:
+  location.geometry.longitude:
+  location.healthcenter.phc:
+  location.healthcenter.subcenter:
+  location.healthcenter.ssh:
+  location.healthcenter.hospital:
+  
+  event.symptomOnset:
+  event.symptomOnsetDate:
+  event.test:
+  event.test.sampleCollectionDate:
+  event.test.sampleCollectionCenter:
+  event.test.testingLab:
+  event.test.test1.code:
+  event.test.test1.name:
+  event.test.test1.result:
+  event.test.test2.code:
+  event.test.test2.name:
+  event.test.test2.result:
+  event.test.test3.code:
+  event.test.test3.name:
+  event.test.test3.result:
+  event.test.resultDate:
+  event.test.value:
+  event.test.numberOfTests:
+  event.test.additionalTests.notes:
+  event.admissionOrOPDRegistrationDate:
+  event.notes:
+  
+  case.urban_rural:
+  case.public_private:
+  case.surveillance:
+  case.opd_ipd:
