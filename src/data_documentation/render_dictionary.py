@@ -10,7 +10,7 @@ def datadict_yaml2md(yaml_path: str):
         datadict = yaml.safe_load(f)
 
     datadict_list = []
-    for key, value in datadict.items():
+    for key, value in datadict["fields"].items():
         if value is not None:
             mydict = {"field": key}
             mydict.update(value)

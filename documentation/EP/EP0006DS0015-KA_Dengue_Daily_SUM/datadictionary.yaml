@@ -1,4 +1,4 @@
-columns:
+fields:
     record.date:
     
     location.regionID:
@@ -17,3 +17,4 @@ columns:
     cumulative.ns1_positives:
     cumulative.total_positives:
     cumulative.deaths:
+ 
