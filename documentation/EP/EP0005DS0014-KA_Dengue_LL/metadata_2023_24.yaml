@@ -17,7 +17,7 @@ dataset_info:
             Bucket: "artpark-1health-hh-live-data"
             Prefix: "state-karnataka/line-lists/"
 
-datadictionary_github_raw_url: "https://raw.githubusercontent.com/dsih-artpark/data-documentation/production/EP/EP0005DS0014-KA_Dengue_LL/datadictionary.yaml"
+datadictionary_github_raw_url: "https://raw.githubusercontent.com/dsih-artpark/data_documentation/production/documentation/EP/EP0005DS0014-KA_Dengue_LL/datadictionary.yaml"
 
 regionIDs_ds_info:
     Bucket: 'dsih-artpark-03-standardised-data'
