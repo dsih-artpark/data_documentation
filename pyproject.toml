@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "data-documentation"
+name = "catalogue"
 version = "0.1.0"
 description = ""
 authors = ["Sai Sneha <sneha@artpark.in>"]
