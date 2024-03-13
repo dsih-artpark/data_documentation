@@ -71,3 +71,83 @@ preprocess:
         district_532: "Chikkamagaluru"
         district_541: "Kodagu"
         ulb_276600: "BBMP"
+
+historical:
+    column_mapping:
+        s.no:
+            - slno
+        location.district.name:
+            - district
+        units.affected:
+            - totalnoofblockstaluksinthedistrict
+            - totaldengueaffectedsincetaluks
+            - totaldengueaffectedsincephc
+            - totaldengueaffectedsincevillagesareas
+            - totaldengueaffectedsincepopulationofaffectedvillages
+            - denguereportedunitstaluks
+            - denguereportedunitsphc
+            - denguereportedunitsvillagesareas
+            - populationatrisk
+            - denguereportedinstitutiontaluks
+            - denguereportedinstitutionphc
+            - denguereportedinstitutionvillagesareas
+        daily.suspected:
+            - dengueonthedaysuspectedcases
+        daily.tested:
+            - dengueonthedaybloodsamplecollected
+        daily.igm_positives:
+            - dengueonthedaynoofsampalespositiveigmmacelisa
+            - dengueonthedaysampalespositiveigmmacelisa
+            - dengueonthedaysamplespositiveigmmacelisa
+            - dengueonthedayigmmacelisa
+        daily.ns1_positives:
+            - dengueonthedaynsantign
+        daily.other_positives:
+            - dengueonthedayothers
+        daily.total_positives:
+            - dengueonthedaytotal+ves
+        daily.deaths:
+            - dengueonthedaydeath
+        cumulative.suspected:
+            - denguecumalativefromsuspectedcases
+            - cumalativefromsuspectedcases
+            - cumulativefromsuspectedcases
+        cumulative.tested:
+            - denguecumalativefrombloodsamplecollected
+            - cumalativefrombloodsamplecollected
+            - cumulativefrombloodsamplecollected
+        cumulative.igm_positives:
+            - denguecumalativefromnoofsampalespositiveigmmacelisa
+            - cumalativefromnoofsampalespositiveigmmacelisa
+            - cumulativefromnoofsamplespositiveigmmacelisa
+            - denguecumalativefromnoofsamplespositiveigmmacelisa
+            - cumalativefromnoofsamplespositiveigmmacelisa
+        cumulative.ns1_positives:
+            - denguecumalativefromnsantign
+            - cumalativefromnsantign
+            - cumulativefromnsantign
+        cumulative.other_positives:
+            - denguecumalativefromothers
+        cumulative.total_positives:
+            - denguecumalativefromtotal+ves
+            - cumalativefromtotal+ves
+            - cumulativefromtotal+ves
+        cumulative.deaths:
+            - denguecumalativefromdeath
+            - cumalativefromdeath
+            - cumulativefromdeath
+        additional:
+            - remarks
+            - remarksurban
+            - remarksrural
+            - remarksreportsupdatedfinal
+            - remarkslinelistnotfinding
+            - cumalativefrom
+            - cumulativefrom
+            - denguecumalativefrom
+            - suspectedcases
+            - bloodsamplecollected
+            - noofsampalespositiveigmmacelisa
+            - noofsampalespositivensantign
+            - noofsampalespositivetotal+ves
+            - death
