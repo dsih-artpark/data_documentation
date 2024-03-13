@@ -1,13 +1,26 @@
 fields:
-    record.date:
-    
-    location.regionID:
-    location.regionName:
+    metadata.recordID:
+    metadata.recordDate:
+        
+    location.country.ID:
+    location.country.name:
+    location.admin.hierarchy:
+    location.state.ID:
+    location.state.name:
+    location.district.name:
+    location.district.ID:
+    location.country.name:
+    location.admin.hierarchy:
+    location.state.ID:
+    location.state.name:
+    location.district.name:
+    location.district.ID:
     
     daily.suspected:
     daily.tested:
     daily.igm_positives:
     daily.ns1_positives:
+    daily.other_positives:
     daily.total_positives:
     daily.deaths:
     
@@ -15,6 +28,6 @@ fields:
     cumulative.tested:
     cumulative.igm_positives:
     cumulative.ns1_positives:
+    cumulative.other_positives:
     cumulative.total_positives:
     cumulative.deaths:
- 
