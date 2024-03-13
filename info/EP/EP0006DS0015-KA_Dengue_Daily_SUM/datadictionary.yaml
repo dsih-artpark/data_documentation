@@ -7,14 +7,8 @@ fields:
     location.admin.hierarchy:
     location.state.ID:
     location.state.name:
-    location.district.name:
     location.district.ID:
-    location.country.name:
-    location.admin.hierarchy:
-    location.state.ID:
-    location.state.name:
     location.district.name:
-    location.district.ID:
     
     daily.suspected:
     daily.tested:
