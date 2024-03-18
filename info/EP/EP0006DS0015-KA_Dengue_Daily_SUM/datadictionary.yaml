@@ -1,6 +1,7 @@
 fields:
     metadata.recordID:
     metadata.recordDate:
+    metadata.ISOWeek:
         
     location.country.ID:
     location.country.name:
@@ -9,6 +10,8 @@ fields:
     location.state.name:
     location.district.ID:
     location.district.name:
+    location.ulb.ID:
+    location.ulb.name:
     
     daily.suspected:
     daily.tested:
