@@ -2,6 +2,7 @@ fields:
     metadata.recordID:
     metadata.recordDate:
     metadata.ISOWeek:
+    metadata.comments:
         
     location.country.ID:
     location.country.name:
