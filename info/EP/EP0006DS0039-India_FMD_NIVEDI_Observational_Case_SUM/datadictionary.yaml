@@ -1,7 +1,7 @@
 fields:  
   metadata.recordID: 'UUID generated using UUID4 from Python 3'
-  metadata.diseaseCode: 'WHO ICD-11 disease code'
   metadata.diseaseName: 'WHO ICD-11 disease name'
+  metadata.diseaseCode: 'WHO ICD-11 disease code'
   metadata.month: 'Month of summary'
   metadata.year: 'Year of summary'
   metadata.species: 'Type of Species - Cattle or Buffalo'
