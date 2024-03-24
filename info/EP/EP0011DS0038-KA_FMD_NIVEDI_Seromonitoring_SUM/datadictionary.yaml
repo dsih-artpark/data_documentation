@@ -1,0 +1,31 @@
+fields:
+  metadata.recordID: 'UUID generated using UUID4 from Python 3'
+  metadata.diseaseName: 'WHO ICD-11 disease name'
+  metadata.diseaseCode: 'WHO ICD-11 disease code'
+  metadata.month:
+  metadata.year:
+  location.country.ID: 'LGD Country Code'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+  location.state.ID: 'LGD State Code'
+  location.state.name: 'LGD State Name'
+  location.district.ID: 'LGD District Code'
+  location.district.name: 'LGD District Name'
+  prevac.sample: 'Number of samples tested pre-vaccination'
+  prevac.positive.A.cnt: 'Number of pre-vaccination samples positive for A-type virus'
+  prevac.positive.A.pct: 'Percentage of pre-vaccination samples positive for A-type virus (computed as prevac.positive.A.cnt/prevac.sample * 100)'
+  prevac.positive.O.cnt: 'Number of pre-vaccination samples positive for O-type virus'
+  prevac.positive.O.pct: 'Percentage of pre-vaccination samples positive for O-type virus (computed as prevac.positive.O.cnt/prevac.sample * 100)'
+  prevac.positive.asia1.cnt: 'Number of pre-vaccination samples positive for Asia1-type virus'
+  prevac.positive.asia1.pct: 'Percentage of pre-vaccination samples positive for Asia1-type virus (computed as prevac.positive.asia1.cnt/prevac.sample * 100)'
+  postvac.sample: 'Number of samples tested post-vaccination'
+  postvac.positive.A.cnt: 'Number of post-vaccination samples positive for A-type virus'
+  postvac.positive.A.pct: 'Percentage of post-vaccination samples positive for A-type virus (computed as postvac.positive.A.cnt/postvac.sample * 100)'
+  postvac.positive.O.cnt: 'Number of post-vaccination samples positive for O-type virus'
+  postvac.positive.O.pct: 'Percentage of post-vaccination samples positive for O-type virus (computed as postvac.positive.O.cnt/postvac.sample * 100)'
+  postvac.positive.asia1.cnt: 'Number of post-vaccination samples positive for Asia1-type virus'
+  postvac.positive.asia1.pct: 'Percentage of post-vaccination samples positive for Asia1-type virus (computed as postvac.positive.Asia1.cnt/postvac.sample * 100)'
+info:
+  source: 'NIVEDI'
+  comments: 'Reports are only partially accessed. They do not cover all districts'
+  references:

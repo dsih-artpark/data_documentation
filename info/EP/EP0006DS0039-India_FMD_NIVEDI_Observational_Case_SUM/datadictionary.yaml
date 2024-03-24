@@ -27,5 +27,6 @@ fields:
   summary.vaccinated: 'Number Vaccinated'
 
 info:
-  source:'NIVEDI'
-  comments:'Duplicates with identical values across all columns have been removed. There are still duplicates when grouped by month, year, district and species, but these have different outbreaks, deaths, susceptible values mostly data entry errors.'
+  source: NIVEDI
+  comments: Duplicates with identical values across all columns have been removed. There are still duplicates when grouped by month, year, district and species, but these have different outbreaks, deaths, susceptible values mostly data entry errors.
+  references:

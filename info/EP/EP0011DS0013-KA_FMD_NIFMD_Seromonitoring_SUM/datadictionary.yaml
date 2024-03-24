@@ -33,7 +33,7 @@ fields:
   postvac.positive.all.cnt: 'Number of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
   postvac.positive.all.pct: 'Percentage of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified (computed as postvac.positive.all.cnt/postvac.sample * 100)'
 info:
-  source: 'NIFMD'
+  source: NIFMD
   comments: 
     - 2011 - Asia1 re-emerged after 5 years.
     - 2012 - All KA districts were included under FMDCP in Phase 2.
