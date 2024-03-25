@@ -1,0 +1,33 @@
+fields:
+  metadata.recordID: 'UUID generated using UUID4 from Python 3'
+  metadata.diseaseName: 'WHO ICD-11 Disease Name'
+  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+  metadata.vaccinationRound: 'Round number of the NADCP Report'
+  metadata.vaccinationStartDate: 'Start date for the vaccination round'
+  metadata.reportDate: 'Date of the Daily Progress Report'
+  location.country.ID: 'LGD Country Code'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
+  location.state.ID: 'LGD State Code'
+  location.state.name: 'LGD State Name'
+  location.district.ID: 'LGD District Code'
+  location.district.name: 'LGD District Name'
+  daily.vaccinated.cattle: 'Number of Cattle vaccinated on the day'
+  daily.vaccinated.buffalo: 'Number of Buffaloes vaccinated on the day'
+  daily.vaccinated.total: 'Sum of Cattle and Buffaloes vaccinated on the day (computed)'
+  daily.vaccinated.cattle_4to5m: 'Number of Cattle calves (aged 4-5 months) vaccinated on the day'
+  daily.vaccinated.buffalo_4to5m: 'Number of Buffalo calves (aged 4-5 months) vaccinated on the day'
+  daily.vaccinated.total_4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) vaccinated on the day (computed)'
+  daily.booster.cattle_4to5m: 'Number of Cattle calves (aged 4-5 months) provided booster dose on the day'
+  daily.booster.buffalo_4to5m: 'Number of Buffalo calves (aged 4-5 months) provided booster dose on the day'
+  daily.booster.total_4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) provided booster dose on the day (computed)'
+  daily.farmers_covered: 'Number of farmers benefited on the day'
+  cumulative.tagged.cattle: 'Cumulative number of Cattle tagged as of the day'
+  cumulative.tagged.buffalo: 'Cumulative number of Buffaloes tagged as of the day'
+  cumulative.tagged.all: 'Cumulative number of Cattle and Buffaloes tagged as of the day (from source for round 1; computed for round 2)'
+
+info:
+  source: 
+    - https://ahvs.karnataka.gov.in/info-2/NADCP/1st+Round+NADCP+Report/en
+    - https://ahvs.karnataka.gov.in/info-2/NADCP/2nd+Round+NADCP+Daily+Progress+Report+2021-22/en
+  comments: "Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports."
