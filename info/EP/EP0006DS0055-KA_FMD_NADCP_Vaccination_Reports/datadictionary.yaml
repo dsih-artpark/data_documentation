@@ -57,7 +57,6 @@ tables:
       cumulative.tagged.cattle: 'Cumulative number of Cattle tagged as of the day'
       cumulative.tagged.buffalo: 'Cumulative number of Buffaloes tagged as of the day'
       cumulative.tagged.total: 'Sum of cumulative.tagged.cattle and cumulative.tagged.buffalo (computed)'
-      
       info:
         source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/2nd+Round+NADCP+Daily+Progress+Report+2021-22/en'
         comments: 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
