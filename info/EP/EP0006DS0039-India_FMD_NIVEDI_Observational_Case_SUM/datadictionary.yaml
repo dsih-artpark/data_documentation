@@ -1,3 +1,5 @@
+multiple_tables: False
+
 fields:  
   metadata.recordID: 'UUID generated using UUID4 from Python 3'
   metadata.diseaseName: 'WHO ICD-11 disease name'

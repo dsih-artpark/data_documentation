@@ -1,3 +1,5 @@
+multiple_tables: False
+
 fields:
   metadata.recordID: 'UUID generated using UUID4 from python3'
   location.country.ID: 'LGD Country ID'
@@ -16,4 +18,5 @@ fields:
 
 info:
   source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
-  comments: ''
+  comments: 
+  references:
