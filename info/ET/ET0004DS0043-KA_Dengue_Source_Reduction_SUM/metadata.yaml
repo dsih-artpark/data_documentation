@@ -1,0 +1,57 @@
+multiple_tables: False
+column_mapping:
+  location.district.name: 
+    - Name of the District
+  summary.NoOfTaluks:
+    - No of taluks
+  summary.NoOfPhcs:
+    - No of PHCs
+  summary.NoOfHouses:
+    - Total No of houses
+  survey.housesVisited:
+    - No of houses surveyed
+  survey.housesPositive:
+    - NoHouse found Positive for Aedes breeding
+  survey.containersSearched:
+    - No of containers searched
+  survey.containersPositive:
+    - No of containers positive
+  survey.houseIndex:
+    - HI
+  survey.containerIndex:
+    - CI
+  survey.breteauIndex:
+    - BI
+  survey.containersReduced:
+    - No of containers reduced
+
+column_values:
+  metadata.recordID: 
+  metadata.diseaseName: "Dengue"
+  metadata.diseaseCode: "ICD11_1D2Z"
+  metadata.primaryDate:
+  metadata.reportPeriod:
+  location.country.ID: "country_IN"
+  location.country.name: "INDIA"
+  location.admin.hierarchy: "REVENUE"
+  location.state.ID: "state_29"
+  location.state.name: "KARNATAKA"
+  location.district.ID: 
+  location.district.name:
+  summary.NoOfTaluks:
+  summary.NoOfPhcs:
+  summary.NoOfHouses:
+  survey.housesVisited:
+  survey.housesPositive:
+  survey.containersSearched:
+  survey.containersPositive:
+  survey.houseIndex:
+  survey.containerIndex:
+  survey.breteauIndex:
+  survey.houseIndex.calc:
+  survey.containerIndex.calc:
+  survey.breteauIndex.calc:
+  survey.containersReduced:
+
+config:
+  district_fuzzymatch: 65

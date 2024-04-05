@@ -1,0 +1,40 @@
+multiple_tables: False
+
+fields:
+  metadata.recordID: 'UUID generated using UUID4 from Python 3'
+  metadata.diseaseName: 'WHO ICD-11 Disease Name'
+  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+  metadata.primaryDate: 'Fortnight end date as of which the report is generated'
+  metadata.reportPeriod: 'Fortnight start and end date for the report'
+  location.country.ID: 'LGD Country Code'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
+  location.state.ID: 'LGD State Code'
+  location.state.name: 'LGD State Name'
+  location.district.ID: 'LGD District Code'
+  location.district.name: 'LGD District Name'
+  summary.NoOfTaluks: 'Total number of Taluks in the district'
+  summary.NoOfPhcs: 'Total number of Primary Health Centres in the district'
+  summary.NoOfHouses: 'Total number of Households in the district'
+  survey.housesVisited: 'Number of households visited for the larval survey'
+  survey.housesPositive: 'Number of households found positive for Aedes breeding'
+  survey.containersSearched: 'Number of containers searched for the larval survey'
+  survey.containersPositive: 'Number of containers found positive for Aedes breeding'
+  survey.houseIndex: 'House Index provided in the raw dataset'
+    comments: 'Calculation errors exist, use survey.houseIndex.calc'
+  survey.containerIndex: 'Container Index provided in the raw dataset'
+    comments: 'Calculation errors exist, use survey.containerIndex.calc'
+  survey.breteauIndex: 'Breteau Index provided in the raw dataset'
+    comments: 'Calculation errors exist, use survey.breteauIndex.calc'
+  survey.houseIndex.calc: 'survey.housesPositive/survey.housesVisited * 100 (calculated)'
+  survey.containerIndex.calc: 'survey.containersPositive/survey.containersSearched * 100 (calculated)'
+  survey.breteauIndex.calc: 'survey.containersPositive/survey.housesVisited * 100 (calculated)'
+  survey.containersReduced: 'Number of containers where source reduction activities were carried out'
+
+info:
+  source: GoK
+  comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
+  references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
+
+
+  
