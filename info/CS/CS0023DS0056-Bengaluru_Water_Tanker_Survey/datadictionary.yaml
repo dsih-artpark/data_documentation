@@ -1,0 +1,87 @@
+multiple_tables: True
+
+tables:
+  survey_2024:
+    fields:
+      metadata.recordID: "UUID generated using UUID4 from python3"
+      metadata.month: "Month of survey"
+      metadata.year: "Year of survey"
+      location.country.ID: "LGD Country Code"
+      location.country.name: "LGD Country Name"
+      location.admin.hierarchy: "Whether Revenue or ULB"
+      location.state.ID: "LGD State ID"
+      location.state.name: "LGD State Name"
+      location.district.ID: "LGD District ID"
+      location.district.name: "LGD District Name"
+      location.ulb.ID: "LGD ULB ID"
+      location.ulb.name: "LGD ULB Name"
+      location.geometry.pincode: "Pincode"
+      location.geometry.latitude.imputed: "Latitude derived from geocoding the pincode using GMaps API"
+      location.geometry.longitude.imputed: "Longitude derived from geocoding the pincode using GMaps API"
+      survey.housingType: "Type of housing"
+      survey.numberOfHousingUnits: "Number of housing units"
+      survey.source.borewell: "Whether borewell is a source of water supply for community"
+      survey.source.rainwater: "Whether rainwater is a source of water supply for community"
+      survey.source.tanker: "Whether tanker is a source of water supply for community"
+      survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
+      survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
+      survey.tankerFrequency: "Frequency of purchase of private water tanker"
+      survey.numberOfTankersPerMonth: "Frequency of purchase of private water tanker"
+      survey.changeInTankerDemandThreeMonths: "Have you been ordering private water tankers more often in the last three months?"
+        comments: "Qualitative responses (open text), not standardised"
+      survey.changeInBWSSBSupplyPastYear: "Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)?" 
+        comments: "Qualitative responses (open text), not standardised"
+      survey.dryDaysPastYear: "Number of dry days in the past year?"
+        comments: "Qualitative responses (open text), not standardised"
+      survey.capacityPerTanker: "What is the capacity of the tanker in litres?"
+      survey.cost.tanker.present: "How much do you pay for a single tanker of water?"
+      survey.cost.tanker.previousYear: "How much were you paying for the same tanker of water a year back (Feb 2023)?"
+      survey.cost.communityMonthlyWaterExpenses: "What is your community's monthly expense on water?"
+      survey.tankerRateIncreaseFrequency: "How often does your water tanker vendor raise rates?"
+        comments: "Qualitative responses (open text), not standardised"
+      survey.waterRationing: "Do you have water rationing?"
+    info:
+      source:
+      references:
+      comments:
+
+  survey_2019: 
+    fields:
+      metadata.recordID: "UUID generated using UUID4 from python3"
+      metadata.month: "Month of survey"
+      metadata.year: "Year of survey"
+      location.country.ID: "LGD Country Code"
+      location.country.name: "LGD Country Name"
+      location.admin.hierarchy: "Whether Revenue or ULB"
+      location.state.ID: "LGD State ID"
+      location.state.name: "LGD State Name"
+      location.district.ID: "LGD District ID"
+      location.district.name: "LGD District Name"
+      location.ulb.ID: "LGD ULB ID"
+      location.ulb.name: "LGD ULB Name"
+      location.geometry.latitude.imputed: "Latitude derived from address using GMaps API"
+      location.geometry.longitude.imputed: "Longitude derived from address using GMaps API"
+      survey.housingType: "Type of housing"
+      survey.numberOfHousingUnits: "Number of housing units"
+      survey.source.borewell: "Whether borewell is a source of water supply for community"
+      survey.source.rainwater: "Whether rainwater is a source of water supply for community"
+      survey.source.tanker: "Whether tanker is a source of water supply for community"
+      survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
+      survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
+      survey.tankerFrequency: "How often do you buy water?"
+        comments: qualitative responses, standardised manually
+      survey.numberOfTankersPerMonth: "No of tankers"
+      survey.dryDaysPastYear: "How many dry days  recently?"
+        comments: qualitative responses, not standardised
+      survey.capacityPerTanker: "Tanker capacity (in litres)"
+      survey.cost.tanker.present: "Average tanker price"
+      survey.cost.communityMonthlyWaterExpenses: "Monthly expense on water"
+        comments: qualitative responses, standardised manually
+      survey.waterRationing: "Do you have water rationing?"
+        comments: qualitative responses, standardised
+      survey.STPForGardeningFlushing: "Do you use treated STP water for flushing/gardening?"
+    
+    info:
+      source:
+      references:
+      comments:
