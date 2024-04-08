@@ -1,67 +1,144 @@
 multiple_tables: True
 
 tables:
-  2024.csv
-  column_mapping:
-    survey.waterSources:
-      - Sources of water supply for your community
-    survey.costPerTankerPresent:
-      - How much do you pay for a single tanker of water?
-    survey.capacityPerTanker:
-      - What is the capacity of the tanker in litres?
-    location.geometry.pincode:
-      - Your area Pincode
-    survey.housingType:
-      - Type of Community
-    survey.tankerFrequency:
-      - Frequency of purchase of private water tanker
-    survey.numberOfTankersPerMonth:
-      - How many private tankers do you get per month on average?
-    survey.numberOfHousingUnits:
-      - Number of units in the community
-    survey.waterRationing:
-      - Do you have water rationing?
-    survey.STPWaterForFlushingGardening:
-      - Do you use treated STP water for flushing/gardening?
-    survey.communityMonthlyWaterExpenses:
-  		- What is your community's monthly expense on water?	
-    survey.dryDaysPastYear:
-      - Number of dry days in the past year?
-    survey.changeInTankerDemandThreeMonths:
-      - Have you been ordering private water tankers more often in the last three months? 	
-    survey.changeInBWSSBSupplyPastYear:
-      - Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)? 	
-    survey.costPerTankerLastYear:
-      - How much were you paying for the same tanker of water a year back (Feb 2023)?	
-    survey.TankerRateIncreaseFrequency:
-      - How often does your water tanker vendor raise rates?
+  survey_2024:
+    column_mapping:
+      survey.source.all:
+        - Sources of water supply for your community
+      survey.costPerTankerPresent:
+        - How much do you pay for a single tanker of water?
+      survey.capacityPerTanker:
+        - What is the capacity of the tanker in litres?
+      location.geometry.pincode:
+        - Your area Pincode
+      survey.housingType:
+        - Type of Community
+      survey.tankerFrequency:
+        - Frequency of purchase of private water tanker
+      survey.numberOfTankersPerMonth:
+        - How many private tankers do you get per month on average?
+      survey.numberOfHousingUnits:
+        - Number of units in the community
+      survey.waterRationing:
+        - Do you have water rationing?
+      survey.communityMonthlyWaterExpenses:
+        - What is your community's monthly expense on water?	
+      survey.dryDaysPastYear:
+        - Number of dry days in the past year?
+      survey.changeInTankerDemandThreeMonths:
+        - Have you been ordering private water tankers more often in the last three months? 	
+      survey.changeInBWSSBSupplyPastYear:
+        - Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)? 	
+      survey.costPerTankerLastYear:
+        - How much were you paying for the same tanker of water a year back (Feb 2023)?	
+      survey.TankerRateIncreaseFrequency:
+        - How often does your water tanker vendor raise rates?
 
-  column_values:
-    metadata.recordID: 
-    metadata.month: 02
-    metadata.year: 2024
-    location.country.ID: "country_IN"
-    location.country.name: "INDIA"
-    location.admin.hierarchy: "ULB"
-    location.state.ID: "state_29"
-    location.state.name: "KARNATAKA"
-    location.district.ID: "district_525"
-    location.district.name: "BENGALURU URBAN"
-    location.geometry.pincode:
-    location.geometry.latitude.imputed:
-    location.geometry.longitude.imputed:
-    survey.housingType:
-    survey.numberOfHousingUnits:
-    survey.waterSources:
-    survey.tankerFrequency:
-    survey.numberOfTankersPerMonth:
-    survey.changeInTankerDemandThreeMonths:
-    survey.changeInBWSSBSupplyPastYear:
-    survey.dryDaysPastYear:
-    survey.capacityPerTanker:
-    survey.costPerTankerPresent:
-    survey.costPerTankerLastYear:
-    survey.communityMonthlyWaterExpenses:
-    survey.tankerRateIncreaseFrequency:
-    survey.waterRationing:
-    survey.STPWaterForFlushingGardening:
+    column_values:
+      metadata.recordID: 
+      metadata.month: 02
+      metadata.year: 2024
+      location.country.ID: "country_IN"
+      location.country.name: "INDIA"
+      location.admin.hierarchy: "ULB"
+      location.state.ID: "state_29"
+      location.state.name: "KARNATAKA"
+      location.district.ID: "district_525"
+      location.district.name: "BENGALURU URBAN"
+      location.ulb.ID: "ulb_276600"
+      location.ulb.name: "BBMP"
+      location.geometry.pincode:
+      location.geometry.latitude.imputed:
+      location.geometry.longitude.imputed:
+      survey.housingType:
+      survey.numberOfHousingUnits:
+      survey.source.borewell:
+      survey.source.rainwater:
+      survey.source.tanker:
+      survey.source.govt:
+      survey.source.STP:
+      survey.tankerFrequency:
+      survey.numberOfTankersPerMonth:
+      survey.changeInTankerDemandThreeMonths:
+      survey.changeInBWSSBSupplyPastYear:
+      survey.dryDaysPastYear:
+      survey.capacityPerTanker:
+      survey.cost.tanker.present:
+      survey.cost.tanker.previousYear:
+      survey.cost.communityMonthlyWaterExpenses:
+      survey.tankerRateIncreaseFrequency:
+      survey.waterRationing:
+
+  survey_2019:
+    column_mapping:
+      survey.address:
+        - Apartment Name / House Address
+      survey.source.all:
+        - Source of water (Select multiple if required)
+      survey.cost.tanker.present:
+        - Average tanker price
+      survey.capacityPerTanker:
+        - Tanker capacity (in litres)
+      survey.housingType:
+        - Type
+      survey.tankerFrequency:
+        - How often do you buy water
+      survey.numberOfTankersPerMonth:
+        - No of tankers
+      survey.numberOfHousingUnits:
+        - No of units
+      survey.waterRationing:
+        - Do you have water rationing?
+      survey.dryDaysInPastYear:
+        - How many dry days  recently?
+      survey.communityMonthlyWaterExpenses:
+        - Monthly expense on water
+      survey.STPForGardeningFlushing:
+        - Do you use treated STP water for flushing/gardening?
+
+    column_values:
+      metadata.recordID: 
+      metadata.month: 02
+      metadata.year: 2024
+      location.country.ID: "country_IN"
+      location.country.name: "INDIA"
+      location.admin.hierarchy: "ULB"
+      location.state.ID: "state_29"
+      location.state.name: "KARNATAKA"
+      location.district.ID: "district_525"
+      location.district.name: "BENGALURU URBAN"
+      location.ulb.ID: "ulb_276600"
+      location.ulb.name: "BBMP"
+      location.geometry.latitude.imputed:
+      location.geometry.longitude.imputed:
+      survey.housingType:
+      survey.numberOfHousingUnits:
+      survey.source.borewell:
+      survey.source.rainwater:
+      survey.source.tanker:
+      survey.source.govt:
+      survey.source.STP:
+      survey.tankerFrequency:
+      survey.numberOfTankersPerMonth:
+      survey.changeInTankerDemandThreeMonths:
+      survey.changeInBWSSBSupplyPastYear:
+      survey.dryDaysPastYear:
+      survey.capacityPerTanker:
+      survey.cost.tanker.present:
+      survey.cost.tanker.previousYear:
+      survey.cost.communityMonthlyWaterExpenses:
+      survey.tankerRateIncreaseFrequency:
+      survey.waterRationing:
+      survey.source.borewell:
+      survey.source.rainwater:
+      survey.source.tanker:
+      survey.source.govt:
+      survey.source.STP:
+      survey.tankerFrequency:
+      survey.numberOfTankersPerMonth:
+      survey.dryDaysInPastYear:
+      survey.capacityPerTanker:
+      survey.cost.tanker.present:
+      survey.cost.communityMonthlyWaterExpenses:
+      survey.waterRationing:
+      survey.STPForGardeningFlushing:
