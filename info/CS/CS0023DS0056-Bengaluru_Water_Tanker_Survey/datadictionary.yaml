@@ -42,8 +42,8 @@ tables:
       survey.waterRationing: "Do you have water rationing?"
     info:
       source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
-      references:
       comments:
+      references:
 
   survey_2019: 
     fields:
@@ -83,5 +83,5 @@ tables:
     
     info:
       source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
-      references:
       comments:
+      references:
