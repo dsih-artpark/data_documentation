@@ -41,7 +41,7 @@ tables:
         comments: "Qualitative responses (open text), not standardised"
       survey.waterRationing: "Do you have water rationing?"
     info:
-      source:
+      source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
       references:
       comments:
 
@@ -82,6 +82,6 @@ tables:
       survey.STPForGardeningFlushing: "Do you use treated STP water for flushing/gardening?"
     
     info:
-      source:
+      source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
       references:
       comments:
