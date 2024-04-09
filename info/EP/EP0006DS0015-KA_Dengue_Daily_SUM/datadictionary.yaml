@@ -16,16 +16,16 @@ fields:
     
     daily.suspected:
     daily.tested:
-    daily.igm_positives:
-    daily.ns1_positives:
-    daily.other_positives:
-    daily.total_positives:
+    daily.positive.igm:
+    daily.positive.ns1:
+    daily.positive.other:
+    daily.positive.total:
     daily.deaths:
     
     cumulative.suspected:
     cumulative.tested:
-    cumulative.igm_positives:
-    cumulative.ns1_positives:
-    cumulative.other_positives:
-    cumulative.total_positives:
+    cumulative.positive.igm:
+    cumulative.positive.ns1:
+    cumulative.positive.other:
+    cumulative.positive.total:
     cumulative.deaths:
