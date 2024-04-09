@@ -1,1 +1,35 @@
+multiple_tables: False
 
+fields:
+  metadata.recordID: 'UUID generated from UUID4 on python3'
+  metadata.formID: 'Unique Survey Form ID'
+  metadata.customerID: 'Customer ID (ID through which form was submitted)'
+  metadata.primaryDate: 'Date of survey'
+  metadata.diseaseName: 'WHO ICD-11 Disease Name'
+  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+  location.country.ID: 'LGD Country Code'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy:	'Whether ULB/Revenue administrative hierarchy'
+  location.state.ID: 'LGD State Code'
+  location.state.name: 'LGD State Name'
+  location.district.ID:	'LGD District Code'
+  location.district.name:	'LGD District Name'
+  location.subdistrict.ID: 'LGD Sub-district Code'
+  location.subdistrict.name: 'LGD Sub-district Name'
+  location.zone.ID:	'BBMP Zone ID'
+  location.zone.name: 'BBMP Zone Name'
+  location.ward.ID: 'LGD Ward Code'
+  location.ward.name: 'Ward Name'
+  location.geometry.latitude: 'Latitude position of breeding spot collected through the survey'
+  location.geometry.longitude: 'Longitude position of breeding spot collected through the survey'
+  survey.breedingSpot.wasteType: ''
+  survey.breedingSpot.image: 'Image of Breeding Spot'
+  survey.breedingSpot.description: 'Description of Breeding Spot'
+  survey.breedingSpot.present: 'Whether a Breeding Spot is present'
+  survey.sourceReduction.present: 'Whether Source Reduction was carried out at the Breeding Spot'
+  survey.sourceReduction.image: 'Image after Source Reduction'
+
+info:
+  source: 'PRISM-H Mobile App'
+  comments: 'Data collected through the App is yet to reach stability on ASHA worker training & uptake.'
+  references:

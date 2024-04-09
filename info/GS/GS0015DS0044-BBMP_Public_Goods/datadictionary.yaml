@@ -1,0 +1,48 @@
+multiple_tables: False
+
+fields:
+  metadata.recordID: 'UUID generated using UUID4 from python3'
+  metadata.primaryDate: 'Survey Date'
+  location.country.ID: 'LGD Country ID'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+  location.state.ID: 'LGD State ID'
+  location.state.name: 'LGD State Name'
+  location.district.ID: 'LGD District ID'
+  location.district.name: 'LGD District Name'
+  location.subdistrict.ID: 'LGD Sub-district Code'
+  location.subdistrict.name: 'LGD Sub-district Name'
+  location.zone.ID:	'BBMP Zone ID'
+  location.zone.name: 'BBMP Zone Name'
+  location.ward.ID: 'LGD Ward Code'
+  location.ward.name: 'Ward Name'
+  location.assemblyConstituency: 'Name of Assembly Constituency'
+  location.parliamentaryConstituency: 'Name of Parliamentary Constituency'
+  location.policeStation: 'Name of Police Station'
+  census2011.population: 'Population as per Census 2011'
+  census2011.area.sqKm: 'Area in square kilometers'
+  census2011.households: 'Number of households as per Census 2011'
+  census2011.population.density: 'Population Density as per Census 2011'
+  census.population.growthPct2001_2011: '% change in population between Census 2001 and Census 2011'
+  census.households.growthPct2001_2011: '% change in number of households between Census 2011 and Census 2011'
+  census.roads.lengthKms: 'Length of roads in kilometers'
+  bbmp.lakes.cnt: 'Number of lakes'
+  bbmp.lakes.name: 'Names of lakes'
+  bbmp.lakes.area.sqM: 'Area of lakes in square meters'
+  bbmp.parks.cnt: 'Number of parks'
+  bbmp.parks.area.sqM: 'Area of parks in square meters'
+  bbmp.playgrounds.cnt: 'Number of playgrounds'
+  bbmp.playgrounds.area.sqM: 'Area of playgrounds in square meters'
+  bbmp.govtSchools.cnt: 'Number of government schools'
+  bbmp.policeStations.cnt: 'Number of police stations'
+  bbmp.fireStations.cnt: 'Number of fire stations'
+  bbmp.busStops.cnt: 'Number of bus stops'
+  bbmp.whetherTTMC: 'Whether BBMP Traffic and Transit Management Centre is present'
+  bbmp.streetLights.cnt: 'Number of street lights'
+  bbmp.busRoutes.cnt: 'Number of bus routes'
+  
+
+info:
+  source: 'https://data.opencity.in/dataset/bbmp-ward-wise-public-goods-data'
+  comments:
+  references:
