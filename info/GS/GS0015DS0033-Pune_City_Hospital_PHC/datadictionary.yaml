@@ -11,14 +11,14 @@ fields:
   location.district.name: 'LGD District Name'
   location.subdistrict.ID: 'LGD Sub-district Code'
   location.subdistrict.name: 'LGD Sub-district Name'
-  location.zone.ID:	'PCMC Zone ID'
-  location.zone.name: 'PCMC Zone Name'
+  location.zone.ID:	'PMC Zone ID'
+  location.zone.name: 'PMC Zone Name'
   location.ward.ID: 'LGD Ward Code'
   location.ward.name: 'Ward Name'
-  location.geometry.latitude.imputed: 'Latitude of PHC, from geocoding PHC Name using Google Maps API'
-  location.geometry.longitude.imputed: 'Longitude of PHC, from geocoding PHC Name using Google Maps API'
-  facility.nameAddress: 'Name and Address of PHC'
-  facility.type: 'Whether PHC or CHC'
+  location.geometry.latitude.imputed: 'Latitude of PHC/Hospital, from geocoding PHC, Subdistrict and State Name using Google Maps API'
+  location.geometry.longitude.imputed: 'Longitude of PHC/Hospital, from geocoding PHC, Subdistrict and State Name using Google Maps API'
+  facility.name: 'Name PHC/Hospital'
+  facility.address: 'Address of PHC/Hospital'
 info:
   source: PKC
   comments:
