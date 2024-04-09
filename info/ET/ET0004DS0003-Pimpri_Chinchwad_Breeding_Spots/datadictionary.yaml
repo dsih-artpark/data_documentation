@@ -1,0 +1,28 @@
+multiple_tables: False
+
+fields:
+  metadata.recordID: 'UUID generated from UUID4 on python3'
+  metadata.diseaseName: 'WHO ICD-11 Disease Name'
+  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+  metadata.year: 'Year of the survey'
+  location.country.ID: 'LGD Country Code'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy:	'Whether ULB/Revenue administrative hierarchy'
+  location.state.ID: 'LGD State Code'
+  location.state.name: 'LGD State Name'
+  location.district.ID:	'LGD District Code'
+  location.district.name:	'LGD District Name'
+  location.subdistrict.ID: 'LGD Sub-district Code'
+  location.subdistrict.name: 'LGD Sub-district Name'
+  location.zone.ID:	'PCMC Zone ID'
+  location.zone.name: 'PCMC Zone Name'
+  location.ward.ID: 'LGD Ward Code'
+  location.ward.name: 'Ward Name'
+  location.geometry.latitude: 'Latitude position of breeding spot geocoded from address, using GMaps API'
+  location.geometry.longitude: 'Longitude position of breeding spot geocoded from address, using GMaps API'
+  survey.breedingSpot.type: 'Whether Breeding Spot is Temporary or Permanent'
+
+info:
+  source: 'PKC'
+  comments: 
+  references:
