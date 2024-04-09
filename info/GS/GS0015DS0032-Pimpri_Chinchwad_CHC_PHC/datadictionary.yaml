@@ -1,0 +1,26 @@
+multiple_tables: False
+
+fields:
+  metadata.recordID: 'UUID generated using UUID4 from python3'
+  metadata.primaryDate: 'Survey Date'
+  location.country.ID: 'LGD Country ID'
+  location.country.name: 'LGD Country Name'
+  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+  location.state.ID: 'LGD State ID'
+  location.state.name: 'LGD State Name'
+  location.district.ID: 'LGD District ID'
+  location.district.name: 'LGD District Name'
+  location.subdistrict.ID: 'LGD Sub-district Code'
+  location.subdistrict.name: 'LGD Sub-district Name'
+  location.zone.ID:	'PCMC Zone ID'
+  location.zone.name: 'PCMC Zone Name'
+  location.ward.ID: 'LGD Ward Code'
+  location.ward.name: 'Ward Name'
+  location.geometry.latitude.imputed: 'Latitude of PHC, from geocoding PHC Name using Google Maps API'
+  location.geometry.longitude.imputed: 'Longitude of PHC, from geocoding PHC Name using Google Maps API'
+  facility.nameAddress: 'Name and Address of PHC'
+  facility.type: 'Whether PHC or CHC'
+info:
+  source: PKC
+  comments:
+  references:

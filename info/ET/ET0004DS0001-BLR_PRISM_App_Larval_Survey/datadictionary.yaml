@@ -22,7 +22,7 @@ fields:
   location.ward.name: 'Ward Name'
   location.geometry.latitude: 'Latitude position of breeding spot collected through the survey'
   location.geometry.longitude: 'Longitude position of breeding spot collected through the survey'
-  survey.breedingSpot.wasteType: ''
+  survey.breedingSpot.wasteType: 'Whether Breeding Spot is a Drum, Sump or Other'
   survey.breedingSpot.image: 'Image of Breeding Spot'
   survey.breedingSpot.description: 'Description of Breeding Spot'
   survey.breedingSpot.present: 'Whether a Breeding Spot is present'
