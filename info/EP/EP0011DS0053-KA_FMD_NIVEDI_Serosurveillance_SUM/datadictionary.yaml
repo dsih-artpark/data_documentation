@@ -4,9 +4,9 @@ fields:
   metadata.recordID: 'UUID generated using UUID4 from Python 3'
   metadata.diseaseName: 'WHO ICD-11 disease name'
   metadata.diseaseCode: 'WHO ICD-11 disease code'
-  metadata.month: 'Month of report'
+  metadata.reportDate: 'Date of report'
   metadata.year: 'Year of report'
-  metadata.species: 'Type of species - buffalo, cattle or bovine'
+  metadata.species: 'Type of species - buffalo, cattle, sheet, goat, buffalo+cattle or goat+sheep'
   location.country.ID: 'LGD Country Code'
   location.country.name: 'LGD Country Name'
   location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
@@ -14,12 +14,12 @@ fields:
   location.state.name: 'LGD State Name'
   location.district.ID: 'LGD District Code'
   location.district.name: 'LGD District Name'
+  sero.test: 'Type of ELISA test'
   sero.sample: 'Number of samples collected'
   sero.positive.cnt: 'Number of samples that tested positive'
   sero.positive.pct: 'Percentage of samples that tested positive (computed as sero.positive.cnt/sero.sample * 100)'
 
 info:
   source: NIVEDI
-  comments: Reports are only partially accessed. They do not cover all districts.
-  references: 
-
+  comments:
+    - Buffalo & Cattle Sampling (2023) - Number of Villages Having 200 + (Cattle + Buffalo) = 12082, Knowledge level = 0.1, Cluster Level = 0.036, Sensitivity of the test used = 0.9, Total No of Villages (Clusters) Selected = 91 (+5 Reserved Villages), Total No of Animals to be Sampled = 2330							
