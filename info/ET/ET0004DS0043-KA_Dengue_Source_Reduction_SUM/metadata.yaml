@@ -2,11 +2,11 @@ multiple_tables: False
 column_mapping:
   location.district.name: 
     - Name of the District
-  summary.NoOfTaluks:
+  summary.noOfTaluks:
     - No of taluks
-  summary.NoOfPhcs:
+  summary.noOfPhcs:
     - No of PHCs
-  summary.NoOfHouses:
+  summary.noOfHouses:
     - Total No of houses
   survey.housesVisited:
     - No of houses surveyed
@@ -38,9 +38,9 @@ column_values:
   location.state.name: "KARNATAKA"
   location.district.ID: 
   location.district.name:
-  summary.NoOfTaluks:
-  summary.NoOfPhcs:
-  summary.NoOfHouses:
+  summary.noOfTaluks:
+  summary.noOfPhcs:
+  summary.noOfHouses:
   survey.housesVisited:
   survey.housesPositive:
   survey.containersSearched:
