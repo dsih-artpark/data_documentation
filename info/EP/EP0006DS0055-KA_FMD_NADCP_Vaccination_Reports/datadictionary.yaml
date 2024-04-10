@@ -85,3 +85,6 @@ tables:
       location.ward.name:	'LGD Ward Name'
       vaccination.date.sheepGoat: 'Scheduled date of vaccination for sheep & goat. Multiple dates are present for a village/ward'
       vaccination.date.cattleBuffalo: 'Scheduled date of vaccination for cattle & buffalo'
+    info:
+        source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/2nd+Round+NADCP+Information+2021-22/en'
+        comments: '~36 villages were not located in the LGD directory. The variables location.village.ID and location.ulb.ID are blank for these villages.'
