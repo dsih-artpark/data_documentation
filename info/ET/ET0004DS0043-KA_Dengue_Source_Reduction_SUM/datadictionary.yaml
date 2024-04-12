@@ -1,6 +1,5 @@
 multiple_tables: True
 
-
 tables:
   district_summary:
   fields:
