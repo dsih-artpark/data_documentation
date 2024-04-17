@@ -1,40 +1,135 @@
-multiple_tables: False
+multiple_tables: true
+tables:
+  district_summary:
+    fields:
+      metadata.recordID: 'UUID generated using UUID4 from Python 3'
+        comments:
+      metadata.diseaseName: 'WHO ICD-11 Disease Name'
+        comments:
+      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+        comments:
+      metadata.primaryDate: 'Fortnight end date as of which the report is generated'
+        comments:
+      metadata.reportPeriod: 'Fortnight start and end date for the report'
+        comments:
+      location.country.ID: 'LGD Country Code'
+        comments:
+      location.country.name: 'LGD Country Name'
+        comments:
+      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
+        comments:
+      location.state.ID: 'LGD State Code'
+        comments:
+      location.state.name: 'LGD State Name'
+        comments:
+      location.district.ID: 'LGD District Code'
+        comments:
+      location.district.name: 'LGD District Name'
+        comments:
+      summary.noOfTaluks: 'Total number of Taluks in the district'
+        comments:
+      summary.noOfPhcs: 'Total number of Primary Health Centres in the district'
+        comments:
+      summary.noOfHouses: 'Total number of Households in the district'
+        comments:
+      survey.housesVisited: 'Number of households visited for the larval survey'
+        comments:
+      survey.housesPositive: 'Number of households found positive for Aedes breeding'
+        comments:
+      survey.containersSearched: 'Number of containers searched for the larval survey'
+        comments:
+      survey.containersPositive: 'Number of containers found positive for Aedes breeding'
+        comments:
+      survey.houseIndex: 'House Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.houseIndex.calc'
+      survey.containerIndex: 'Container Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.containerIndex.calc'
+      survey.breteauIndex: 'Breteau Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.breteauIndex.calc'
+      survey.houseIndex.calc: 'survey.housesPositive/survey.housesVisited * 100 (calculated)'
+        comments:
+      survey.containerIndex.calc: 'survey.containersPositive/survey.containersSearched * 100 (calculated)'
+        comments:
+      survey.breteauIndex.calc: 'survey.containersPositive/survey.housesVisited * 100 (calculated)'
+        comments:
+      survey.containersReduced: 'Number of containers where source reduction activities were carried out'
+        comments:
+    info:
+      source: GoK
+      comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
+      references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
 
-fields:
-  metadata.recordID: 'UUID generated using UUID4 from Python 3'
-  metadata.diseaseName: 'WHO ICD-11 Disease Name'
-  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-  metadata.primaryDate: 'Fortnight end date as of which the report is generated'
-  metadata.reportPeriod: 'Fortnight start and end date for the report'
-  location.country.ID: 'LGD Country Code'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-  location.state.ID: 'LGD State Code'
-  location.state.name: 'LGD State Name'
-  location.district.ID: 'LGD District Code'
-  location.district.name: 'LGD District Name'
-  summary.noOfTaluks: 'Total number of Taluks in the district'
-  summary.noOfPhcs: 'Total number of Primary Health Centres in the district'
-  summary.noOfHouses: 'Total number of Households in the district'
-  survey.housesVisited: 'Number of households visited for the larval survey'
-  survey.housesPositive: 'Number of households found positive for Aedes breeding'
-  survey.containersSearched: 'Number of containers searched for the larval survey'
-  survey.containersPositive: 'Number of containers found positive for Aedes breeding'
-  survey.houseIndex: 'House Index provided in the raw dataset'
-    comments: 'Calculation errors exist, use survey.houseIndex.calc'
-  survey.containerIndex: 'Container Index provided in the raw dataset'
-    comments: 'Calculation errors exist, use survey.containerIndex.calc'
-  survey.breteauIndex: 'Breteau Index provided in the raw dataset'
-    comments: 'Calculation errors exist, use survey.breteauIndex.calc'
-  survey.houseIndex.calc: 'survey.housesPositive/survey.housesVisited * 100 (calculated)'
-  survey.containerIndex.calc: 'survey.containersPositive/survey.containersSearched * 100 (calculated)'
-  survey.breteauIndex.calc: 'survey.containersPositive/survey.housesVisited * 100 (calculated)'
-  survey.containersReduced: 'Number of containers where source reduction activities were carried out'
-
-info:
-  source: GoK
-  comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
-  references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
-
-
-  
+village_summary:
+    fields:
+      metadata.recordID: 'UUID generated using UUID4 from Python 3'
+        comments:
+      metadata.diseaseName: 'WHO ICD-11 Disease Name'
+        comments:
+      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+        comments:
+      metadata.primaryDate: 'Fortnight end date as of which the report is generated'
+        comments:
+      metadata.reportPeriod: 'Fortnight start and end date for the report'
+        comments:
+      location.country.ID: 'LGD Country Code'
+        comments:
+      location.country.name: 'LGD Country Name'
+        comments:
+      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
+        comments: 56% missing and village names could not be mapped to a ULB or Revenue subdistrict
+      location.state.ID: 'LGD State Code'
+        comments:
+      location.state.name: 'LGD State Name'
+        comments:
+      location.district.ID: 'LGD District Code'
+        comments:
+      location.district.name: 'LGD District Name'
+        comments:
+      location.subdistrict.ID: 'LGD Subdistrict ID'
+        comments:
+      location.subdistrict.name: 'LGD Subdistrict Name'
+        comments:
+      location.village.ID: 'LGD Village ID'
+        comments: village_-1 indicates villages that could not be mapped to the LGD
+      location.village.name: 'LGD Village Name'
+        comments: Raw village/ward names provided in the dataset
+      location.ward.ID: 'LGD Ward ID'
+        comments: ward_-1 indicates wards that could not be mapped to the LGD
+      location.ward.name: 'LGD Ward Name'
+        comments: Potential ward names are currently in the village column, as they have not been mapped to ULBs
+      location.healthcentre.phc: 'PHC Name'
+        comments:
+      location.healthcentre.subcenter: 'Subcentre Name'
+      summary.noOfHouses: 'Total number of Households in the village/ward'
+        comments:
+      survey.housesVisited: 'Number of households visited for the larval survey'
+        comments:
+      survey.housesPositive: 'Number of households found positive for Aedes breeding'
+        comments:
+      survey.containersSearched: 'Number of containers searched for the larval survey'
+        comments:
+      survey.containersPositive: 'Number of containers found positive for Aedes breeding'
+        comments:
+      survey.houseIndex: 'House Index provided in the raw dataset'
+        comments: 'Calculation errors exist for 50.75% of obs, use survey.houseIndex.calc'
+      survey.containerIndex: 'Container Index provided in the raw dataset'
+        comments: 'Calculation errors exist for 57% of obs, use survey.containerIndex.calc'
+      survey.breteauIndex: 'Breteau Index provided in the raw dataset'
+        comments: 'Calculation errors exist for 54.18% of obs, use survey.breteauIndex.calc'
+      survey.houseIndex.calc: 'survey.housesPositive/survey.housesVisited * 100 (calculated)'
+        comments:
+      survey.containerIndex.calc: 'survey.containersPositive/survey.containersSearched * 100 (calculated)'
+        comments:
+      survey.breteauIndex.calc: 'survey.containersPositive/survey.housesVisited * 100 (calculated)'
+        comments:
+      survey.containersReduced: 'Number of containers where source reduction activities were carried out'
+        comments:
+    
+    info:
+      source: GoK
+      comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
+      references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
+    
+    
+    
+      
