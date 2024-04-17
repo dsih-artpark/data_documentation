@@ -122,5 +122,4 @@ tables:
       survey.containerIndex.calc: null
       survey.containersReduced: null
     config:
-      fuzzymatch_score: 65
-      rematch_score: 100
+      fuzzymatch_score: 95
