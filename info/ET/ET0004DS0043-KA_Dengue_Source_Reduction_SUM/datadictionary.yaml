@@ -76,7 +76,7 @@ village_summary:
       location.country.name: 'LGD Country Name'
         comments:
       location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-        comments: 56% missing and village names could not be mapped to a ULB or Revenue subdistrict
+        comments: 56% missing as village names could not be mapped to a ULB or Revenue subdistrict
       location.state.ID: 'LGD State Code'
         comments:
       location.state.name: 'LGD State Name'
@@ -90,7 +90,7 @@ village_summary:
       location.subdistrict.name: 'LGD Subdistrict Name'
         comments:
       location.village.ID: 'LGD Village ID'
-        comments: village_-1 indicates villages that could not be mapped to the LGD
+        comments: village_-1 indicates villages that could not be mapped to the LGD. 56% missing as village names provided could not be mapped to the LGD
       location.village.name: 'LGD Village Name'
         comments: Raw village/ward names provided in the dataset
       location.ward.ID: 'LGD Ward ID'
