@@ -127,7 +127,9 @@ village_summary:
     
     info:
       source: GoK
-      comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
+      comments: 
+      - Only Annexure 1 of the raw reports have been preprocessed and standardised.
+      - Data is missing for 2nd fortnight of August, 2021
       references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
     
     
