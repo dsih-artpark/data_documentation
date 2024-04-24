@@ -29,3 +29,7 @@ fields:
     cumulative.other_positives:
     cumulative.total_positives:
     cumulative.deaths:
+info:
+  source:
+  comments:
+  references:

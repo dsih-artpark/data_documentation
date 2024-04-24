@@ -208,3 +208,7 @@ fields:
     description:
     comments:
     access: True
+info:
+  source:
+  comments:
+  references:
