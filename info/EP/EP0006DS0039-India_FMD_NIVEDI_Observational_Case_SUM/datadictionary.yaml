@@ -21,6 +21,10 @@ tables:
       summary.attacks: 'Number of Attacks'
       summary.deaths: 'Number of Deaths'
       summary.vaccinated: 'Number Vaccinated'
+    info:
+      source: NIVEDI
+      comments:
+      references:
 
   village_summary:
     fields:  
