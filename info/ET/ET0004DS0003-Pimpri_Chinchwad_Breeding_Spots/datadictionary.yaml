@@ -2,25 +2,45 @@ multiple_tables: False
 
 fields:
   metadata.recordID: 'UUID generated from UUID4 on python3'
+    comments:
   metadata.diseaseName: 'WHO ICD-11 Disease Name'
+    comments:
   metadata.diseaseCode: 'WHO ICD-11 Disease Code'
+    comments:
   metadata.year: 'Year of the survey'
+    comments:
   location.country.ID: 'LGD Country Code'
+    comments:
   location.country.name: 'LGD Country Name'
+    comments:
   location.admin.hierarchy:	'Whether ULB/Revenue administrative hierarchy'
+    comments:
   location.admin1.ID: 'LGD State Code'
+    comments:
   location.admin1.name: 'LGD State Name'
+    comments:
   location.admin2.ID:	'LGD District Code'
+    comments:
   location.admin2.name:	'LGD District Name'
+    comments:
   location.admin3.ID: 'LGD Sub-district Code'
+    comments:
   location.admin3.name: 'LGD Sub-district Name'
-  location.admin4.ID:	'PCMC Zone ID'
+    comments:
+  location.admin4.ID:	'PCMC Zone Code'
+    comments: 44 out of 255 observations (17%) where zone ID is unknown have lat, long positions that are not within the boundary of the shape file.
   location.admin4.name: 'PCMC Zone Name'
+    comments:  44 out of 255 observations (17%) where zone name is unknown have lat, long positions that are not within the boundary of the shape file.
   location.admin5.ID: 'LGD Ward Code'
+    comments:  44 out of 255 observations (17%) where ward ID is unknown have lat, long positions that are not within the boundary of the shape file.
   location.admin5.name: 'Ward Name'
+    comments: 44 out of 255 observations (17%) where ward name is unknown have lat, long positions that are not within the boundary of the shape file.
   location.geometry.latitude: 'Latitude position of breeding spot geocoded from address, using GMaps API'
+    comments:
   location.geometry.longitude: 'Longitude position of breeding spot geocoded from address, using GMaps API'
+    comments:
   survey.breedingSpot.type: 'Whether Breeding Spot is Temporary or Permanent'
+    comments:
 
 info:
   source: 'PKC'
