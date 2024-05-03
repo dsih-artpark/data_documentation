@@ -78,11 +78,11 @@ fields:
     access: True
   location.admin4.ID: 
     description: "Zone ID (if Urban Local Body), provided by the ULB/State"
-    comments:
+    comments: "Currently not mapped for BBMP and other ULBs"
     access: True
   location.admin4.name:
     description: "Zone Name (if Urban Local Body), provided by the ULB/State"
-    comments: "If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained."
+    comments: "Currently not mapped for BBMP and other ULBs"
     access: True
   location.admin5.ID: 
     description: "Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India."
@@ -94,15 +94,15 @@ fields:
     access: True
   location.geometry.latitude:
     description: "Latitude imputed using Google Maps API"
-    comments:
+    comments: "Currently not imputed"
     access: True
   location.geometry.longitude:
     description: "Longitude imputed using Google Maps API"
-    comments:
+    comments: "Currently not imputed"
     access: True
   location.geometry.coarseness:
     description: "Coarseness of the latitude/longitude. e.g., admin3, admin5, address, PHC, etc."
-    comments:
+    comments: "Currently not imputed"
     access: True
   location.healthcentre.phc:
     description: "Name of the Primary Health Centre associated with the case"
@@ -201,7 +201,7 @@ fields:
     comments:
     access: True
   case.surveillance:
-    description: "Whether case was detected through active or passive surveillance, if provided"
+    description: "Whether case was detected through Active or Passive surveillance, if provided"
     comments:
     access: True
   case.opdOrIpd: "Whether case was detected through OPD or IPD, if provided"
