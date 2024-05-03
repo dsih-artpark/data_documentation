@@ -209,6 +209,9 @@ fields:
     comments:
     access: True
 info:
-  source:
+  source: GoK yearly/quasi-yearly dumps (2013-2015), daily/quasi-daily dumps (2023 onwards)
   comments:
+    - Raw data for 2013, 2014 not standardised as limited to sample hospitals and selected districts
+    - BBMP line list reported by GoK not available for years 2015-2020
+    - Data from BIDAR,HASSAN,BENGALURU RURAL,CHIKKABALLAPURA,TUMAKURU,UTTARA KANNADA,VIJAYANAGAR not available for 2016
   references:
