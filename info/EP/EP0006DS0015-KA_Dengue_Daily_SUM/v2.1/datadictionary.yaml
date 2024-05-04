@@ -60,52 +60,52 @@ fields:
   daily.suspected:
     description: "Number of suspected cases, reported on the day"
     comments:
-    access:
+    access: True
   daily.tested:
     description: "Number of tests conducted, reported on the day"
     comments:
-    access:
+    access: True
   daily.positive.igm:
     description: "Number of IgM tests positive, reported on the day"
     comments:
-    access:
+    access: True
   daily.positive.ns1: 
     description: "Number of NS1 tests positive, reported on the day"
     comments: 
-    access:
+    access: True
    daily.positive.other: 
     description: "Number of other tests positive, reported on the day"
     comments: 
-    access:
+    access: True
   daily.positive.total:
     description: "Total tests positive, reported on the day"
     comments:
-    access:
+    access: True
   daily.deaths:
     description: "Number of deaths, reported on the day"
     comments:
-    access:
+    access: True
   cumulative.suspected:
     description: "Cumulative number of suspected cases, reported as of the day"
     comments:
-    access:
+    access: True
   cumulative.tested:
     description: "Cumulative number of tests conducted, reported as of the day"
     comments:
-    access:
+    access: True
   cumulative.positive.igm:
     description: "Cumulative number of positive IgM tests, reported as of the day"
     comments:
-    access:
+    access: True
   cumulative.positive.ns1:
     description: "Cumulative number of positive NS1 tests, reported as of the day"
     comments:
-    access:
+    access: True
   cumulative.positive.total:
     description: "Cumulative number of positives from all tests, reported as of the day"
     comments:
-    access:
+    access: True
   cumulative.deaths:
     description: "Cumulative number of deaths, reported as of the day"
     comments:
-    access:
+    access: True
