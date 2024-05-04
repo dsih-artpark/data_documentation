@@ -1,5 +1,4 @@
 multiple_tables: False
-
 fields:
   metadata.recordID:
     description: "Universally Unique Identifier (UUID) for each district, generated using uuid4 from python3"
@@ -109,3 +108,7 @@ fields:
     description: "Cumulative number of deaths, reported as of the day"
     comments:
     access: True
+info:
+  source: GoK
+  comments:
+  references:
