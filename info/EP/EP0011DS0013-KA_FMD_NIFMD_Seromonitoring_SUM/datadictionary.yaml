@@ -5,7 +5,7 @@ fields:
   metadata.diseaseName: 'WHO ICD-11 disease name'
   metadata.diseaseCode: 'WHO ICD-11 disease code'
   metadata.phase: 'FMDCP/LHDCP Phase'
-  metadata.reportDate: 'Date of report (if available)
+  metadata.reportDate: 'Date of report (if available)'
   metadata.year: 'Year reported'
   metadata.titre: 'Titre (concentration) threshold'
   metadata.species: 'Animal species - Cattle or Buffalo'
