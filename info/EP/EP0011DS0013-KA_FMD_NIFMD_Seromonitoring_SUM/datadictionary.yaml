@@ -5,6 +5,7 @@ fields:
   metadata.diseaseName: 'WHO ICD-11 disease name'
   metadata.diseaseCode: 'WHO ICD-11 disease code'
   metadata.phase: 'FMDCP/LHDCP Phase'
+  metadata.reportDate: 'Date of report (if available)
   metadata.year: 'Year reported'
   metadata.titre: 'Titre (concentration) threshold'
   metadata.species: 'Animal species - Cattle or Buffalo'
@@ -45,5 +46,6 @@ info:
     - 2018 - National Investigation team was assigned a task of investigating FMD outbreak in an organized farm at Dharward.
     - 2020 - A new sampling scheme was adopted. Samples are collected from three different age groups of animals viz 6-12 months, 13-24 months and >24 months at a ratio of 5:4:1 as per OIE guidelines.
     - 2021 - SPCE was correlated with the gold standard method VNT to determine the test cut-off for protective antibody status. Based on the results, the antibody titre cut-off of ≥1.65 log10 (@ 35 PI) was found to be appropriate at the herd level. This cut-off was further validated by testing more numbers of serum samples (n=440) and was found fit-for-purpose for assessment of protective antibody titre under NADCP/LHDCP-FMD.
+    - 2022 to 2023 - Pre-vac samples for Kalaburagi, Shivamogga and Uttara Kannada were leaked or insufficient, and post-vac samples for Belagavi, Haveri and Tumakuru were leaked or insufficient.
   references: 'ICAR-NIFMD, Annual Report 2022, ICAR-National Institute on Foot and Mouth Disease, Arugul, Bhubaneswar-752050, Odisha, India'
 
