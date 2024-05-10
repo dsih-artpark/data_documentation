@@ -178,8 +178,7 @@ config:
   thresholds:
     district: 65
     subdistrict: 65
-    village_within_subdistrict: 95
-    village_outside_subdistrict: 95
+    village: 95
   pii:
     - metadata.nameAddress
     - metadata.contact
