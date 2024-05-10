@@ -1,6 +1,6 @@
 multiple_tables: False
 tables:
-  vaccination-progress-reports:
+  nadcp-vaccination-progress:
     fields:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
@@ -19,11 +19,11 @@ tables:
         comments:
         access: True
       metadata.vaccinationStartDate:
-        description: 'Start date for the vaccination round'
+        description: 'Start date for the Vaccination Round in ISO 8601 format or %Y-%m-%d on python3'
         comments:
         access: True
       metadata.reportDate:
-        description: 'Date of the Daily Progress Report'
+        description: 'Date of the Daily Progress Report in ISO 8601 format or %Y-%m-%d on python3'
         comments:
         access: True
       metadata.reportPeriod:

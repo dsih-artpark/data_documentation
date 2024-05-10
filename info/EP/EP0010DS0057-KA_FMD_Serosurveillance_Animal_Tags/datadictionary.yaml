@@ -1,39 +1,78 @@
 multiple_tables: False
 
 fields:
-  metadata.recordID: 'UUID generated using UUID4 from Python 3'
+  metadata.recordID:
+    description: 'UUID generated using UUID4 from Python 3'
     comments:
-  metadata.recordDate: 'Date of record in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+    access: True
+  metadata.recordDate:
+    description: 'Date of record in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
     comments:
-  metadata.animalTag: 'ID_Animal Tag Number'
+    access: True
+  metadata.animalTag:
+    description: 'ID_Animal Tag Number'
     comments:
-    metadata.diseaseName: 'WHO ICD-11 disease name'
+    access: True
+  metadata.diseaseName:
+    description: 'WHO ICD-11 disease name'
     comments:
-  metadata.diseaseCode: 'WHO ICD-11 disease code'
+    access: True
+  metadata.diseaseCode:
+    description: 'WHO ICD-11 disease code'
     comments:
-  location.country.ID: 'LGD Country Code'
+    access: True
+  location.country.ID:
+    description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
     comments:
-  location.country.name: 'LGD Country Name'
+    access: True
+  location.country.name:
+    description: 'Country Name from ISO 3166'
     comments:
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+    access: True
+  location.admin.hierarchy:
+    description: 'Whether Revenue or ULB admin hierarchy'
+    comments: 'admin_0 if unknown'
+    access: True
+  location.admin1.ID:
+    description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
     comments:
-  location.admin1.ID: 'LGD State Code'
+    access: True
+  location.admin1.name:
+    description: 'State or Union Territory Name, as per Local Government Directory in India'
     comments:
-  location.admin1.name: 'LGD State Name'
-    comments:
-  location.admin2.ID: 'LGD District Code'
-    comments:
-  location.admin2.name: 'LGD District Name'
-    comments: Manually mapped Hagaribommanahalli, Kudligi, Harapanahalli sub-districts to Vijayanagar district 
-  location.admin3.ID: 'LGD subdistrict/ULB Code'
-    comments: Manually mapped Sampgaon to Kittur
-  location.admin3.name: 'LGD subdistrict/ULB Name'
-    comments:
-  location.admin5.ID: 'LGD village/ward Code'
-    comments:
-  location.admin5.name: 'LGD village/ward Name'
-    comments: Manually mapped Thagarasi to Bainduru subdistrict, Sarawad to Babaleshwar sub-district, Hudali to Belagavi sub-districts. 75 villages could not be located in the LGD.
-
+    access: True
+  location.admin2.ID:
+    description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+    comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+    access: True
+  location.admin2.name:
+    description: 'District Name, as per Local Government Directory'
+    comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+    access: True
+  location.admin3.ID:
+    description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+    comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+    access: True
+  location.admin3.name:
+    description: 'Subdistrict or ULB Name, as per Local Government Directory'
+    comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+    access: True
+  location.admin4.ID:
+    description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+    comments: 'Currently not mapped for BBMP and other ULBs'
+    access: True
+  location.admin4.name:
+    description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+    comments: 'Currently not mapped for BBMP and other ULBs'
+    access: True
+  location.admin5.ID:
+    description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+    comments: 'admin_0 if known'
+    access: True
+  location.admin5.name:
+    description: 'Village or Ward Name, as per Local Government Directory'
+    comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+    access: True
 info:
   source:
   comments:
