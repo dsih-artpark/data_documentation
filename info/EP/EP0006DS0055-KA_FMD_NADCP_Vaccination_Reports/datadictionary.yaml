@@ -14,7 +14,7 @@ tables:
         description: 'WHO ICD-11 Disease Code'
         comments:
         access: True
-      metadata.vaccinationRound:
+      metadata.round:
         description: 'NADCP Vaccination Round'
         comments:
         access: True
@@ -26,7 +26,11 @@ tables:
         description: 'Date of the Daily Progress Report'
         comments:
         access: True
-       location.country.ID:
+      metadata.reportPeriod:
+        description: 'Period (start, end year) of report/round'
+        comments:
+        access: True
+      location.country.ID:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
