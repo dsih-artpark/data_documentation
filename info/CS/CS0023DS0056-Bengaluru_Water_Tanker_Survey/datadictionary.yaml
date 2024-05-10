@@ -4,42 +4,104 @@ tables:
   survey_2024:
     fields:
       metadata.recordID: "UUID generated using UUID4 from python3"
+        comments:
+        access: True
       metadata.month: "Month of survey"
+        comments:
+        access: True
       metadata.year: "Year of survey"
+        comments:
+        access: True
       location.country.ID: "LGD Country Code"
+        comments:
+        access: True
       location.country.name: "LGD Country Name"
+        comments:
+        access: True
       location.admin.hierarchy: "Whether Revenue or ULB"
+        comments:
+        access: True
       location.admin1.ID: "LGD State ID"
+        comments:
+        access: True
       location.admin1.name: "LGD State Name"
+        comments:
+        access: True
       location.admin2.ID: "LGD District ID"
+        comments:
+        access: True
       location.admin2.name: "LGD District Name"
-      location.admin3.ID: "LGD ULB ID"
-      location.admin3.name: "LGD ULB Name"
+        comments:
+        access: True
+      location.admin3.ID: "LGD Subdistrict/ULB ID"
+        comments:
+        access: True
+      location.admin3.name: "LGD Subdistrict/ULB Name"
+        comments:
+        access: True
       location.geometry.pincode: "Pincode"
+        comments:
+        access: True
       location.geometry.latitude: "Latitude derived from geocoding the pincode using GMaps API"
+        comments:
+        access: True
       location.geometry.longitude: "Longitude derived from geocoding the pincode using GMaps API"
+        comments:
+        access: True
       survey.housingType: "Type of housing"
+        comments:
+        access: True
       survey.numberOfHousingUnits: "Number of housing units"
+        comments:
+        access: True
       survey.source.borewell: "Whether borewell is a source of water supply for community"
+        comments:
+        access: True
       survey.source.rainwater: "Whether rainwater is a source of water supply for community"
+        comments:
+        access: True
       survey.source.tanker: "Whether tanker is a source of water supply for community"
+        comments:
+        access: True
       survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
+        comments:
+        access: True
       survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
+        comments:
+        access: True
       survey.tankerFrequency: "Frequency of purchase of private water tanker"
+        comments:
+        access: True
       survey.numberOfTankersPerMonth: "Frequency of purchase of private water tanker"
+        comments:
+        access: True
       survey.changeInTankerDemandThreeMonths: "Have you been ordering private water tankers more often in the last three months?"
         comments: "Qualitative responses (open text), not standardised"
+        access: True
       survey.changeInBWSSBSupplyPastYear: "Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)?" 
         comments: "Qualitative responses (open text), not standardised"
+        access: True
       survey.dryDaysPastYear: "Number of dry days in the past year?"
         comments: "Qualitative responses (open text), not standardised"
+        access: True
       survey.capacityPerTanker: "What is the capacity of the tanker in litres?"
+        comments:
+        access: True
       survey.cost.tanker.present: "How much do you pay for a single tanker of water?"
+        comments:
+        access: True
       survey.cost.tanker.previousYear: "How much were you paying for the same tanker of water a year back (Feb 2023)?"
+        comments:
+        access: True
       survey.cost.communityMonthlyWaterExpenses: "What is your community's monthly expense on water?"
+        comments:
+        access: True
       survey.tankerRateIncreaseFrequency: "How often does your water tanker vendor raise rates?"
         comments: "Qualitative responses (open text), not standardised"
+        access: True
       survey.waterRationing: "Do you have water rationing?"
+        comments:
+        access: True
     info:
       source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
       comments:
@@ -48,38 +110,92 @@ tables:
   survey_2019: 
     fields:
       metadata.recordID: "UUID generated using UUID4 from python3"
+        comments:
+        access: True
       metadata.month: "Month of survey"
+        comments:
+        access: True
       metadata.year: "Year of survey"
+        comments:
+        access: True
       location.country.ID: "LGD Country Code"
+        comments:
+        access: True
       location.country.name: "LGD Country Name"
+        comments:
+        access: True
       location.admin.hierarchy: "Whether Revenue or ULB"
+        comments:
+        access: True
       location.admin1.ID: "LGD State ID"
+        comments:
+        access: True
       location.admin1.name: "LGD State Name"
+        comments:
+        access: True
       location.admin2.ID: "LGD District ID"
+        comments:
+        access: True
       location.admin2.name: "LGD District Name"
-      location.admin3.ID: "LGD ULB ID"
-      location.admin3.name: "LGD ULB Name"
+        comments:
+        access: True
+      location.admin3.ID: "LGD Subdistrict/ULB ID"
+        comments:
+        access: True
+      location.admin3.name: "LGD Subdistrict/ULB Name"
+        comments:
+        access: True
       location.geometry.latitude: "Latitude derived from address using GMaps API"
+        comments:
+        access: True
       location.geometry.longitude: "Longitude derived from address using GMaps API"
+        comments:
+        access: True
       survey.housingType: "Type of housing"
+        comments:
+        access: True
       survey.numberOfHousingUnits: "Number of housing units"
+        comments:
+        access: True
       survey.source.borewell: "Whether borewell is a source of water supply for community"
+        comments:
+        access: True
       survey.source.rainwater: "Whether rainwater is a source of water supply for community"
+        comments:
+        access: True
       survey.source.tanker: "Whether tanker is a source of water supply for community"
+        comments:
+        access: True
       survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
+        comments:
+        access: True
       survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
+        comments:
+        access: True
       survey.tankerFrequency: "How often do you buy water?"
         comments: qualitative responses, standardised manually
+        access: True
       survey.numberOfTankersPerMonth: "No of tankers"
+        comments:
+        access: True
       survey.dryDaysPastYear: "How many dry days  recently?"
         comments: qualitative responses, not standardised
+        access: True
       survey.capacityPerTanker: "Tanker capacity (in litres)"
+        comments:
+        access: True
       survey.cost.tanker.present: "Average tanker price"
+        comments:
+        access: True
       survey.cost.communityMonthlyWaterExpenses: "Monthly expense on water"
         comments: qualitative responses, standardised manually
+        access: True
       survey.waterRationing: "Do you have water rationing?"
         comments: qualitative responses, standardised
+        access: True
       survey.STPForGardeningFlushing: "Do you use treated STP water for flushing/gardening?"
+        comments:
+        access: True
     
     info:
       source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"

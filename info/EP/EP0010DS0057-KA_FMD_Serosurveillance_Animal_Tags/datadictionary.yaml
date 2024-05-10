@@ -5,7 +5,7 @@ fields:
     comments:
   metadata.recordDate: 'Date of record in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
     comments:
-  metadata.animalTag: 'Animal Tag Number'
+  metadata.animalTag: 'ID_Animal Tag Number'
     comments:
     metadata.diseaseName: 'WHO ICD-11 disease name'
     comments:

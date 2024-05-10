@@ -4,19 +4,47 @@ tables:
   ka-district-livestock-pop-2019:
     fields:
       metadata.recordID: 'UUID generated using UUID4 from python3'
+        comments:
+        access: True
       location.country.ID: 'LGD Country ID'
+        comments:
+        access: True
       location.country.name: 'LGD Country Name'
+        comments:
+        access: True
       location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+        comments:
+        access: True
       location.admin1.ID: 'LGD State ID'
+        comments:
+        access: True
       location.admin1.name: 'LGD State Name'
+        comments:
+        access: True
       location.admin2.ID: 'LGD District ID'
+        comments:
+        access: True
       location.admin2.name: 'LGD District Name'
+        comments:
+        access: True
       population.buffalo: 'Buffalo population'
+        comments:
+        access: True
       population.cattle: 'Cattle population'
+        comments:
+        access: True
       population.goat: 'Goat population'
+        comments:
+        access: True
       population.pig: 'Pig population'
+        comments:
+        access: True
       population.poultry: 'Poultry population'
+        comments:
+        access: True
       population.sheep: 'Sheep population'
+        comments:
+        access: True
 
     info:
       source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
@@ -26,27 +54,65 @@ tables:
   ka-village-livestock-pop-2019:
     fields:
       metadata.recordID: 'UUID generated using UUID4 from python3'
+        comments:
+        access: True
       location.country.ID: 'LGD Country ID'
+        comments:
+        access: True
       location.country.name: 'LGD Country Name'
+        comments:
+        access: True
       location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-      location.state.ID: 'LGD State ID'
-      location.state.name: 'LGD State Name'
-      location.district.ID: 'LGD District ID'
-      location.district.name: 'LGD District Name'
-      location.subdistrict.ID: 'LGD Subdistrict ID'
-      location.subdistrict.name: 'LGD District Name'
-      location.ulb.ID: 'LGD ULB ID'
-      location.ulb.name: 'LGD ULB Name'
-      location.zone.ID: 'Zone ID (if available, e.g., BBMP)'
-      location.zone.name: 'Zone ID (if available, e.g., BBMP)'
-      location.ward.ID: 'Ward ID'
-      location.ward.name: 'Ward Name'
+        comments:
+        access: True
+      location.admin1.ID: 'LGD State ID'
+        comments:
+        access: True
+      location.admin1.name: 'LGD State Name'
+        comments:
+        access: True
+      location.admin2.ID: 'LGD District ID'
+        comments:
+        access: True
+      location.admin2.name: 'LGD District Name'
+        comments:
+        access: True
+      location.admin3.ID: 'LGD Subdistrict ID'
+        comments: "admin_0 if unmapped to LGD"
+        access: True
+      location.admin3.name: 'LGD District Name'
+        comments: "admin_0 if unmapped to LGD"
+        access: True
+      location.admin4.ID: 'Zone ID (if available, e.g., BBMP)'
+        comments:
+        access: True
+      location.admin4.name: 'Zone ID (if available, e.g., BBMP)'
+        comments:
+        access: True
+      location.admin5.ID: 'Village/Ward ID'
+        comments: "admin_0 if unmapped to LGD"
+        access: True
+      location.admin5.name: 'Village/Ward Name'
+        comments: "admin_0 if unmapped to LGD"
+        access: True
       population.buffalo: 'Buffalo population'
+        comments:
+        access: True
       population.cattle: 'Cattle population'
+        comments:
+        access: True
       population.goat: 'Goat population'
+        comments:
+        access: True
       population.pig: 'Pig population'
+        comments:
+        access: True
       population.poultry: 'Poultry population'
+        comments:
+        access: True
       population.sheep: 'Sheep population'
+        comments:
+        access: True
    info:
       source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
       comments:
