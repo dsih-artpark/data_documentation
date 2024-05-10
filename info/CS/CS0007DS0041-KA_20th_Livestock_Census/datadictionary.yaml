@@ -3,46 +3,60 @@ multiple_tables: True
 tables:
   ka-district-livestock-pop-2019:
     fields:
-      metadata.recordID: 'UUID generated using UUID4 from python3'
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from python3'
         comments:
         access: True
-      location.country.ID: 'LGD Country ID'
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
-      location.country.name: 'LGD Country Name'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
         comments:
         access: True
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
-      location.admin1.ID: 'LGD State ID'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-      location.admin1.name: 'LGD State Name'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      population.buffalo:
+        description: 'Buffalo population'
         comments:
         access: True
-      location.admin2.ID: 'LGD District ID'
+      population.cattle:
+        description: 'Cattle population'
         comments:
         access: True
-      location.admin2.name: 'LGD District Name'
+      population.goat:
+        description: 'Goat population'
         comments:
         access: True
-      population.buffalo: 'Buffalo population'
+      population.pig:
+        description: 'Pig population'
         comments:
         access: True
-      population.cattle: 'Cattle population'
+      population.poultry:
+        description: 'Poultry population'
         comments:
         access: True
-      population.goat: 'Goat population'
-        comments:
-        access: True
-      population.pig: 'Pig population'
-        comments:
-        access: True
-      population.poultry: 'Poultry population'
-        comments:
-        access: True
-      population.sheep: 'Sheep population'
+      population.sheep:
+        description: 'Sheep population'
         comments:
         access: True
 
@@ -53,64 +67,84 @@ tables:
 
   ka-village-livestock-pop-2019:
     fields:
-      metadata.recordID: 'UUID generated using UUID4 from python3'
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from python3'
         comments:
         access: True
-      location.country.ID: 'LGD Country ID'
+     location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
-      location.country.name: 'LGD Country Name'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
         comments:
         access: True
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
-      location.admin1.ID: 'LGD State ID'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-      location.admin1.name: 'LGD State Name'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID:
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if known'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      population.buffalo:
+        description: 'Buffalo population'
         comments:
         access: True
-      location.admin2.ID: 'LGD District ID'
+      population.cattle:
+        description: 'Cattle population'
         comments:
         access: True
-      location.admin2.name: 'LGD District Name'
+      population.goat:
+        description: 'Goat population'
         comments:
         access: True
-      location.admin3.ID: 'LGD Subdistrict ID'
-        comments: "admin_0 if unmapped to LGD"
-        access: True
-      location.admin3.name: 'LGD District Name'
-        comments: "admin_0 if unmapped to LGD"
-        access: True
-      location.admin4.ID: 'Zone ID (if available, e.g., BBMP)'
+      population.pig:
+        description: 'Pig population'
         comments:
         access: True
-      location.admin4.name: 'Zone ID (if available, e.g., BBMP)'
+      population.poultry:
+        description: 'Poultry population'
         comments:
         access: True
-      location.admin5.ID: 'Village/Ward ID'
-        comments: "admin_0 if unmapped to LGD"
-        access: True
-      location.admin5.name: 'Village/Ward Name'
-        comments: "admin_0 if unmapped to LGD"
-        access: True
-      population.buffalo: 'Buffalo population'
-        comments:
-        access: True
-      population.cattle: 'Cattle population'
-        comments:
-        access: True
-      population.goat: 'Goat population'
-        comments:
-        access: True
-      population.pig: 'Pig population'
-        comments:
-        access: True
-      population.poultry: 'Poultry population'
-        comments:
-        access: True
-      population.sheep: 'Sheep population'
+      population.sheep:
+        description: 'Sheep population'
         comments:
         access: True
    info:

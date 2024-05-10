@@ -3,24 +3,78 @@ multiple_tables: True
 tables:
   district_summary:
     fields:
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 disease name'
-      metadata.diseaseCode: 'WHO ICD-11 disease code'
-      metadata.month: 'Month of summary'
-      metadata.year: 'Year of summary'
-      metadata.species: 'Type of Species - Cattle or Buffalo'
-      location.country.ID: 'LGD Country Code'
-      location.country.name: 'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-      location.admin1.ID: 'LGD State Code'
-      location.admin1.name: 'LGD State Name'
-      location.admin2.ID: 'LGD District Code'
-      location.admin2.name: 'LGD District Name'
-      summary.outbreaks: 'Number of Outbreaks'
-      summary.susceptible: 'Number of Susceptible cases'
-      summary.attacks: 'Number of Attacks'
-      summary.deaths: 'Number of Deaths'
-      summary.vaccinated: 'Number Vaccinated'
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.month:
+        description: 'Month of summary'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of summary'
+        comments:
+        access: True
+      metadata.species:
+        description: 'Type of Species - Cattle or Buffalo'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      summary.outbreaks:
+        description: 'Number of Outbreaks'
+        comments:
+        access: True
+      summary.susceptible:
+        description: 'Number of Susceptible cases'
+        comments:
+        access: True
+      summary.attacks:
+        description: 'Number of Attacks'
+        comments:
+        access: True
+      summary.deaths:
+        description: 'Number of Deaths'
+        comments:
+        access: True
+      summary.vaccinated:
+        description: 'Number Vaccinated'
+        comments:
+        access: True
     info:
       source: NIVEDI
       comments:
@@ -28,32 +82,118 @@ tables:
 
   village_summary:
     fields:  
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 disease name'
-      metadata.diseaseCode: 'WHO ICD-11 disease code'
-      metadata.month: 'Month of summary'
-      metadata.year: 'Year of summary'
-      metadata.species: 'Type of Species - Cattle or Buffalo'
-      location.country.ID: 'LGD Country Code'
-      location.country.name: 'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-      location.state.ID: 'LGD State Code'
-      location.state.name: 'LGD State Name'
-      location.district.ID: 'LGD District Code'
-      location.district.name: 'LGD District Name'
-      location.subdistrict.ID: 'LGD Subdistrict Code'
-      location.subdistrict.name: 'LGD Subdistrict Name'
-      location.village.ID: 'LGD Village Code'
-      location.village.name: 'LGD Village Name'
-      location.geometry.latitude: 'Latitude of village (source-provided)'
-      location.geometry.longitude: 'Longitude of village (source-provided)'
-      location.geometry.latitude.imputed: 'Latitude of the village (imputed)'
-      location.village.longitude.imputed: 'Longitude of the village (imputed)'
-      summary.outbreaks: 'Number of Outbreaks'
-      summary.susceptible: 'Number of Susceptible cases'
-      summary.attacks: 'Number of Attacks'
-      summary.deaths: 'Number of Deaths'
-      summary.vaccinated: 'Number Vaccinated'
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.month:
+        description: 'Month of summary'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of summary'
+        comments:
+        access: True
+      metadata.species:
+        description: 'Type of Species - Cattle or Buffalo'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID:
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if known'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.geometry.latitude:
+        description: 'Latitude of village imputed from GMaps API'
+        comments:
+        access: True
+      location.geometry.longitude:
+        description: 'Longitude of village imputed from GMaps API'
+        comments:
+        access: True
+      location.geometry.latitude.provided:
+        description: 'Latitude of the village (source-provided)'
+        comments:
+        access: True
+      location.village.longitude.provided:
+        description: 'Longitude of the village (source-provided)'
+        comments:
+        access: True
+      summary.outbreaks:
+        description: 'Number of Outbreaks'
+        comments:
+        access: True
+      summary.susceptible:
+        description: 'Number of Susceptible cases'
+        comments:
+        access: True
+      summary.attacks:
+        description: 'Number of Attacks'
+        comments:
+        access: True
+      summary.deaths:
+        description: 'Number of Deaths'
+        comments:
+        access: True
+      summary.vaccinated:
+        description: 'Number Vaccinated'
+        comments:
+        access: True
 
     info:
       source: NIVEDI

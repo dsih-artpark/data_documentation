@@ -1,121 +1,112 @@
-multiple_tables: True
-
+multiple_tables: False
 tables:
-  round1:
+  vaccination-progress-reports:
     fields:
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 Disease Name'
-      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-      metadata.vaccinationRound: 'Round number of the NADCP Report'
-      metadata.vaccinationStartDate: 'Start date for the vaccination round'
-      metadata.reportDate: 'Date of the Daily Progress Report'
-      location.country.ID: 'LGD Country Code'
-      location.country.name: 'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-      location.admin1.ID: 'LGD State Code'
-      location.admin1.name: 'LGD State Name'
-      location.admin2.ID: 'LGD District Code'
-      location.admin2.name: 'LGD District Name'
-      daily.vaccinated.cattle: 'Number of Cattle vaccinated on the day'
-      daily.vaccinated.buffalo: 'Number of Buffaloes vaccinated on the day'
-      daily.vaccinated.total: 'Sum of Cattle and Buffaloes vaccinated on the day (computed)'
-      daily.vaccinated.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) vaccinated on the day (computed)'
-      daily.booster.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) provided booster dose on the day (computed)'
-      daily.farmersCovered: 'Number of farmers benefited on the day'
-      cumulative.tagged.total: 'Cumulative number of Cattle and Buffaloes tagged as of the day (from source)'
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+      metadata.vaccinationRound:
+        description: 'NADCP Vaccination Round'
+        comments:
+        access: True
+      metadata.vaccinationStartDate:
+        description: 'Start date for the vaccination round'
+        comments:
+        access: True
+      metadata.reportDate:
+        description: 'Date of the Daily Progress Report'
+        comments:
+        access: True
+       location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      daily.vaccinated.cattle:
+        description: 'Number of Cattle vaccinated on the day'
+        comments:
+        access: True
+      daily.vaccinated.buffalo:
+        description: 'Number of Buffaloes vaccinated on the day'
+        comments:
+        access: True
+      daily.vaccinated.total:
+        description: 'Sum of Cattle and Buffaloes vaccinated on the day (computed)'
+        comments:
+        access: True
+      daily.vaccinated.cattle4to5m:
+        description: 'Number of Cattle calves (aged 4-5 months) vaccinated on the day'
+        comments:
+        access: True
+      daily.vaccinated.buffalo4to5m:
+        description: 'Number of Buffalo calves (aged 4-5 months) vaccinated on the day'
+        comments:
+        access: True
+      daily.vaccinated.total4to5m:
+        description: 'Sum of Cattle and Buffalo calves (aged 4-5 months) vaccinated on the day (computed)'
+        comments:
+        access: True
+      daily.booster.cattle4to5m:
+        description: 'Number of Cattle calves (aged 4-5 months) provided booster dose on the day'
+        comments:
+        access: True
+      daily.booster.buffalo4to5m:
+        description: 'Number of Buffalo calves (aged 4-5 months) provided booster dose on the day'
+        comments:
+        access: True
+      daily.booster.total4to5m:
+        description: 'Sum of Cattle and Buffalo calves (aged 4-5 months) provided booster dose on the day (computed)'
+        comments:
+        access: True
+      daily.farmersCovered:
+        description: 'Number of farmers benefited on the day'
+        comments:
+        access: True
+      cumulative.tagged.cattle:
+        description: 'Cumulative number of Cattle tagged as of the day'
+        comments:
+        access: True
+      cumulative.tagged.buffalo:
+        description: 'Cumulative number of Buffaloes tagged as of the day'
+        comments:
+        access: True
+      cumulative.tagged.total:
+        description: 'Cumulative number of Cattle and Buffaloes tagged as of the day (from source)'
+        comments:
+        access: True
     info:
-      source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/1st+Round+NADCP+Report/en'
+      source: 'https://ahvs.karnataka.gov.in/info-2/NADCP'
       comments: 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
-  
-  round2:
-    fields:
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 Disease Name'
-      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-      metadata.vaccinationRound: 'Round number of the NADCP Report'
-      metadata.vaccinationStartDate: 'Start date for the vaccination round'
-      metadata.reportDate: 'Date of the Daily Progress Report'
-      location.country.ID: 'LGD Country Code'
-      location.country.name: 'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-      location.admin1.ID: 'LGD State Code'
-      location.admin1.name: 'LGD State Name'
-      location.admin2.ID: 'LGD District Code'
-      location.admin2.name: 'LGD District Name'
-      daily.vaccinated.cattle: 'Number of Cattle vaccinated on the day'
-      daily.vaccinated.buffalo: 'Number of Buffaloes vaccinated on the day'
-      daily.vaccinated.total: 'Sum of Cattle and Buffaloes vaccinated on the day (computed)'
-      daily.vaccinated.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) vaccinated on the day (computed)'
-      daily.booster.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) provided booster dose on the day (computed)'
-      daily.farmersCovered: 'Number of farmers benefited on the day'
-      cumulative.tagged.cattle: 'Cumulative number of Cattle tagged as of the day'
-      cumulative.tagged.buffalo: 'Cumulative number of Buffaloes tagged as of the day'
-      cumulative.tagged.total: 'Sum of cumulative.tagged.cattle and cumulative.tagged.buffalo (computed)'
-      info:
-        source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/2nd+Round+NADCP+Daily+Progress+Report+2021-22/en'
-        comments:
-  round3:
-    fields:
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 Disease Name'
-      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-      metadata.vaccinationRound: 'Round number of the NADCP Report'
-      metadata.vaccinationStartDate: 'Start date for the vaccination round'
-      metadata.reportDate: 'Date of the Daily Progress Report'
-      location.country.ID: 'LGD Country Code'
-      location.country.name: 'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-      location.admin1.ID: 'LGD State Code'
-      location.admin1.name: 'LGD State Name'
-      location.admin2.ID: 'LGD District Code'
-      location.admin2.name: 'LGD District Name'
-      daily.vaccinated.cattle: 'Number of Cattle vaccinated on the day'
-      daily.vaccinated.buffalo: 'Number of Buffaloes vaccinated on the day'
-      daily.vaccinated.total: 'Sum of Cattle and Buffaloes vaccinated on the day (computed)'
-      daily.vaccinated.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) vaccinated on the day'
-      daily.vaccinated.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) vaccinated on the day (computed)'
-      daily.booster.cattle4to5m: 'Number of Cattle calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.buffalo4to5m: 'Number of Buffalo calves (aged 4-5 months) provided booster dose on the day'
-      daily.booster.total4to5m: 'Sum of Cattle and Buffalo calves (aged 4-5 months) provided booster dose on the day (computed)'
-      daily.farmersCovered: 'Number of farmers benefited on the day'
-      cumulative.tagged.cattle: 'Cumulative number of Cattle tagged as of the day'
-      cumulative.tagged.buffalo: 'Cumulative number of Buffaloes tagged as of the day'
-      cumulative.tagged.total: 'Sum of cumulative.tagged.cattle and cumulative.tagged.buffalo (computed)'
-      info:
-        source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/3rd+Round+NADCP+Daily+Progress+Report+2022-23/en'
-        comments:
-
-  vaccination_schedule:
-    fields:
-      metadata.recordID: 'UUID generated using UUID4 from Python 3'
-      metadata.diseaseName: 'WHO ICD-11 Disease Name'
-      metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-      location.country.ID: 'LGD Country Code'
-      location.country.name:	'LGD Country Name'
-      location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-      location.state.ID: 'LGD State Code'
-      location.state.name: 'LGD State Name'
-      location.district.ID:	'LGD District Code'
-      location.district.name:	'LGD District Name'
-      location.subdistrict.ID:	'LGD Sub-district Code'
-      location.subdistrict.name:	'LGD Sub-district Name'
-      location.village.ID: 'LGD Village Code'
-      location.village.name:	'LGD Village Name'
-      location.ulb.ID:	'LGD Urban Local Body Code'
-      location.ulb.name: 'LGD Urban Local Body Name'
-      location.ward.ID:	'LGD Ward Code'
-      location.ward.name:	'LGD Ward Name'
-      vaccination.date.sheepGoat: 'Scheduled date of vaccination for sheep & goat. Multiple dates are present for a village/ward'
-      vaccination.date.cattleBuffalo: 'Scheduled date of vaccination for cattle & buffalo'
-    info:
-        source: 'https://ahvs.karnataka.gov.in/info-2/NADCP/2nd+Round+NADCP+Information+2021-22/en'
-        comments: '~36 villages were not located in the LGD directory. The variables location.village.ID and location.ulb.ID are blank for these villages.'
+      references:

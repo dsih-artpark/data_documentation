@@ -3,201 +3,263 @@ multiple_tables: True
 tables:
   survey_2024:
     fields:
-      metadata.recordID: "UUID generated using UUID4 from python3"
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from python3'
         comments:
         access: True
-      metadata.month: "Month of survey"
+      metadata.month:
+        description: 'Month of survey'
         comments:
         access: True
-      metadata.year: "Year of survey"
+      metadata.year:
+        description: 'Year of survey'
         comments:
         access: True
-      location.country.ID: "LGD Country Code"
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
-      location.country.name: "LGD Country Name"
+      location.country.name:
+        description: 'Country Name from ISO 3166'
         comments:
         access: True
-      location.admin.hierarchy: "Whether Revenue or ULB"
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
-      location.admin1.ID: "LGD State ID"
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-      location.admin1.name: "LGD State Name"
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.geometry.pincode:
+        description: 'Pincode'
         comments:
         access: True
-      location.admin2.ID: "LGD District ID"
+      location.geometry.latitude:
+        description: 'Latitude derived from geocoding the pincode using GMaps API'
         comments:
         access: True
-      location.admin2.name: "LGD District Name"
+      location.geometry.longitude:
+        description: 'Longitude derived from geocoding the pincode using GMaps API'
         comments:
         access: True
-      location.admin3.ID: "LGD Subdistrict/ULB ID"
+      survey.housingType:
+        description: 'Type of housing'
         comments:
         access: True
-      location.admin3.name: "LGD Subdistrict/ULB Name"
+      survey.numberOfHousingUnits:
+        description: 'Number of housing units'
         comments:
         access: True
-      location.geometry.pincode: "Pincode"
+      survey.source.borewell:
+        description: 'Whether borewell is a source of water supply for community'
         comments:
         access: True
-      location.geometry.latitude: "Latitude derived from geocoding the pincode using GMaps API"
+      survey.source.rainwater:
+        description: 'Whether rainwater is a source of water supply for community'
         comments:
         access: True
-      location.geometry.longitude: "Longitude derived from geocoding the pincode using GMaps API"
+      survey.source.tanker:
+        description: 'Whether tanker is a source of water supply for community'
         comments:
         access: True
-      survey.housingType: "Type of housing"
+      survey.source.govt:
+        description: 'Whether BWSSB/Municipality/Cauvery water sources of water supply for community'
         comments:
         access: True
-      survey.numberOfHousingUnits: "Number of housing units"
+      survey.source.STP:
+        description: 'Whether Sewage Treatment Plant treated water is a source of water supply for community'
         comments:
         access: True
-      survey.source.borewell: "Whether borewell is a source of water supply for community"
+      survey.tankerFrequency:
+        description: 'Frequency of purchase of private water tanker'
         comments:
         access: True
-      survey.source.rainwater: "Whether rainwater is a source of water supply for community"
+      survey.numberOfTankersPerMonth:
+        description: 'Frequency of purchase of private water tanker'
         comments:
         access: True
-      survey.source.tanker: "Whether tanker is a source of water supply for community"
+      survey.changeInTankerDemandThreeMonths:
+        description: 'Have you been ordering private water tankers more often in the last three months?'
+        comments: 'Qualitative responses (open text), not standardised'
+        access: True
+      survey.changeInBWSSBSupplyPastYear:
+        description: 'Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)?' 
+        comments: 'Qualitative responses (open text), not standardised'
+        access: True
+      survey.dryDaysPastYear:
+        description: 'Number of dry days in the past year?'
+        comments: 'Qualitative responses (open text), not standardised'
+        access: True
+      survey.capacityPerTanker:
+        description: 'What is the capacity of the tanker in litres?'
         comments:
         access: True
-      survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
+      survey.cost.tanker.present:
+        description: 'How much do you pay for a single tanker of water?'
         comments:
         access: True
-      survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
+      survey.cost.tanker.previousYear:
+        description: 'How much were you paying for the same tanker of water a year back (Feb 2023)?'
         comments:
         access: True
-      survey.tankerFrequency: "Frequency of purchase of private water tanker"
+      survey.cost.communityMonthlyWaterExpenses:
+        description: 'What is your community's monthly expense on water?'
         comments:
         access: True
-      survey.numberOfTankersPerMonth: "Frequency of purchase of private water tanker"
-        comments:
+      survey.tankerRateIncreaseFrequency:
+        description: 'How often does your water tanker vendor raise rates?'
+        comments: 'Qualitative responses (open text), not standardised'
         access: True
-      survey.changeInTankerDemandThreeMonths: "Have you been ordering private water tankers more often in the last three months?"
-        comments: "Qualitative responses (open text), not standardised"
-        access: True
-      survey.changeInBWSSBSupplyPastYear: "Has the supply of water from BWSSB changed during the last one year (both in terms of frequency as well as quantity)?" 
-        comments: "Qualitative responses (open text), not standardised"
-        access: True
-      survey.dryDaysPastYear: "Number of dry days in the past year?"
-        comments: "Qualitative responses (open text), not standardised"
-        access: True
-      survey.capacityPerTanker: "What is the capacity of the tanker in litres?"
-        comments:
-        access: True
-      survey.cost.tanker.present: "How much do you pay for a single tanker of water?"
-        comments:
-        access: True
-      survey.cost.tanker.previousYear: "How much were you paying for the same tanker of water a year back (Feb 2023)?"
-        comments:
-        access: True
-      survey.cost.communityMonthlyWaterExpenses: "What is your community's monthly expense on water?"
-        comments:
-        access: True
-      survey.tankerRateIncreaseFrequency: "How often does your water tanker vendor raise rates?"
-        comments: "Qualitative responses (open text), not standardised"
-        access: True
-      survey.waterRationing: "Do you have water rationing?"
+      survey.waterRationing:
+        description: 'Do you have water rationing?'
         comments:
         access: True
     info:
-      source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
+      source: 'https://data.opencity.in/dataset/bengaluru-tanker-water-data'
       comments:
       references:
 
   survey_2019: 
     fields:
-      metadata.recordID: "UUID generated using UUID4 from python3"
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from python3'
         comments:
         access: True
-      metadata.month: "Month of survey"
+      metadata.month:
+        description: 'Month of survey'
         comments:
         access: True
-      metadata.year: "Year of survey"
+      metadata.year:
+        description: 'Year of survey'
         comments:
         access: True
-      location.country.ID: "LGD Country Code"
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
-      location.country.name: "LGD Country Name"
+      location.country.name:
+        description: 'Country Name from ISO 3166'
         comments:
         access: True
-      location.admin.hierarchy: "Whether Revenue or ULB"
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
-      location.admin1.ID: "LGD State ID"
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-      location.admin1.name: "LGD State Name"
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.geometry.latitude:
+        description: 'Latitude derived from address using GMaps API'
         comments:
         access: True
-      location.admin2.ID: "LGD District ID"
+      location.geometry.longitude:
+        description: 'Longitude derived from address using GMaps API'
         comments:
         access: True
-      location.admin2.name: "LGD District Name"
+      survey.housingType:
+        description: 'Type of housing'
         comments:
         access: True
-      location.admin3.ID: "LGD Subdistrict/ULB ID"
+      survey.numberOfHousingUnits:
+        description: 'Number of housing units'
         comments:
         access: True
-      location.admin3.name: "LGD Subdistrict/ULB Name"
+      survey.source.borewell:
+        description: 'Whether borewell is a source of water supply for community'
         comments:
         access: True
-      location.geometry.latitude: "Latitude derived from address using GMaps API"
+      survey.source.rainwater:
+        description: 'Whether rainwater is a source of water supply for community'
         comments:
         access: True
-      location.geometry.longitude: "Longitude derived from address using GMaps API"
+      survey.source.tanker:
+        description: 'Whether tanker is a source of water supply for community'
         comments:
         access: True
-      survey.housingType: "Type of housing"
+      survey.source.govt:
+        description: 'Whether BWSSB/Municipality/Cauvery water sources of water supply for community'
         comments:
         access: True
-      survey.numberOfHousingUnits: "Number of housing units"
+      survey.source.STP:
+        description: 'Whether Sewage Treatment Plant treated water is a source of water supply for community'
         comments:
         access: True
-      survey.source.borewell: "Whether borewell is a source of water supply for community"
-        comments:
-        access: True
-      survey.source.rainwater: "Whether rainwater is a source of water supply for community"
-        comments:
-        access: True
-      survey.source.tanker: "Whether tanker is a source of water supply for community"
-        comments:
-        access: True
-      survey.source.govt: "Whether BWSSB/Municipality/Cauvery water sources of water supply for community"
-        comments:
-        access: True
-      survey.source.STP: "Whether Sewage Treatment Plant treated water is a source of water supply for community"
-        comments:
-        access: True
-      survey.tankerFrequency: "How often do you buy water?"
+      survey.tankerFrequency:
+        description: 'How often do you buy water?'
         comments: qualitative responses, standardised manually
         access: True
-      survey.numberOfTankersPerMonth: "No of tankers"
+      survey.numberOfTankersPerMonth:
+        description: 'No of tankers'
         comments:
         access: True
-      survey.dryDaysPastYear: "How many dry days  recently?"
+      survey.dryDaysPastYear:
+        description: 'How many dry days  recently?'
         comments: qualitative responses, not standardised
         access: True
-      survey.capacityPerTanker: "Tanker capacity (in litres)"
+      survey.capacityPerTanker:
+        description: 'Tanker capacity (in litres)'
         comments:
         access: True
-      survey.cost.tanker.present: "Average tanker price"
+      survey.cost.tanker.present:
+        description: 'Average tanker price'
         comments:
         access: True
-      survey.cost.communityMonthlyWaterExpenses: "Monthly expense on water"
+      survey.cost.communityMonthlyWaterExpenses:
+        description: 'Monthly expense on water'
         comments: qualitative responses, standardised manually
         access: True
-      survey.waterRationing: "Do you have water rationing?"
+      survey.waterRationing:
+        description: 'Do you have water rationing?'
         comments: qualitative responses, standardised
         access: True
-      survey.STPForGardeningFlushing: "Do you use treated STP water for flushing/gardening?"
+      survey.STPForGardeningFlushing:
+        description: 'Do you use treated STP water for flushing/gardening?'
         comments:
         access: True
     
     info:
-      source: "https://data.opencity.in/dataset/bengaluru-tanker-water-data"
+      source: 'https://data.opencity.in/dataset/bengaluru-tanker-water-data'
       comments:
       references:
