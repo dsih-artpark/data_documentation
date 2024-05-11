@@ -1,52 +1,298 @@
-multiple_tables: False
+multiple_tables: True
 
-fields:
-  metadata.recordID: 'UUID generated using UUID4 from Python 3'
-  metadata.diseaseName: 'WHO ICD-11 disease name'
-  metadata.diseaseCode: 'WHO ICD-11 disease code'
-  metadata.phase: 'FMDCP/LHDCP Phase'
-  metadata.reportDate: 'Date of report (if available)'
-  metadata.year: 'Year reported'
-  metadata.titre: 'Titre (concentration) threshold'
-  metadata.species: 'Animal species - Cattle or Buffalo'
-  metadata.lastVaccinationDate: 'Last date of vaccination'
-  location.country.ID: 'LGD Country Code'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-  location.admin1.ID: 'LGD State Code'
-  location.admin1.name: 'LGD State Name'
-  location.admin2.ID: 'LGD District Code'
-  location.admin2.name: 'LGD District Name'
-  prevac.sample: 'Number of samples tested pre-vaccination'
-  prevac.positive.A.cnt: 'Number of pre-vaccination samples that have antibodies against A-type virus for titre specified'
-  prevac.positive.A.pct: 'Percentage of pre-vaccination samples that have antibodies against A-type virus for titre specified (computed as prevac.positive.A.cnt/prevac.sample * 100)'
-  prevac.positive.O.cnt: 'Number of pre-vaccination samples that have antibodies against O-type virus for titre specified'
-  prevac.positive.O.pct: 'Percentage of pre-vaccination samples that have antibodies against O-type virus for titre specified (computed as prevac.positive.O.cnt/prevac.sample * 100)'
-  prevac.positive.asia1.cnt: 'Number of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified'
-  prevac.positive.asia1.pct: 'Percentage of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified (computed as prevac.positive.asia1.cnt/prevac.sample * 100)'
-  prevac.positive.all.cnt: 'Number of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified'
-  prevac.positive.all.pct: 'Percentage of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified (computed as prevac.positive.all.cnt/prevac.sample * 100)'
-  postvac.sample: 'Number of samples tested post-vaccination'
-  postvac.positive.A.cnt: 'Number of post-vaccination samples that have antibodies against A-type virus for titre specified'
-  postvac.positive.A.pct: 'Percentage of post-vaccination samples that have antibodies against A-type virus for titre specified (computed as postvac.positive.A.cnt/postvac.sample * 100)'
-  postvac.positive.O.cnt: 'Number of post-vaccination samples that have antibodies against O-type virus for titre specified'
-  postvac.positive.O.pct: 'Percentage of post-vaccination samples that have antibodies against O-type virus for titre specified (computed as postvac.positive.O.cnt/postvac.sample * 100)'
-  postvac.positive.asia1.cnt: 'Number of post-vaccination samples that have antibodies against Asia1-type virus for titre specified'
-  postvac.positive.asia1.pct: 'Percentage of post-vaccination samples that have antibodies against Asia1-type virus for titre specified (computed as postvac.positive.Asia1.cnt/postvac.sample * 100)'
-  postvac.positive.all.cnt: 'Number of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
-  postvac.positive.all.pct: 'Percentage of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified (computed as postvac.positive.all.cnt/postvac.sample * 100)'
-info:
-  source: NIFMD & NADCP
-  comments: 
-    - 2011 - Asia1 re-emerged after 5 years.
-    - 2012 - All KA districts were included under FMDCP in Phase 2.
-    - 2013 - 4th round of vaccination carried out in Jan/Feb 2013 but outbreaks occured in a few pockets in July/Aug. The fifth round was carried out in september, during the peak of outbreak.
-    - 2016 - ELISA test changed from Liquid Phase Blocking (LPB) to Solid Phase Competitive (SPC).
-    - 2016 to 2019 - LPB Elisa random sampling data absent in last few years. Percent protected data available pre and post vaccination.
-    - 2018 - National Investigation team was assigned a task of investigating FMD outbreak in an organized farm at Dharward.
-    - 2020 - A new sampling scheme was adopted. Samples are collected from three different age groups of animals viz 6-12 months, 13-24 months and >24 months at a ratio of 5:4:1 as per OIE guidelines.
-    - 2021 - SPCE was correlated with the gold standard method VNT to determine the test cut-off for protective antibody status. Based on the results, the antibody titre cut-off of ≥1.65 log10 (@ 35 PI) was found to be appropriate at the herd level. This cut-off was further validated by testing more numbers of serum samples (n=440) and was found fit-for-purpose for assessment of protective antibody titre under NADCP/LHDCP-FMD.
-    - Data was received from NIFMD and NADCP for rounds 1 (2020-21), 2 (2022-23) and 3 (2023-24). Both data sources match. NIFMD data for rounds 2 and 3 only contained percentages. Sample counts have been updated from NADCP.
-    - 2022 to 2023 - Pre-vac samples for Kalaburagi, Shivamogga and Uttara Kannada were leaked or insufficient, and post-vac samples for Belagavi, Haveri and Tumakuru were leaked or insufficient.
-  references: 'ICAR-NIFMD, Annual Report 2022, ICAR-National Institute on Foot and Mouth Disease, Arugul, Bhubaneswar-752050, Odisha, India'
+tables:
+  ka-nifmd-seromon-district:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.phase:
+        description: 'FMDCP/LHDCP Phase'
+        comments:
+        access: True
+      metadata.reportDate:
+        description: 'Date of report (if available)'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year reported'
+        comments:
+        access: True
+      metadata.titre:
+        description: 'Titre (concentration) threshold'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      prevac.sample:
+        description: 'Number of samples tested pre-vaccination'
+        comments:
+        access: True
+      prevac.positive.A.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against A-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.A.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against A-type virus for titre specified (computed as prevac.positive.A.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.O.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against O-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.O.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against O-type virus for titre specified (computed as prevac.positive.O.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.asia1.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.asia1.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified (computed as prevac.positive.asia1.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.all.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified'
+        comments:
+        access: True
+      prevac.positive.all.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified (computed as prevac.positive.all.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      postvac.sample:
+        description: 'Number of samples tested post-vaccination'
+        comments:
+        access: True
+      postvac.positive.A.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against A-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.A.pct: 
+        description: 'Percentage of post-vaccination samples that have antibodies against A-type virus for titre specified (computed as postvac.positive.A.cnt/postvac.sample * 100)'
+        comments: 
+        access: True
+      postvac.positive.O.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against O-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.O.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against O-type virus for titre specified (calc)'
+        comments: 'computed as postvac.positive.O.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.asia1.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against Asia1-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.asia1.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against Asia1-type virus for titre specified (calc)'
+        comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.all.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
+        comments:
+        access: True
+      postvac.positive.all.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
+        comments: 'computed as postvac.positive.all.cnt/postvac.sample * 100'
+        access: True
+    info:
+      source: NIFMD & NADCP
+      comments: 
+        - 2011 - Asia1 re-emerged after 5 years.
+        - 2012 - All KA districts were included under FMDCP in Phase 2.
+        - 2013 - 4th round of vaccination carried out in Jan/Feb 2013 but outbreaks occured in a few pockets in July/Aug. The fifth round was carried out in september, during the peak of outbreak.
+        - 2016 - ELISA test changed from Liquid Phase Blocking (LPB) to Solid Phase Competitive (SPC).
+        - 2016 to 2019 - LPB Elisa random sampling data absent in last few years. Percent protected data available pre and post vaccination.
+        - 2018 - National Investigation team was assigned a task of investigating FMD outbreak in an organized farm at Dharward.
+        - 2020 - A new sampling scheme was adopted. Samples are collected from three different age groups of animals viz 6-12 months, 13-24 months and >24 months at a ratio of 5:4:1 as per OIE guidelines.
+        - 2021 - SPCE was correlated with the gold standard method VNT to determine the test cut-off for protective antibody status. Based on the results, the antibody titre cut-off of ≥1.65 log10 (@ 35 PI) was found to be appropriate at the herd level. This cut-off was further validated by testing more numbers of serum samples (n=440) and was found fit-for-purpose for assessment of protective antibody titre under NADCP/LHDCP-FMD.
+        - Data was received from NIFMD and NADCP for rounds 1 (2020-21), 2 (2022-23) and 3 (2023-24). Both data sources match. NIFMD data for rounds 2 and 3 only contained percentages. Sample counts have been updated from NADCP.
+        - 2022 to 2023 - Pre-vac samples for Kalaburagi, Shivamogga and Uttara Kannada were leaked or insufficient, and post-vac samples for Belagavi, Haveri and Tumakuru were leaked or insufficient.
+      references: 'ICAR-NIFMD, Annual Report 2022, ICAR-National Institute on Foot and Mouth Disease, Arugul, Bhubaneswar-752050, Odisha, India'
+  
+  ka-nifmd-seromon-species:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.phase:
+        description: 'FMDCP/LHDCP Phase'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year reported'
+        comments:
+        access: True
+      metadata.titre:
+        description: 'Titre (concentration) threshold'
+        comments:
+        access: True
+      metadata.species:
+        description: 'Animal species - Cattle or Buffalo'
+        comments:
+        access:
+      metadata.lastVaccinationDate:
+        description: 'Last date of vaccination in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access:
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      prevac.sample:
+        description: 'Number of samples tested pre-vaccination'
+        comments:
+        access: True
+      prevac.positive.A.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against A-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.A.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against A-type virus for titre specified (computed as prevac.positive.A.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.O.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against O-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.O.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against O-type virus for titre specified (computed as prevac.positive.O.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.asia1.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified'
+        comments:
+        access: True
+      prevac.positive.asia1.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against Asia1-type virus for titre specified (computed as prevac.positive.asia1.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      prevac.positive.all.cnt:
+        description: 'Number of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified'
+        comments:
+        access: True
+      prevac.positive.all.pct:
+        description: 'Percentage of pre-vaccination samples that have antibodies against A, O and Asia1 viruses for titre specified (computed as prevac.positive.all.cnt/prevac.sample * 100)'
+        comments:
+        access: True
+      postvac.sample:
+        description: 'Number of samples tested post-vaccination'
+        comments:
+        access: True
+      postvac.positive.A.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against A-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.A.pct: 
+        description: 'Percentage of post-vaccination samples that have antibodies against A-type virus for titre specified (computed as postvac.positive.A.cnt/postvac.sample * 100)'
+        comments: 
+        access: True
+      postvac.positive.O.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against O-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.O.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against O-type virus for titre specified (calc)'
+        comments: 'computed as postvac.positive.O.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.asia1.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against Asia1-type virus for titre specified'
+        comments:
+        access: True
+      postvac.positive.asia1.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against Asia1-type virus for titre specified (calc)'
+        comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.all.cnt:
+        description: 'Number of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
+        comments:
+        access: True
+      postvac.positive.all.pct:
+        description: 'Percentage of post-vaccination samples that have antibodies against A,O and Asia1 viruses for titre specified'
+        comments: 'computed as postvac.positive.all.cnt/postvac.sample * 100'
+        access: True
+    info:
+      source: NIFMD & NADCP
+      comments: 
+        - 2011 - Asia1 re-emerged after 5 years.
+        - 2012 - All KA districts were included under FMDCP in Phase 2.
+        - 2013 - 4th round of vaccination carried out in Jan/Feb 2013 but outbreaks occured in a few pockets in July/Aug. The fifth round was carried out in september, during the peak of outbreak.
+        - 2016 - ELISA test changed from Liquid Phase Blocking (LPB) to Solid Phase Competitive (SPC).
+        - 2016 to 2019 - LPB Elisa random sampling data absent in last few years. Percent protected data available pre and post vaccination.
+        - 2018 - National Investigation team was assigned a task of investigating FMD outbreak in an organized farm at Dharward.
+        - 2020 - A new sampling scheme was adopted. Samples are collected from three different age groups of animals viz 6-12 months, 13-24 months and >24 months at a ratio of 5:4:1 as per OIE guidelines.
+        - 2021 - SPCE was correlated with the gold standard method VNT to determine the test cut-off for protective antibody status. Based on the results, the antibody titre cut-off of ≥1.65 log10 (@ 35 PI) was found to be appropriate at the herd level. This cut-off was further validated by testing more numbers of serum samples (n=440) and was found fit-for-purpose for assessment of protective antibody titre under NADCP/LHDCP-FMD.
+        - Data was received from NIFMD and NADCP for rounds 1 (2020-21), 2 (2022-23) and 3 (2023-24). Both data sources match. NIFMD data for rounds 2 and 3 only contained percentages. Sample counts have been updated from NADCP.
+        - 2022 to 2023 - Pre-vac samples for Kalaburagi, Shivamogga and Uttara Kannada were leaked or insufficient, and post-vac samples for Belagavi, Haveri and Tumakuru were leaked or insufficient.
+       references: 'ICAR-NIFMD, Annual Report 2022, ICAR-National Institute on Foot and Mouth Disease, Arugul, Bhubaneswar-752050, Odisha, India'
 
+    

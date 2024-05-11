@@ -1,7 +1,7 @@
 multiple_tables: False
 
 tables:
-  ka-seromon-animal-tags:
+  seromon-animal-tags:
   fields:
     metadata.recordID:
       description: 'UUID generated using UUID4 from Python 3'

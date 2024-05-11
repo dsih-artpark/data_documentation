@@ -1,7 +1,7 @@
 multiple_tables: True
 
 tables:
-  monthly:
+  ka-nivedi-seromon-monthly-sum:
     fields:
       metadata.recordID: 'UUID generated using UUID4 from Python 3'
       metadata.diseaseName: 'WHO ICD-11 disease name'
@@ -33,7 +33,7 @@ tables:
       source: 'NIVEDI'
       comments: 'Reports are only partially accessed. They do not cover all districts'
       references:
-  yearly:
+  ka-nivedi-seromon-yearly-sum:
     fields:
       metadata.recordID: 'UUID generated using UUID4 from Python 3'
       metadata.diseaseName: 'WHO ICD-11 disease name'

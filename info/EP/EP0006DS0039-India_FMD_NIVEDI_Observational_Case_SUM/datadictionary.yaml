@@ -1,7 +1,7 @@
 multiple_tables: True
 
 tables:
-  district_summary:
+  india-nivedi-district-sum:
     fields:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
@@ -80,7 +80,7 @@ tables:
       comments:
       references:
 
-  village_summary:
+  ka-nivedi-village_sum:
     fields:  
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
