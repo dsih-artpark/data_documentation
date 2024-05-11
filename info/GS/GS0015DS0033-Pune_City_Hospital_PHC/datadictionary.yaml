@@ -1,25 +1,81 @@
 multiple_tables: False
 
-fields:
-  metadata.recordID: 'UUID generated using UUID4 from python3'
-  location.country.ID: 'LGD Country ID'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-  location.admin1.ID: 'LGD State ID'
-  location.admin1.name: 'LGD State Name'
-  location.admin2.ID: 'LGD District ID'
-  location.admin2.name: 'LGD District Name'
-  location.admin3.ID: 'LGD Sub-district Code'
-  location.admin3.name: 'LGD Sub-district Name'
-  location.admin4.ID:	'PMC Zone ID'
-  location.admin4.name: 'PMC Zone Name'
-  location.admin5.ID: 'LGD Ward Code'
-  location.admin5.name: 'Ward Name'
-  location.geometry.latitude: 'Latitude of PHC/Hospital, from geocoding PHC, Subdistrict and State Name using Google Maps API'
-  location.geometry.longitude: 'Longitude of PHC/Hospital, from geocoding PHC, Subdistrict and State Name using Google Maps API'
-  facility.name: 'Name PHC/Hospital'
-  facility.address: 'Address of PHC/Hospital'
-info:
-  source: PKC
-  comments:
-  references:
+tables:
+  pune-city-hospitals-phcs:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID: 
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments:
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments:
+        access: True
+      location.admin5.ID: 
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.geometry.latitude:
+        description: 'Latitude of PHC, from geocoding PHC Name using Google Maps API'
+        commments:
+        access: True
+      location.geometry.longitude:
+        description: 'Longitude of PHC, from geocoding PHC Name using Google Maps API'
+        commments:
+        access: True
+      facility.name:
+        description: 'Name PHC/Hospital'
+        commments:
+        access: True
+      facility.address:
+        description: 'Address of PHC/Hospital'
+        commments:
+        access: True
+    info:
+      source: PKC
+      comments:
+      references:
