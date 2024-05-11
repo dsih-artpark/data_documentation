@@ -1,48 +1,165 @@
 multiple_tables: False
 
-fields:
-  metadata.recordID: 'UUID generated using UUID4 from python3'
-  metadata.primaryDate: 'Survey Date'
-  location.country.ID: 'LGD Country ID'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-  location.admin1.ID: 'LGD State ID'
-  location.admin1.name: 'LGD State Name'
-  location.admin2.ID: 'LGD District ID'
-  location.admin2.name: 'LGD District Name'
-  location.admin3.ID: 'LGD Sub-district Code'
-  location.admin3.name: 'LGD Sub-district Name'
-  location.admin4.ID:	'BBMP Zone ID'
-  location.admin4.name: 'BBMP Zone Name'
-  location.admin5.ID: 'LGD Ward Code'
-  location.admin5.name: 'Ward Name'
-  location.assemblyConstituency: 'Name of Assembly Constituency'
-  location.parliamentaryConstituency: 'Name of Parliamentary Constituency'
-  location.policeStation: 'Name of Police Station'
-  census2011.population: 'Population as per Census 2011'
-  census2011.area.sqKm: 'Area in square kilometers'
-  census2011.households: 'Number of households as per Census 2011'
-  census2011.population.density: 'Population Density as per Census 2011'
-  census.population.growthPct2001_2011: '% change in population between Census 2001 and Census 2011'
-  census.households.growthPct2001_2011: '% change in number of households between Census 2011 and Census 2011'
-  census.roads.lengthKms: 'Length of roads in kilometers'
-  bbmp.lakes.cnt: 'Number of lakes'
-  bbmp.lakes.name: 'Names of lakes'
-  bbmp.lakes.area.sqM: 'Area of lakes in square meters'
-  bbmp.parks.cnt: 'Number of parks'
-  bbmp.parks.area.sqM: 'Area of parks in square meters'
-  bbmp.playgrounds.cnt: 'Number of playgrounds'
-  bbmp.playgrounds.area.sqM: 'Area of playgrounds in square meters'
-  bbmp.govtSchools.cnt: 'Number of government schools'
-  bbmp.policeStations.cnt: 'Number of police stations'
-  bbmp.fireStations.cnt: 'Number of fire stations'
-  bbmp.busStops.cnt: 'Number of bus stops'
-  bbmp.whetherTTMC: 'Whether BBMP Traffic and Transit Management Centre is present'
-  bbmp.streetLights.cnt: 'Number of street lights'
-  bbmp.busRoutes.cnt: 'Number of bus routes'
-  
-
-info:
-  source: 'https://data.opencity.in/dataset/bbmp-ward-wise-public-goods-data'
-  comments:
-  references:
+tables:
+  bbmp-public-goods:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.primaryDate:
+        description: 'Survey date in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID: 
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 
+        access: True
+      location.admin5.ID: 
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.assemblyConstituency:
+        description: 'Name of Assembly Constituency'
+        comments:
+        access: True
+      location.parliamentaryConstituency:
+        description: 'Name of Parliamentary Constituency'
+        comments:
+        access: True
+      location.policeStation:
+        description: 'Name of Police Station'
+        comments:
+        access: True
+      census2011.population:
+        description: 'Population as per Census 2011'
+        comments:
+        access: True
+      census2011.area.sqKm:
+        description: 'Area in square kilometers'
+        comments:
+        access: True
+      census2011.households:
+        description: 'Number of households as per Census 2011'
+        comments:
+        access: True
+      census2011.population.density:
+        description: 'Population Density as per Census 2011'
+        comments:
+        access: True
+      census.population.growthPct2001_2011:
+        description: '% change in population between Census 2001 and Census 2011'
+        comments:
+        access: True
+      census.households.growthPct2001_2011:
+        description: '% change in number of households between Census 2011 and Census 2011'
+        comments:
+        access: True
+      census.roads.lengthKms:
+        description: 'Length of roads in kilometers'
+        comments:
+        access: True
+      bbmp.lakes.cnt:
+        description: 'Number of lakes'
+        comments:
+        access: True
+      bbmp.lakes.name:
+        description: 'Names of lakes'
+        comments:
+        access: True
+      bbmp.lakes.area.sqM:
+        description: 'Area of lakes in square meters'
+        comments:
+        access: True
+      bbmp.parks.cnt:
+        description: 'Number of parks'
+        comments:
+        access: True
+      bbmp.parks.area.sqM:
+        description: 'Area of parks in square meters'
+        comments:
+        access: True
+      bbmp.playgrounds.cnt:
+        description: 'Number of playgrounds'
+        comments:
+        access: True
+      bbmp.playgrounds.area.sqM:
+        description: 'Area of playgrounds in square meters'
+        comments:
+        access: True
+      bbmp.govtSchools.cnt:
+        description: 'Number of government schools'
+        comments:
+        access: True
+      bbmp.policeStations.cnt:
+        description: 'Number of police stations'
+        comments:
+        access: True
+      bbmp.fireStations.cnt:
+        description: 'Number of fire stations'
+        comments:
+        access: True
+      bbmp.busStops.cnt:
+        description: 'Number of bus stops'
+        comments:
+        access: True
+      bbmp.whetherTTMC:
+        description: 'Whether BBMP Traffic and Transit Management Centre is present'
+        comments:
+        access: True
+      bbmp.streetLights.cnt:
+        description: 'Number of street lights'
+        comments:
+        access: True
+      bbmp.busRoutes.cnt:
+        description: 'Number of bus routes'
+        comments:
+        access: True
+    info:
+      source: 'https://data.opencity.in/dataset/bbmp-ward-wise-public-goods-data'
+      comments:
+      references:
