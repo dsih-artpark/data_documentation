@@ -89,7 +89,7 @@ tables:
         access: True
       location.admin5.ID: 
         description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
-        comments: 'admin_0 if known'
+        comments: 'admin_0 if unknown'
         access: True
       location.admin5.name:
         description: 'Village or Ward Name, as per Local Government Directory'
