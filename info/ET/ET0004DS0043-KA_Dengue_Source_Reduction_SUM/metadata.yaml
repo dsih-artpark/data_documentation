@@ -35,10 +35,10 @@ tables:
       location.country.name: INDIA
       location.country.ID: country_IN
       location.admin.hierarchy: REVENUE
-      location.state.name: KARNATAKA
-      location.state.ID: state_29
-      location.district.name: null
-      location.district.ID: null
+      location.admin1.name: KARNATAKA
+      location.admin1.ID: state_29
+      location.admin2.name: null
+      location.admin2.ID: null
       summary.noOfHouses: null
       summary.noOfPhcs: null
       summary.noOfTaluks: null
@@ -56,38 +56,53 @@ tables:
 
     config:
       district_fuzzymatch: 65
+
   village_summary:
     column_mapping:
-      location.district.name:
+      location.admin2.name:
       - district
-      location.healthcenter.phc:
+      - locationdistrictname
+      location.healthcentre.phc:
       - phc
-      location.healthcenter.subcenter:
+      - locationhealthcenterphc
+      location.healthcentre.subcentre:
       - name_of_sub_center
-      location.subdistrict.name:
+      - locationhealthcentersubcenter
+      location.admin3.name:
       - name_of_the_taluk
-      location.village.name:
+      - locationsubdistrictname
+      location.admin5.name:
       - name_of_the_village_ward
+      - locationvillagename
       metadata.reportPeriod:
       - reportingperiod
       summary.noOfHouses:
       - total_no_of_houses
+      - summarynoofhouses
       survey.breteauIndex:
       - bi
+      - surveybreteauindex
       survey.containerIndex:
       - ci
+      - surveycontainerindex
       survey.containersPositive:
       - no_of_containers_positive
+      - surveycontainerspositive
       survey.containersReduced:
       - no_of_containers_houses_reduced
+      - surveycontainersreduced
       survey.containersSearched:
       - no_of_containers_searched
+      - surveycontainerssearched
       survey.houseIndex:
       - hi
+      - surveyhouseindex
       survey.housesPositive:
       - nohouse_found_positive_for_aedes_breeding
+      - surveyhousespositive
       survey.housesVisited:
       - no_of_houses_surveyed
+      - surveyhousesvisited
     column_values:
       metadata.recordID: null
       metadata.diseaseName: Dengue
@@ -97,18 +112,18 @@ tables:
       location.country.ID: country_IN
       location.country.name: INDIA
       location.admin.hierarchy: 
-      location.state.ID: state_29
-      location.state.name: KARNATAKA
-      location.district.ID: null
-      location.district.name: null
-      location.subdistrict.ID: null
-      location.subdistrict.name: null
-      location.village.ID: null
-      location.village.name: null
-      location.ward.ID: null
-      location.ward.name: null
-      location.healthcenter.phc: null
-      location.healthcenter.subcenter: null
+      location.admin1.ID: state_29
+      location.admin1.name: KARNATAKA
+      location.admin2.ID: null
+      location.admin2.name: null
+      location.admin3.ID: null
+      location.admin3.name: null
+      location.admin4.ID: null
+      location.admin4.name: null
+      location.admin5.ID: null
+      location.admin5.name: null
+      location.healthcentre.phc: null
+      location.healthcentre.subcentre: null
       summary.noOfHouses: null
       survey.housesVisited: null
       survey.housesPositive: null
