@@ -245,6 +245,7 @@ tables:
       source: GoK
       comments: 
       - village-level data is incomplete, as not all districts have shared data for all time periods
+      - standardised districts are Hassan, Bagalkot, Kalaburagi, Shivamogga, Mysuru, Ballari, Bengaluru Urban, Bengaluru Rural
       references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
     
     
