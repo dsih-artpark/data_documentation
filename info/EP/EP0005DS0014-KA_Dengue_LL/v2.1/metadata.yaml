@@ -16,10 +16,10 @@ column_values:
     value:
     comments:
   metadata.diseaseName: 
-    value: DENGUE
+    value: "DENGUE"
     comments:
   metadata.diseaseCode: 
-    value: ICD11_1D2Z
+    value: "ICD11_1D2Z"
     comments:
   demographics.age:
     value:
@@ -31,20 +31,20 @@ column_values:
     value:
     comments:
   location.country.ID: 
-    value: country_IN
+    value: "country_IN"
     comments:
   location.country.name: 
-    value: INDIA
+    value: "INDIA"
     comments:
   location.admin.hierarchy:
     value:
     type:
     comments:
   location.admin1.ID: 
-    value: state_29
+    value: "state_29"
     comments:
   location.admin1.name: 
-    value: KARNATAKA
+    value: "KARNATAKA"
     comments:
   location.admin2.ID: # district
     value:
@@ -92,13 +92,13 @@ column_values:
     value:
     comments:
   event.symptomOnset:
-    value: True
+    value: "True"
     comments:
   event.symptomOnsetDate:
     value:
     comments:
   event.test:
-    value: True
+    value: "True"
     comments:
   event.test.sampleCollectionDate:
     value:
