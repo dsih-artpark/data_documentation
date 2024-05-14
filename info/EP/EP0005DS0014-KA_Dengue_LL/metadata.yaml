@@ -40,7 +40,7 @@ data_dictionary:
           comments: 'Standardisation includes converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
           access: False
         demographics.ageRange:
-          description: 'Age bins that the patient's age is classified into'
+          description: 'Age bins that the patients age is classified into'
           comments: 'Generated after standardisation of age entries, including converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
           access: True
         demographics.gender:
@@ -235,25 +235,14 @@ data_dictionary:
         references:
 
 admin:
-  ds_info:
+  ds_ids:
 
-    raw:
-        Bucket: 'dsih-artpark-01-raw-data'
-        Prefix: 'EPRDS7'
-        Contains: ''
-        Suffix: '.xlsx'
-    preprocessed:
-        Bucket: 'dsih-artpark-02-preprocessed-data'
-        Prefix: 'EP0005DS0014'
-        Contains: ''
-        Suffix: '.csv'
-    standardised:
-        v2:
-            Bucket: 'dsih-artpark-03-standardised-data'
-            Prefix: "EP0005DS0014-KA_Dengue_LL/"
-        v1: 
-            Bucket: "artpark-1health-hh-live-data"
-            Prefix: "state-karnataka/line-lists/"
+    raw: "EPRDS7"
+    preprocessed: "EP0005DS0014"
+    standardised: "EP0005DS0014"
+    v1:
+        Bucket: "artpark-1health-hh-live-data"
+        Prefix: "state-karnataka/line-lists/"
 
   config: 
     
