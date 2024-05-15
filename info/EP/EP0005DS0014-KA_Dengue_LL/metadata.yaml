@@ -167,10 +167,6 @@ tables:
         description: 'Result of the test conducted - By default, NS1 is the first test'
         comments:
         access: True
-      event.test.test1.resultDate:
-        description: 'Result date of the test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
-        access: True
       event.test.test2.code:
         description: 'Code of the second test conducted'
         comments:
@@ -189,19 +185,7 @@ tables:
         description: 'Result date of the second test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
         access: True
-      event.test.test3.code:
-        description: 'Code of the third test conducted'
-        comments:
-        access: True
-      event.test.test3.name:
-        description: 'Name of the third test conducted'
-        comments:
-        access: True
-      event.test.test3.result:
-        description: 'Result of the third test conducted'
-        comments:
-        access: True
-      event.test.test3.resultDate:
+      event.test.resultDate:
         description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
         access: True
@@ -424,10 +408,10 @@ admin:
             demographics.age: ["age"]
             demographics.gender: ["sex","gender"]
 
-            location.subdistrict.name: ["taluk"]
-            location.village.name: ["village", "villege"]
-            location.healthcenter.phc: ["phc"]
-            location.healthcenter.subcenter: ["subcentere","subcentre", "sub centre"]
+            location.admin3.name: ["taluk"]
+            location.admin5.name: ["village", "villege"]
+            location.healthcentre.phc: ["phc"]
+            location.healthcentre.subcentre: ["subcentere","subcentre", "sub centre"]
 
             event.symptomOnsetDate: ["date of onset of fever", "date of onset of symptom", "date of onset of symptoms"]
             event.test.sampleCollectionCenter: ["sample collected", "sample collected at"]
