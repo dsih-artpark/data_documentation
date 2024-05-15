@@ -181,10 +181,6 @@ tables:
         description: 'Result of the second test conducted'
         comments:
         access: True
-      event.test.test2.resultDate:
-        description: 'Result date of the second test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
-        access: True
       event.test.resultDate:
         description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
@@ -430,8 +426,8 @@ admin:
         required_headers:
             ['metadata.nameAddress',
                 'demographics.age', 'demographics.gender',
-                'location.subdistrict.name','location.village.name',
-                'location.healthcenter.phc','location.healthcenter.subcenter',
+                'location.admin3.name','location.admin5.name',
+                'location.healthcentre.phc','location.healthcentre.subcentre',
                 'event.symptomOnsetDate','event.test.resultDate',
                 'event.test.sampleCollectionDate','event.test.test1.result',
                 'event.test.test2.result'
