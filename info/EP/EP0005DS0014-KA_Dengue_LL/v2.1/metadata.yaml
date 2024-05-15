@@ -159,116 +159,116 @@ column_values:
     comments:
 config:
   str_cols:
-    - metadata.nameAddress
-    - location.admin2.name
-    - location.admin3.name
-    - location.admin4.name
-    - location.admin5.name
-    - location.healthcentre.phc
-    - location.healthcentre.subcentre
-    - location.healthcentre.ssh
-    - location.healthcentre.hospital
-    - event.test.sampleCollectionCentre
-    - event.test.testingLab
-    - event.notes
-    - case.urbanOrRural
-    - case.publicOrPrivate
-    - case.surveillance
-    - case.opdOrIpd
+    - 'metadata.nameAddress'
+    - 'location.admin2.name'
+    - 'location.admin3.name'
+    - 'location.admin4.name'
+    - 'location.admin5.name'
+    - 'location.healthcentre.phc'
+    - 'location.healthcentre.subcentre'
+    - 'location.healthcentre.ssh'
+    - 'location.healthcentre.hospital'
+    - 'event.test.sampleCollectionCentre'
+    - 'event.test.testingLab'
+    - 'event.notes'
+    - 'case.urbanOrRural'
+    - 'case.publicOrPrivate'
+    - 'case.surveillance'
+    - 'case.opdOrIpd'
   thresholds:
     district: 65
     subdistrict: 65
     village: 95
   pii:
-    - metadata.nameAddress
-    - metadata.contact
-    - demographics.age
+    - 'metadata.nameAddress'
+    - 'metadata.contact'
+    - 'demographics.age'
 
 column_mapping:
   historical: # 2015-2022
     name:
-      - name
+      - 'name'
     address:
-      - address
+      - 'address'
     test_method:
-      - igm_ns1
+      - 'igm_ns1'
     metadata.nameAddress:
-      - name_address_of_the_patient
+      - 'name_address_of_the_patient'
     metadata.contact:
-      - contact_number
-      - phone_number
-      - mobile_number
-      - patient_mobile
-      - contact
-      - mobile
+      - 'contact_number'
+      - 'phone_number'
+      - 'mobile_number'
+      - 'patient_mobile'
+      - 'contact'
+      - 'mobile'
     demographics.age:
-      - age
+      - 'age'
     demographics.gender:
-      - gender
-      - sex
+      - 'gender'
+      - 'sex'
     agegender:
-      - agegender
+      - 'agegender'
     location.admin2.name:
-      - district
+      - 'district'
     location.admin3.name:
-      - taluk
-      - subdistrict
+      - 'taluk'
+      - 'subdistrict'
     location.admin4.name:
-      - zone
+      - 'zone'
     location.admin5.ID:
-      - ward_number
+      - 'ward_number'
     location.admin5.name:
-      - village
-      - villagge
-      - ward_name
+      - 'village'
+      - 'villagge'
+      - 'ward_name'
     location.healthcentre.phc:
-      - phc
-      - name_of_the_p_hc_case_belong
+      - 'phc'
+      - 'name_of_the_p_hc_case_belong'
     location.healthcentre.subcentre:
-      - subcenter
-      - subcentre
-      - ssubcenter
+      - 'subcenter'
+      - 'subcentre'
+      - 'ssubcenter'
     location.healthcentre.hospital:
-      - hospital_name
-      - reported_institution
-      - referred_from
-      - hospital
+      - 'hospital_name'
+      - 'reported_institution'
+      - 'referred_from'
+      - 'hospital'
     event.symptomOnsetDate:
-      - symptom_date
-      - date_of_onset_of_fever
-      - date_of_onset_of_symptom
+      - 'symptom_date'
+      - 'date_of_onset_of_fever'
+      - 'date_of_onset_of_symptom'
     event.test.sampleCollectionDate:
-      - sample_date
-      - date_of_samples_collection
-      - date_of_samples_collected
-      - date_of_collection
+      - 'sample_date'
+      - 'date_of_samples_collection'
+      - 'date_of_samples_collected'
+      - 'date_of_collection'
     event.test.sampleCollectionCentre:
-      - sample_collected_at
+      - 'sample_collected_at'
     event.test.testingLab:
-      - lab
-      - lab_where_the_test_is_confirmed
+      - 'lab'
+      - 'lab_where_the_test_is_confirmed'
     event.test.test1.result:
-      - ns1
-      - ns1_positive
-      - dengue_elisa_result
+      - 'ns1'
+      - 'ns1_positive'
+      - 'dengue_elisa_result'
       # note that this is set after looking at unique values for this variable (only in Raichur.csv)
     event.test.test2.result:
-      - igm
-      - ig_m_positive
+      - 'igm'
+      - 'ig_m_positive'
     event.test.resultDate:
-      - result_date
-      - date_of_detection
+      - 'result_date'
+      - 'date_of_detection'
     event.notes:
-      - remarks
-      - remark
+      - 'remarks'
+      - 'remark'
     case.urbanRural:
-      - case_belongs_to_rural_urban
+      - 'case_belongs_to_rural_urban'
     case.publicOrPrivate:
-      - case_reported_from_public_private
-      - private_public
-      - private
-      - public_private
+      - 'case_reported_from_public_private'
+      - 'private_public'
+      - 'private'
+      - 'public_private'
     case.surveillance:
-      - case_detected_in_active_passive
+      - 'case_detected_in_active_passive'
     case.opdOrIpd:
-      - opdip
+      - 'opdip'
