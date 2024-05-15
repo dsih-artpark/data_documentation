@@ -406,14 +406,17 @@ admin:
     live:
 
       # Districts where the header is only one row - Kolar, Raichur, Udupi
-      no_merge_headers: ["district_542", "district_546", "district_549"] 
+      no_merge_headers:
+        district_542: "merged_ns1_igm_col_header"
+        district_546: "merged_ns1_igm_cols"
+        district_549: None
 
       header_mapper:
           district_specific_errors:
               district_543:
                   event.test.sampleCollectionCenter: ["date of sampl collected at"]
 
-          all: # missed cases to handle directly in code: Kolar (542) and Raichur (546) test result
+          standard_mapper: # missed cases to handle directly in code: Kolar (542) and Raichur (546) test result
               metadata.nameAddress: ["name and address of the patient","name & address of the patient"]
               metadata.name: ["name"]
               metadata.address: ["address of the patient"]
