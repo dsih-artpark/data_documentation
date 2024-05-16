@@ -185,21 +185,41 @@ tables:
         description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
         access: True
-      event.admission.admitDate:
-        description: 'Date of hospital admission, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that admitDate<=dischargeDate.'
-        access: True
-      event.admission.dischargeDate:
-        description: 'Date of hospital discharge, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that admitDate<=dischargeDate.'
-        access: True
-      event.death:
-        description: 'Boolean. True if death is recorded'
+      event.test.value:
+        description: 'Test value, if provided'
         comments:
         access: True
-      event.death.date:
-        description: 'Date of death, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year).'
+      event.test.numberOfTests:
+        description: 'Number of tests reported for the patient'
+        comments:
+        access: True
+      event.test.additionalTests.notes:
+        description: 'Notes in case a panel of tests was performed'
+        comments:
+        access: True
+      event.admissionOrOPDRegistrationDate:
+        description: 'Date of Admission or OPD, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access: True
+      event.notes:
+        description: 'Remarks on case, if provided'
+        comments:
+        access: True
+      case.urbanOrRural:
+        description: 'Whether case was reported in an Urban or Rural area, if provided'
+        comments:
+        access: True
+      case.publicOrPrivate:
+        description: 'Whether case was reported to a Public or Private health facility, if provided'
+        comments:
+        access: True
+      case.surveillance:
+        description: 'Whether case was detected through Active or Passive surveillance, if provided'
+        comments:
+        access: True
+      case.opdOrIpd: 'Whether case was detected through OPD or IPD, if provided'
+        description:
+        comments:
         access: True
 
     info:
@@ -418,10 +438,10 @@ admin:
             event.test.test2.result: ["ig m positive", "igm positive", "dengue elisa ig m positive"]
             event.test.testingLab: ["lab where the test is confirmed"]
 
-            case.urban_rural: ["case belongs to rural urban"]
-            case.public_private: ['case reported from public private']
+            case.urbanOrRural: ["case belongs to rural urban"]
+            case.publicOrPrivate: ['case reported from public private']
             case.surveillance: ['case detected in active passive']
-            case.opd_ipd: ["opd ipd"]
+            case.opdOrIpd: ["opd ipd"]
 
         required_headers:
             ['metadata.nameAddress',
