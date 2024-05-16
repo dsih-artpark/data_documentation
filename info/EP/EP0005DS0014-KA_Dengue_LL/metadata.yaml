@@ -217,8 +217,8 @@ tables:
         description: 'Whether case was detected through Active or Passive surveillance, if provided'
         comments:
         access: True
-      case.opdOrIpd: 'Whether case was detected through OPD or IPD, if provided'
-        description:
+      case.opdOrIpd:
+        description: 'Whether case was detected through OPD or IPD, if provided'
         comments:
         access: True
 
