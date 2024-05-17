@@ -1,18 +1,20 @@
 multiple_tables: False
+
+# confirm if we need to add: pathogen name - dengue1,dengue2, dengue3
 column_values:
   metadata.recordID:
     value:
     comments:
-  metadata.patientID:
+  metadata.patientID: # Generate using patient specimen ID as name is not available?
     value:
     comments:
-  metadata.primaryDate:
+  metadata.primaryDate: # Re-generate order after confirming that test performed date = result date
     value:
     comments:
-  metadata.nameAddress:
+  metadata.nameAddress: # only address will be available here
     value:
     comments:
-  metadata.contact:
+  metadata.patientSpecimenID: # added as patient specimen ID uniquely identifies patients
     value:
     comments:
   metadata.diseaseName: 
@@ -36,41 +38,40 @@ column_values:
   location.country.name: 
     value: 'INDIA'
     comments:
-  location.admin.hierarchy:
+  location.admin.hierarchy: # set default to ulb if only bbmp
     value:
-    type:
     comments:
   location.admin1.ID: 
     value: 'state_29'
     comments:
-  location.admin1.name: 
+  location.admin1.name: # state - should we filter to karnataka only?
     value: 'KARNATAKA'
     comments:
-  location.admin2.ID: # district
+  location.admin2.ID: # district - should we filter to bengaluru urban only?
     value:
     comments:
   location.admin2.name: 
     value:
     comments:
-  location.admin3.ID: # subdistrict/ulb
+  location.admin3.ID: # subdistrict/ulb - if filtered to bengaluru urban, is BBMP the default?
     value:
     comments:
   location.admin3.name:
     value:
     comments:
-  location.admin4.ID: #zone for ulb (if applicable)
+  location.admin4.ID: #zone for ulb (if applicable) - provided in subdistrict field
     value:
     comments:
   location.admin4.name:
     value:
     comments:
-  location.admin5.ID: # village or ward
+  location.admin5.ID: # village or ward - information not accurate for BBMP cases
     value:
     comments:
   location.admin5.name:
     value:
     comments:
-  location.geometry.latitude:
+  location.geometry.latitude: # this is the default for imputed values - added provided
     value:
     comments:
   location.geometry.longitude:
@@ -79,16 +80,16 @@ column_values:
   location.geometry.coarseness:
     value: 
     comments:
-  location.healthcentre.phc:
+  location.geometry.latitude.provided: # added provided as dataset contains lat, long
     value:
     comments:
-  location.healthcentre.subcentre:
+  location.geometry.longitude.provided: # added provided as dataset contains lat, long
     value:
     comments:
-  location.healthcentre.ssh:
-    value:
+  location.geometry.coarseness.provided: # to confirm coarseness for raw data
+    value: 
     comments:
-  location.healthcentre.hospital:
+  location.healthcentre.hospital: # to confirm if this corresponds to Facility Name Pform
     value:
     comments:
   event.symptomOnset:
@@ -103,10 +104,10 @@ column_values:
   event.test.sampleCollectionDate:
     value:
     comments:
-  event.test.sampleCollectionCentre:
+  event.test.sampleCollectionCentre: # to confirm if this corresponds to Facility Name Pform
     value:
     comments:
-  event.test.testingLab:
+  event.test.testingLab: # to confirm if this corresponds to Facility Name Pform
     value:
     comments:
   event.test.test1.code: 
@@ -127,10 +128,13 @@ column_values:
   event.test.test2.result:
     value:
     comments:
-  event.test.resultDate:
+  event.test.resultDate: # to confirm if this corresponds to test performed date/replace with new date var
     value:
     comments:
   event.test.value:
+    value:
+    comments:
+  event.test.sampleType: # blood/serum/gel/plasma - to write a function
     value:
     comments:
   event.test.numberOfTests:
@@ -139,19 +143,10 @@ column_values:
   event.test.additionalTests.notes:
     value:
     comments:
-  event.admissionOrOPDRegistrationDate:
-    value:
-    comments:
   event.notes:
     value:
     comments:
-  case.urbanOrRural:
-    value:
-    comments:
-  case.publicOrPrivate:
-    value:
-    comments:
-  case.surveillance:
+  case.urbanOrRural: # does this default to urban if we filter for bbmp?
     value:
     comments:
   case.opdOrIpd:
@@ -160,115 +155,56 @@ column_values:
 config:
   str_cols:
     - 'metadata.nameAddress'
+    - 'location.admin1.name' # remove if filtered to KA
     - 'location.admin2.name'
     - 'location.admin3.name'
     - 'location.admin4.name'
     - 'location.admin5.name'
-    - 'location.healthcentre.phc'
-    - 'location.healthcentre.subcentre'
-    - 'location.healthcentre.ssh'
-    - 'location.healthcentre.hospital'
-    - 'event.test.sampleCollectionCentre'
-    - 'event.test.testingLab'
-    - 'event.notes'
-    - 'case.urbanOrRural'
-    - 'case.publicOrPrivate'
-    - 'case.surveillance'
-    - 'case.opdOrIpd'
-  thresholds:
+    - 'location.healthcentre.hospital' # if retained
+    - 'event.test.sampleCollectionCentre' # if retained
+    - 'event.test.testingLab' # if retained
+  thresholds: # to add state if we retain multiple states
     district: 65
     subdistrict: 65
     village: 95
   pii:
     - 'metadata.nameAddress'
-    - 'metadata.contact'
     - 'demographics.age'
+    - 'metadata.patientSpecimenID'
 
+ # to add 'pathogen_name', 'test_performed_date', 'facility_name_pform', 'facility_name_lform'
 column_mapping:
-  historical: # 2015-2022
-    name:
-      - 'name'
-    address:
-      - 'address'
     test_method:
-      - 'igm_ns1'
+      - test_performed
+    result:
+      - test_result
     metadata.nameAddress:
-      - 'name_address_of_the_patient'
-    metadata.contact:
-      - 'contact_number'
-      - 'phone_number'
-      - 'mobile_number'
-      - 'patient_mobile'
-      - 'contact'
-      - 'mobile'
+      - 'patient_address'
     demographics.age:
       - 'age'
     demographics.gender:
       - 'gender'
-      - 'sex'
-    agegender:
-      - 'agegender'
+    location.admin1.name:
+      - 'state'
     location.admin2.name:
       - 'district'
     location.admin3.name:
-      - 'taluk'
-      - 'subdistrict'
-    location.admin4.name:
-      - 'zone'
-    location.admin5.ID:
-      - 'ward_number'
+      - 'ulb'
+    location.admin4.name: # zone is recorded in sub-district
+      - 'sub_district'
     location.admin5.name:
-      - 'village'
-      - 'villagge'
-      - 'ward_name'
-    location.healthcentre.phc:
-      - 'phc'
-      - 'name_of_the_p_hc_case_belong'
-    location.healthcentre.subcentre:
-      - 'subcenter'
-      - 'subcentre'
-      - 'ssubcenter'
+      - village_or_ward
+    location.geometry.latitude.provided:
+      - latitude
+    location.geometry.longitude.provided: 
+      - longitude
     location.healthcentre.hospital:
-      - 'hospital_name'
-      - 'reported_institution'
-      - 'referred_from'
-      - 'hospital'
     event.symptomOnsetDate:
-      - 'symptom_date'
-      - 'date_of_onset_of_fever'
-      - 'date_of_onset_of_symptom'
+      - 'date_of_onset'
     event.test.sampleCollectionDate:
-      - 'sample_date'
-      - 'date_of_samples_collection'
-      - 'date_of_samples_collected'
-      - 'date_of_collection'
+      - sample_collected_date
     event.test.sampleCollectionCentre:
-      - 'sample_collected_at'
     event.test.testingLab:
-      - 'lab'
-      - 'lab_where_the_test_is_confirmed'
-    event.test.test1.result:
-      - 'ns1'
-      - 'ns1_positive'
-      - 'dengue_elisa_result'
-      # note that this is set after looking at unique values for this variable (only in Raichur.csv)
-    event.test.test2.result:
-      - 'igm'
-      - 'ig_m_positive'
+    event.test.sampleType:
+      - sample_type
     event.test.resultDate:
-      - 'result_date'
-      - 'date_of_detection'
-    event.notes:
-      - 'remarks'
-      - 'remark'
-    case.urbanRural:
-      - 'case_belongs_to_rural_urban'
-    case.publicOrPrivate:
-      - 'case_reported_from_public_private'
-      - 'private_public'
-      - 'private'
-      - 'public_private'
-    case.surveillance:
-      - 'case_detected_in_active_passive'
-    case.opdOrIpd:
-      - 'opdip'
