@@ -1,6 +1,8 @@
 multiple_tables: False
 
 # confirm if we need to add: pathogen name - dengue1,dengue2, dengue3
+
+
 column_values:
   metadata.recordID:
     value:
@@ -11,7 +13,10 @@ column_values:
   metadata.primaryDate: # Re-generate order after confirming that test performed date = result date
     value:
     comments:
-  metadata.nameAddress: # only address will be available here
+  metadata.nameAddress:
+    value:
+    comments:
+  metadata.contact: # available for some files
     value:
     comments:
   metadata.patientSpecimenID: # added as patient specimen ID uniquely identifies patients
@@ -169,17 +174,25 @@ config:
     village: 95
   pii:
     - 'metadata.nameAddress'
+    - 'metadata.contact'
     - 'demographics.age'
     - 'metadata.patientSpecimenID'
 
- # to add 'pathogen_name', 'test_performed_date', 'facility_name_pform', 'facility_name_lform'
+ # to add 'pathogen_name', 'test_performed_date', facility_name', 'facility_name_pform', 'facility_name_lform'
+
 column_mapping:
     test_method:
-      - test_performed
+      - 'test_performed'
     result:
-      - test_result
-    metadata.nameAddress:
+      - 'test_result'
+    metadata.patientSpecimenID:
+      - 'patient_specimen_id'
+    name:
+      - 'patient_name'
+    address:
       - 'patient_address'
+    metadata.contact:
+      - 'contact_number'
     demographics.age:
       - 'age'
     demographics.gender:
@@ -208,3 +221,5 @@ column_mapping:
     event.test.sampleType:
       - sample_type
     event.test.resultDate:
+    case.opdOrIpd:
+      - 'opd_ipd'
