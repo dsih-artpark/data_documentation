@@ -64,7 +64,7 @@ column_values:
   location.admin3.name:
     value:
     comments:
-  location.admin4.ID: #zone for ulb (if applicable) - provided in subdistrict field
+  location.admin4.ID: #zone for ulb (if applicable) - provided in subdistrict field and as third digit sequence in Patient Health Id
     value:
     comments:
   location.admin4.name:
