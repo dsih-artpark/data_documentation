@@ -3,7 +3,7 @@ column_values:
   metadata.recordID:
     value:
     comments:
-  metadata.patientID:
+  metadata.patientID: # patient transaction id - duplicates are for tests
     value:
     comments:
   metadata.primaryDate:
