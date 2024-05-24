@@ -453,4 +453,4 @@ admin:
                 'event.test.test2.result'
                 ]
 
-multiple_tables: False # Deprecated Functionality, should be inferred from keys under tables
+multiple_tables: False # Deprecated Functionality, should be inferred from no of keys under tables
