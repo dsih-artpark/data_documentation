@@ -217,4 +217,5 @@ tables:
         - Raw data for 2013, 2014 not standardised as limited to sample hospitals and selected districts
         - BBMP line list reported by GoK not available for years 2015-2020
         - Data from BIDAR,HASSAN,BENGALURU RURAL,CHIKKABALLAPURA,TUMAKURU,UTTARA KANNADA,VIJAYANAGAR not available for 2016
+        - The preprocessing and standardisation code can be found on GitHub at dsih-artpark/epipipeline.
       references:
