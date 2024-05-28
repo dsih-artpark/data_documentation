@@ -1,0 +1,246 @@
+multiple_tables: False
+
+column_values:
+  historical: #2012-2022
+    metadata.recordID:
+      value:
+      comments:
+    metadata.recordDate:
+      value:
+      comments:
+    metadata.ISOWeek:
+      value:
+      comments:
+    metadata.diseaseName:
+      value: 'DENGUE'
+      comments:
+    metadata.diseaseCode:
+      value: 'ICD11_1D2Z'
+      comments:
+    location.country.ID: 
+      value: 'country_IN'
+      comments:
+    location.admin.hierarchy:
+      value:
+      comments:
+    location.admin1.ID:
+      value: 'state_29'
+      comments:
+    location.admin1.name:
+      value: 'KARNATAKA'
+      comments:
+    location.admin2.ID:
+      value:
+      comments:
+    location.admin2.name: 
+      value:
+      comments:
+    location.admin3.ID:
+      value:
+      comments:
+    location.admin3.name:
+      value:
+      comments:
+    daily.suspected:
+      value:
+      comments:
+    daily.tested:
+      value:
+      comments:
+    daily.positive.igm:
+      value:
+      comments:
+    daily.positive.ns1:
+      value:
+      comments:
+    daily.positive.other:
+      value:
+      comments:
+    daily.positive.total:
+      value:
+      comments:
+    daily.deaths:
+      value:
+      comments:
+    cumulative.suspected:
+      value:
+      comments:
+    cumulative.tested:
+      value:
+      comments:
+    cumulative.positive.igm:
+      value:
+      comments:
+    cumulative.positive.ns1:
+      value:
+      comments:
+    cumulative.positive.other:
+      value:
+      comments:
+    cumulative.positive.total:
+      value:
+      comments:
+    cumulative.deaths:
+      value:
+      comments:
+
+  current: # 2023-2024
+    metadata.recordID:
+      value:
+      comments:
+    metadata.recordDate:
+      value:
+      comments:
+    metadata.ISOWeek:
+      value:
+      comments:
+    metadata.diseaseName:
+      value: 'DENGUE'
+      comments:
+    metadata.diseaseCode:
+      value: 'ICD11_1D2Z'
+      comments:
+    location.country.ID: 
+      value: 'country_IN'
+      comments:
+    location.admin.hierarchy:
+      value:
+      comments:
+    location.admin1.ID:
+      value: 'state_29'
+      comments:
+    location.admin1.name:
+      value: 'KARNATAKA'
+      comments:
+    location.admin2.ID:
+      value:
+      comments:
+    location.admin2.name: 
+      value:
+      comments:
+    location.admin3.ID:
+      value:
+      comments:
+    location.admin3.name:
+      value:
+      comments:
+    daily.suspected:
+      value:
+      comments:
+    daily.tested:
+      value:
+      comments:
+    daily.positive.igm:
+      value:
+      comments:
+    daily.positive.ns1:
+      value:
+      comments:
+    daily.positive.total:
+      value:
+      comments:
+    daily.deaths:
+      value:
+      comments:
+    cumulative.suspected:
+      value:
+      comments:
+    cumulative.tested:
+      value:
+      comments:
+    cumulative.positive.igm:
+      value:
+      comments:
+    cumulative.positive.ns1:
+      value:
+      comments:
+    cumulative.positive.total:
+      value:
+      comments:
+    cumulative.deaths:
+      value:
+      comments:
+
+config:
+  skip: 2
+  cols: 19
+  min_cols:
+    - location.admin2.name
+    - daily.suspected
+    - daily.tested
+    - daily.positive.igm
+    - daily.positive.ns1
+    - daily.positive.total
+    - daily.deaths
+    - cumulative.suspected
+    - cumulative.tested
+    - cumulative.positive.igm
+    - cumulative.positive.ns1
+    - cumulative.positive.total
+    - cumulative.deaths
+  thresholds:
+    district: 65
+    subdistrict: 65
+
+
+
+column_mapping:
+  historical: # 2012-2022
+    location.admin2.name:
+      - 'district'   
+    daily.suspected:
+      - 'dengueontheday_suspectedcases'
+    daily.tested:
+      - 'dengueontheday_bloodsamplecollected'
+    daily.positive.igm:
+      - 'dengueontheday_samplespositive_igmmacelisa'
+    daily.positive.ns1: 
+      - 'dengueontheday_samplespositive_nsantign'
+    daily.positive.other: 
+      - 'dengueontheday_samplespositive_other'
+    daily.positive.total:
+      - 'dengueontheday_samplespositive_totalves'
+    daily.deaths:
+      - 'dengueontheday_death'
+    cumulative.suspected:
+      - 'denguecumalativefrom_suspectedcases'
+    cumulative.tested:
+      - 'denguecumalativefrom_bloodsamplecollected'
+    cumulative.positive.igm:
+      - 'denguecumalativefrom_noofsamplespositive_igmmacelisa'
+    cumulative.positive.ns1:
+      - 'denguecumalativefrom_noofsamplespositive_nsantign'
+    cumulative.positive.other:
+      - 'denguecumalativefrom_noofsamplespositive_other'
+    cumulative.positive.total:
+      - 'denguecumalativefrom_noofsamplespositive_totalves'
+    cumulative.deaths:
+      - 'denguecumalativefrom_death'
+
+  current: # 2023-2024
+    location.admin2.name:
+      - 'district'   
+    daily.suspected:
+      - 'dengueontheday_suspectedcases'
+    daily.tested:
+      - 'dengueontheday_bloodsamplecollected'
+    daily.positive.igm:
+      - 'dengueontheday_samplespositive_igmmacelisa'
+    daily.positive.ns1: 
+      - 'dengueontheday_samplespositive_nsantign'
+    daily.positive.total:
+      - 'dengueontheday_samplespositive_totalves'
+    daily.deaths:
+      - 'dengueontheday_death'
+    cumulative.suspected:
+      - 'denguecumalativefrom_suspectedcases'
+    cumulative.tested:
+      - 'denguecumalativefrom_bloodsamplecollected'
+    cumulative.positive.igm:
+      - 'denguecumalativefrom_noofsamplespositive_igmmacelisa'
+    cumulative.positive.ns1:
+      - 'denguecumalativefrom_noofsamplespositive_nsantign'
+    cumulative.positive.total:
+      - 'denguecumalativefrom_noofsamplespositive_totalves'
+    cumulative.deaths:
+      - 'denguecumalativefrom_death'

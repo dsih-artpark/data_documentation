@@ -77,7 +77,7 @@ tables:
         access: True
       daily.positive.other: 
         description: 'Number of other tests positive, reported on the day'
-        comments: 
+        comments: 'Available for some years'
         access: True
       daily.positive.total:
         description: 'Total tests positive, reported on the day'
@@ -103,9 +103,13 @@ tables:
         description: 'Cumulative number of positive NS1 tests, reported as of the day'
         comments:
         access: True
+      cumulative.positive.other:
+        description: 'Cumulative number of other tests positive, reported as of the day'
+        comments: 'Available for some years'
+        access: True
       cumulative.positive.total:
         description: 'Cumulative number of positives from all tests, reported as of the day'
-        comments:
+        comments: 
         access: True
       cumulative.deaths:
         description: 'Cumulative number of deaths, reported as of the day'
