@@ -1,8 +1,8 @@
-multiple_tables: False
+
 
 tables:
   bbmp-public-goods:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -160,6 +160,8 @@ tables:
         comments:
         access: True
     info:
+      about: BBMP ward-level availability of public goods such police stations, lakes, parks, government schools, bus stops & playgrounds
       source: 'https://data.opencity.in/dataset/bbmp-ward-wise-public-goods-data'
       comments:
       references:
+    

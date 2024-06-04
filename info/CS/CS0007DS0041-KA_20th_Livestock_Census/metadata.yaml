@@ -1,8 +1,6 @@
-multiple_tables: True
-
 tables:
   ka-district-livestock-pop-2019:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from python3'
         comments:
@@ -61,17 +59,18 @@ tables:
         access: True
 
     info:
+      about: '20th Karnataka livestock census'
       source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
       comments:
       references:
 
   ka-village-livestock-pop-2019:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from python3'
         comments:
         access: True
-     location.country.ID:
+      location.country.ID:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
@@ -147,7 +146,8 @@ tables:
         description: 'Sheep population'
         comments:
         access: True
-   info:
+    info:
+      about: District, Village and Ward-wise livestock population in Karnataka
       source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
       comments:
       references:

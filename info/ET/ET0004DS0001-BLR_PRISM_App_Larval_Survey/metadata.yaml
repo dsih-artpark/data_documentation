@@ -1,8 +1,8 @@
-multiple_tables: False
+
 
 tables:
   prism-app:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated from UUID4 on python3'
         comments:
@@ -113,6 +113,7 @@ tables:
         access: True
 
     info:
+      about: List of spots surveyed by BBMP ASHA workers through the PRISM-H app, along with latitude & longitude coordinates, whether it is a breeding spot, and type of breeding spot
       source: 'PRISM-H Mobile App'
       comments: 'Data collected through the App is yet to reach stability on ASHA worker training & uptake.'
       references:

@@ -1,8 +1,6 @@
-multiple_tables: True
-
 tables:
   survey_2024:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from python3'
         comments:
@@ -136,12 +134,13 @@ tables:
         comments:
         access: True
     info:
+      about: Survey on private water tank purchase and water sources, along with latitude and longitude of households
       source: 'https://data.opencity.in/dataset/bengaluru-tanker-water-data'
       comments:
       references:
 
   survey_2019: 
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from python3'
         comments:
@@ -260,6 +259,7 @@ tables:
         access: True
     
     info:
+      about: Survey on private water tank purchase and water sources, along with latitude and longitude of households
       source: 'https://data.opencity.in/dataset/bengaluru-tanker-water-data'
       comments:
       references:

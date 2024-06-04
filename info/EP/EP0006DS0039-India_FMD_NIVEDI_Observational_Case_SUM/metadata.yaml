@@ -1,8 +1,6 @@
-multiple_tables: True
-
 tables:
   india-nivedi-district-sum:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -76,12 +74,13 @@ tables:
         comments:
         access: True
     info:
+      about: Number of outbreaks, attacks and suspectible cases at the district-level (for India)
       source: NIVEDI
       comments:
       references:
 
   ka-nivedi-village_sum:
-    fields:  
+    data_dictionary:  
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -196,6 +195,7 @@ tables:
         access: True
 
     info:
+      about: Number of outbreaks, attacks and suspectible cases at the village-level (for Karnataka) 
       source: NIVEDI
       comments: Duplicates with identical values across all columns have been removed. There are still duplicates when grouped by month, year, district and species, but these have different outbreaks, deaths, susceptible values mostly data entry errors.
       references:

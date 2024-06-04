@@ -1,22 +1,9 @@
-multiple_tables: False
 
 tables:
-  pimpri-chinchwad-breeding-spots:
-    fields:
+  pune-city-hospitals-phcs:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated from UUID4 on python3'
-        comments:
-        access: True
-      metadata.diseaseName:
-        description: 'WHO ICD-11 Disease Name'
-        comments:
-        access: True
-      metadata.diseaseCode:
-        description: 'WHO ICD-11 Disease Code'
-        comments:
-        access: True
-      metadata.year:
-        description: 'Year of the survey'
         comments:
         access: True
       location.country.ID: 
@@ -57,34 +44,38 @@ tables:
         access: True
       location.admin4.ID: 
         description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
-        comments: 44 out of 255 observations (17%) where zone ID is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        comments:
         access: True
       location.admin4.name:
         description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
-        comments: 44 out of 255 observations (17%) where zone name is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        comments:
         access: True
       location.admin5.ID: 
         description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
-        comments: 44 out of 255 observations (17%) where ward ID is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        comments: 'admin_0 if unknown'
         access: True
       location.admin5.name:
         description: 'Village or Ward Name, as per Local Government Directory'
-        comments: 44 out of 255 observations (17%) where ward name is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
       location.geometry.latitude:
-        description: 'Latitude of breeding spot, from geocoding PHC Name using Google Maps API'
+        description: 'Latitude of PHC, from geocoding PHC Name using Google Maps API'
         commments:
         access: True
       location.geometry.longitude:
-        description: 'Longitude of breeding spot, from geocoding PHC Name using Google Maps API'
+        description: 'Longitude of PHC, from geocoding PHC Name using Google Maps API'
         commments:
         access: True
-      survey.breedingSpot.type:
-        description: 'Whether Breeding Spot is Temporary or Permanent'
-        comments:
+      facility.name:
+        description: 'Name PHC/Hospital'
+        commments:
         access: True
-
+      facility.address:
+        description: 'Address of PHC/Hospital'
+        commments:
+        access: True
     info:
-      source: 'PKC'
-      comments: 
+      about: Name, Address, Imputed Latitude & Longitude positions of Hospitals in Pune City and some PHCs in Pune District
+      source: PKC
+      comments:
       references:

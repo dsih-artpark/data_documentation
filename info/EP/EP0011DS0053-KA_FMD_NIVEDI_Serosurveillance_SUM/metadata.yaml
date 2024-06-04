@@ -1,8 +1,7 @@
-multiple_tables: False
 
 tables:
   nivedi-serosurv-district-sum:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -72,6 +71,7 @@ tables:
         comments: 'computed as sero.positive.cnt/sero.sample * 100'
         access: True
     info:
+      about: Number of samples and Number of positive samples for cattle, buffalo, sheep & goat
       source: NIVEDI
       comments:
         - Buffalo & Cattle Sampling (2023) - Number of Villages Having 200 + (Cattle + Buffalo) = 12082, Knowledge level = 0.1, Cluster Level = 0.036, Sensitivity of the test used = 0.9, Total No of Villages (Clusters) Selected = 91 (+5 Reserved Villages), Total No of Animals to be Sampled = 2330							

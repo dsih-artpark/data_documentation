@@ -1,8 +1,7 @@
-multiple_tables: False
 
 tables:
   pcmc-health-centres:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated from UUID4 on python3'
         comments:
@@ -76,6 +75,7 @@ tables:
         comments:
         access: True
     info:
+      about: Name, Address, Imputed Latitude & Longitude positions of CHC/PHC in Pimpri Chinchwad Municipality
       source: PKC
       comments:
       references:
