@@ -421,7 +421,7 @@ admin:
             metadata.address: ["address of the patient"]
             metadata.contact: ["contact no", "phone no"]
 
-            demographics.age: ["age"]
+            demographics.age: ["age","age in years"]
             demographics.gender: ["sex","gender"]
 
             location.admin3.name: ["taluk"]
