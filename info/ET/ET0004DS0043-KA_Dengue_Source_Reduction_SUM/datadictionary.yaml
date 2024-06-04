@@ -1,42 +1,250 @@
-multiple_tables: True
 
 tables:
-  district_summary:
-  fields:
-    metadata.recordID: 'UUID generated using UUID4 from Python 3'
-    metadata.diseaseName: 'WHO ICD-11 Disease Name'
-    metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-    metadata.primaryDate: 'Fortnight end date as of which the report is generated'
-    metadata.reportPeriod: 'Fortnight start and end date for the report'
-    location.country.ID: 'LGD Country Code'
-    location.country.name: 'LGD Country Name'
-    location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy' 
-    location.state.ID: 'LGD State Code'
-    location.state.name: 'LGD State Name'
-    location.district.ID: 'LGD District Code'
-    location.district.name: 'LGD District Name'
-    summary.noOfTaluks: 'Total number of Taluks in the district'
-    summary.noOfPhcs: 'Total number of Primary Health Centres in the district'
-    summary.noOfHouses: 'Total number of Households in the district'
-    survey.housesVisited: 'Number of households visited for the larval survey'
-    survey.housesPositive: 'Number of households found positive for Aedes breeding'
-    survey.containersSearched: 'Number of containers searched for the larval survey'
-    survey.containersPositive: 'Number of containers found positive for Aedes breeding'
-    survey.houseIndex: 'House Index provided in the raw dataset'
-      comments: 'Calculation errors exist, use survey.houseIndex.calc'
-    survey.containerIndex: 'Container Index provided in the raw dataset'
-      comments: 'Calculation errors exist, use survey.containerIndex.calc'
-    survey.breteauIndex: 'Breteau Index provided in the raw dataset'
-      comments: 'Calculation errors exist, use survey.breteauIndex.calc'
-    survey.houseIndex.calc: 'survey.housesPositive/survey.housesVisited * 100 (calculated)'
-    survey.containerIndex.calc: 'survey.containersPositive/survey.containersSearched * 100 (calculated)'
-    survey.breteauIndex.calc: 'survey.containersPositive/survey.housesVisited * 100 (calculated)'
-    survey.containersReduced: 'Number of containers where source reduction activities were carried out'
+  source-reduction-district:
+    fields:
+      metadata.recordID:
+        description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 from python3'
+        comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+      metadata.primaryDate:
+        description: 'Fortnight end date as of which the report is generated', compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 
+        access: True
+      metadata.reportPeriod:
+        description: 'Fortnight start and end date for the report'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      summary.noOfTaluks:
+        description: 'Total number of Taluks in the district'
+        comments:
+        access: True
+      summary.noOfPhcs:
+        description: 'Total number of Primary Health Centres in the district'
+        comments:
+        access: True
+      summary.noOfHouses:
+        description: 'Total number of Households in the district'
+        comments:
+        access: True
+      survey.housesVisited:
+        description: 'Number of households visited for the larval survey'
+        comments:
+        access: True
+      survey.housesPositive:
+        description: 'Number of households found positive for Aedes breeding'
+        comments:
+        access: True
+      survey.containersSearched:
+        description: 'Number of containers searched for the larval survey'
+        comments:
+        access: True
+      survey.containersPositive:
+        description: 'Number of containers found positive for Aedes breeding'
+        comments:
+        access: True
+      survey.houseIndex:
+        description: 'House Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.houseIndex.calc'
+        access: True
+      survey.containerIndex:
+        description: 'Container Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.containerIndex.calc'
+        access: True
+      survey.breteauIndex:
+        description: 'Breteau Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.breteauIndex.calc'
+        access: True
+      survey.houseIndex.calc:
+        description: 'survey.housesPositive/survey.housesVisited * 100 (calc)'
+        comments:
+        access: True
+      survey.containerIndex.calc:
+        description: 'survey.containersPositive/survey.containersSearched * 100 (calc)'
+        comments:
+        access: True
+      survey.breteauIndex.calc:
+        description: 'survey.containersPositive/survey.housesVisited * 100 (calc)'
+        comments:
+        access: True
+      survey.containersReduced:
+        description: 'Number of containers where source reduction activities were carried out'
+        comments:
+        access: True
+    info:
+      source: GoK
+      comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
+      references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
 
-  info:
-    source: GoK
-    comments: Only Annexure 1 of the raw reports have been preprocessed and standardised.
-    references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
-
-
-    
+  source-reduction-village:
+    fields:
+     metadata.recordID:
+        description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 from python3'
+        comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+      metadata.primaryDate:
+        description: 'Fortnight end date as of which the report is generated', compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 
+        access: True
+      metadata.reportPeriod:
+        description: 'Fortnight start and end date for the report'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Sub-district/ULB ID, as per Local Government Directory'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin3.name:
+        description: 'Sub-district/ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID:
+        description: 'Zone ID (for ULB) if available'
+        comments:
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (for ULB) if available'
+        comments:
+        access: True
+      location.admin5.ID:
+        description:  'LGD Village/Ward ID'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'LGD Village/Ward Name'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.healthcentre.phc:
+        description: 'PHC Name'
+        comments:
+        access: True
+      location.healthcentre.subcentre:
+        description: 'Subcentre Name'
+        comments:
+        access: True
+      summary.noOfHouses:
+        description: 'Total number of Households in the district'
+        comments:
+        access: True
+      survey.housesVisited:
+        description: 'Number of households visited for the larval survey'
+        comments:
+        access: True
+      survey.housesPositive:
+        description: 'Number of households found positive for Aedes breeding'
+        comments:
+        access: True
+      survey.containersSearched:
+        description: 'Number of containers searched for the larval survey'
+        comments:
+        access: True
+      survey.containersPositive:
+        description: 'Number of containers found positive for Aedes breeding'
+        comments:
+        access: True
+      survey.houseIndex:
+        description: 'House Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.houseIndex.calc'
+        access: True
+      survey.containerIndex:
+        description: 'Container Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.containerIndex.calc'
+        access: True
+      survey.breteauIndex:
+        description: 'Breteau Index provided in the raw dataset'
+        comments: 'Calculation errors exist, use survey.breteauIndex.calc'
+        access: True
+      survey.houseIndex.calc:
+        description: 'survey.housesPositive/survey.housesVisited * 100 (calc)'
+        comments:
+        access: True
+      survey.containerIndex.calc:
+        description: 'survey.containersPositive/survey.containersSearched * 100 (calc)'
+        comments:
+        access: True
+      survey.breteauIndex.calc:
+        description: 'survey.containersPositive/survey.housesVisited * 100 (calc)'
+        comments:
+        access: True
+      survey.containersReduced:
+        description: 'Number of containers where source reduction activities were carried out'
+        comments:
+        access: True 
+    info:
+      source: GoK
+      comments: 
+      - village-level data is incomplete, as not all districts have shared data for all time periods
+      - standardised districts are Hassan, Bagalkot, Kalaburagi, Shivamogga, Mysuru, Ballari, Bengaluru Urban, Bengaluru Rural
+      references: ppt on GDrive: https://drive.google.com/file/d/19_aRfSCCfq-wFJkFqNsQnr2O8luMdAx4/view?usp=drive_link
+   

@@ -1,33 +1,220 @@
-multiple_tables: False
+multiple_tables: True
 
-fields:
-  metadata.recordID: 'UUID generated using UUID4 from Python 3'
-  metadata.diseaseName: 'WHO ICD-11 disease name'
-  metadata.diseaseCode: 'WHO ICD-11 disease code'
-  metadata.month:
-  metadata.year:
-  location.country.ID: 'LGD Country Code'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy: 'Whether Revenue or ULB admin hierarchy'
-  location.state.ID: 'LGD State Code'
-  location.state.name: 'LGD State Name'
-  location.district.ID: 'LGD District Code'
-  location.district.name: 'LGD District Name'
-  prevac.sample: 'Number of samples tested pre-vaccination'
-  prevac.positive.A.cnt: 'Number of pre-vaccination samples positive for A-type virus'
-  prevac.positive.A.pct: 'Percentage of pre-vaccination samples positive for A-type virus (computed as prevac.positive.A.cnt/prevac.sample * 100)'
-  prevac.positive.O.cnt: 'Number of pre-vaccination samples positive for O-type virus'
-  prevac.positive.O.pct: 'Percentage of pre-vaccination samples positive for O-type virus (computed as prevac.positive.O.cnt/prevac.sample * 100)'
-  prevac.positive.asia1.cnt: 'Number of pre-vaccination samples positive for Asia1-type virus'
-  prevac.positive.asia1.pct: 'Percentage of pre-vaccination samples positive for Asia1-type virus (computed as prevac.positive.asia1.cnt/prevac.sample * 100)'
-  postvac.sample: 'Number of samples tested post-vaccination'
-  postvac.positive.A.cnt: 'Number of post-vaccination samples positive for A-type virus'
-  postvac.positive.A.pct: 'Percentage of post-vaccination samples positive for A-type virus (computed as postvac.positive.A.cnt/postvac.sample * 100)'
-  postvac.positive.O.cnt: 'Number of post-vaccination samples positive for O-type virus'
-  postvac.positive.O.pct: 'Percentage of post-vaccination samples positive for O-type virus (computed as postvac.positive.O.cnt/postvac.sample * 100)'
-  postvac.positive.asia1.cnt: 'Number of post-vaccination samples positive for Asia1-type virus'
-  postvac.positive.asia1.pct: 'Percentage of post-vaccination samples positive for Asia1-type virus (computed as postvac.positive.Asia1.cnt/postvac.sample * 100)'
-info:
-  source: 'NIVEDI'
-  comments: 'Reports are only partially accessed. They do not cover all districts'
-  references:
+tables:
+  ka-nivedi-seromon-monthly-sum:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.month:
+        description: 'Month of summary'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of summary'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      prevac.sample:
+        description: 'Number of samples tested pre-vaccination'
+        comments:
+        access: True
+      prevac.positive.A.cnt:
+        description: 'Number of pre-vaccination samples positive for A-type virus'
+        comments:
+        access: True
+      prevac.positive.A.pct:
+        description: 'Percentage of pre-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as prevac.positive.A.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.O.cnt:
+        description: 'Number of pre-vaccination samples positive for O-type virus'
+        comments:
+        access: True
+      prevac.positive.O.pct:
+        description: 'Percentage of pre-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as prevac.positive.O.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.asia1.cnt:
+        description: 'Number of pre-vaccination samples positive for Asia1-type virus'
+        comments:
+        access: True
+      prevac.positive.asia1.pct:
+        description: 'Percentage of pre-vaccination samples positive for Asia1-type virus (calc)'
+        comments: 'computed as prevac.positive.asia1.cnt/prevac.sample * 100'
+        access: True
+      postvac.sample:
+        description: 'Number of samples tested post-vaccination'
+        comments:
+        access: True
+      postvac.positive.A.cnt:
+        description: 'Number of post-vaccination samples positive for A-type virus'
+        comments:
+        access: True
+      postvac.positive.A.pct:
+        description: 'Percentage of post-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as postvac.positive.A.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.O.cnt:
+        description: 'Number of post-vaccination samples positive for O-type virus'
+        comments:
+        access: True
+      postvac.positive.O.pct:
+        description: 'Percentage of post-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as postvac.positive.O.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.asia1.cnt:
+        description: 'Number of post-vaccination samples positive for Asia1-type virus'
+        comments:
+        access: True
+      postvac.positive.asia1.pct:
+        description: 'Percentage of post-vaccination samples positive for Asia1-type virus'
+        comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
+        access: True
+    info:
+      source: 'NIVEDI'
+      comments: 'Reports are only partially accessed. They do not cover all districts'
+      references:
+
+  ka-nivedi-seromon-yearly-sum:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of summary'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      prevac.sample:
+        description: 'Number of samples tested pre-vaccination'
+        comments:
+        access: True
+      prevac.positive.A.cnt:
+        description: 'Number of pre-vaccination samples positive for A-type virus'
+        comments:
+        access: True
+      prevac.positive.A.pct:
+        description: 'Percentage of pre-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as prevac.positive.A.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.O.cnt:
+        description: 'Number of pre-vaccination samples positive for O-type virus'
+        comments:
+        access: True
+      prevac.positive.O.pct:
+        description: 'Percentage of pre-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as prevac.positive.O.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.asia1.cnt:
+        description: 'Number of pre-vaccination samples positive for Asia1-type virus'
+        comments:
+        access: True
+      prevac.positive.asia1.pct:
+        description: 'Percentage of pre-vaccination samples positive for Asia1-type virus (calc)'
+        comments: 'computed as prevac.positive.asia1.cnt/prevac.sample * 100'
+        access: True
+      postvac.sample:
+        description: 'Number of samples tested post-vaccination'
+        comments:
+        access: True
+      postvac.positive.A.cnt:
+        description: 'Number of post-vaccination samples positive for A-type virus'
+        comments:
+        access: True
+      postvac.positive.A.pct:
+        description: 'Percentage of post-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as postvac.positive.A.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.O.cnt:
+        description: 'Number of post-vaccination samples positive for O-type virus'
+        comments:
+        access: True
+      postvac.positive.O.pct:
+        description: 'Percentage of post-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as postvac.positive.O.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.asia1.cnt:
+        description: 'Number of post-vaccination samples positive for Asia1-type virus'
+        comments:
+        access: True
+      postvac.positive.asia1.pct:
+        description: 'Percentage of post-vaccination samples positive for Asia1-type virus'
+        comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
+        access: True
+    info:
+      source: 'NIVEDI'
+      comments: 'Reports are only partially accessed. They do not cover all districts'
+      references:

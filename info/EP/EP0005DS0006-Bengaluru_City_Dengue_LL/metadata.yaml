@@ -1,0 +1,225 @@
+multiple_tables: False
+
+# confirm if we need to add: pathogen name - dengue1,dengue2, dengue3
+
+
+column_values:
+  metadata.recordID:
+    value:
+    comments:
+  metadata.patientID: # Generate using patient specimen ID as name is not available?
+    value:
+    comments:
+  metadata.primaryDate: # Re-generate order after confirming that test performed date = result date
+    value:
+    comments:
+  metadata.nameAddress:
+    value:
+    comments:
+  metadata.contact: # available for some files
+    value:
+    comments:
+  metadata.patientSpecimenID: # added as patient specimen ID uniquely identifies patients
+    value:
+    comments:
+  metadata.diseaseName: 
+    value: 'DENGUE'
+    comments:
+  metadata.diseaseCode: 
+    value: 'ICD11_1D2Z'
+    comments:
+  demographics.age:
+    value:
+    comments:
+  demographics.ageRange:
+    value:
+    comments:
+  demographics.gender:
+    value:
+    comments:
+  location.country.ID: 
+    value: 'country_IN'
+    comments:
+  location.country.name: 
+    value: 'INDIA'
+    comments:
+  location.admin.hierarchy: # set default to ulb if only bbmp
+    value:
+    comments:
+  location.admin1.ID: 
+    value: 'state_29'
+    comments:
+  location.admin1.name: # state - should we filter to karnataka only?
+    value: 'KARNATAKA'
+    comments:
+  location.admin2.ID: # district - should we filter to bengaluru urban only?
+    value:
+    comments:
+  location.admin2.name: 
+    value:
+    comments:
+  location.admin3.ID: # subdistrict/ulb - if filtered to bengaluru urban, is BBMP the default?
+    value:
+    comments:
+  location.admin3.name:
+    value:
+    comments:
+  location.admin4.ID: #zone for ulb (if applicable) - provided in subdistrict field and as third digit sequence in Patient Health Id
+    value:
+    comments:
+  location.admin4.name:
+    value:
+    comments:
+  location.admin5.ID: # village or ward - information not accurate for BBMP cases
+    value:
+    comments:
+  location.admin5.name:
+    value:
+    comments:
+  location.geometry.latitude: # this is the default for imputed values - added provided
+    value:
+    comments:
+  location.geometry.longitude:
+    value:
+    comments:
+  location.geometry.coarseness:
+    value: 
+    comments:
+  location.geometry.latitude.provided: # added provided as dataset contains lat, long
+    value:
+    comments:
+  location.geometry.longitude.provided: # added provided as dataset contains lat, long
+    value:
+    comments:
+  location.geometry.coarseness.provided: # to confirm coarseness for raw data
+    value: 
+    comments:
+  location.healthcentre.hospital: # to confirm if this corresponds to Facility Name Pform
+    value:
+    comments:
+  event.symptomOnset:
+    value: 'True'
+    comments:
+  event.symptomOnsetDate:
+    value:
+    comments:
+  event.test:
+    value: 'True'
+    comments:
+  event.test.sampleCollectionDate:
+    value:
+    comments:
+  event.test.sampleCollectionCentre: # to confirm if this corresponds to Facility Name Pform
+    value:
+    comments:
+  event.test.testingLab: # to confirm if this corresponds to Facility Name Pform
+    value:
+    comments:
+  event.test.test1.code: 
+    value: '91064-6'
+    comments: 
+  event.test.test1.name: 
+    value: 'Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay'
+    comments: 
+  event.test.test1.result:
+    value:
+    comments:
+  event.test.test2.code: 
+    value: '25338-5'
+    comments:
+  event.test.test2.name: 
+    value: 'Dengue virus IgM Ab [Presence] in Serum'
+    comments:
+  event.test.test2.result:
+    value:
+    comments:
+  event.test.resultDate: # to confirm if this corresponds to test performed date/replace with new date var
+    value:
+    comments:
+  event.test.value:
+    value:
+    comments:
+  event.test.sampleType: # blood/serum/gel/plasma - to write a function
+    value:
+    comments:
+  event.test.numberOfTests:
+    value:
+    comments:
+  event.test.additionalTests.notes:
+    value:
+    comments:
+  event.notes:
+    value:
+    comments:
+  case.urbanOrRural: # does this default to urban if we filter for bbmp?
+    value:
+    comments:
+  case.opdOrIpd:
+    value:
+    comments:
+config:
+  str_cols:
+    - 'metadata.nameAddress'
+    - 'location.admin1.name' # remove if filtered to KA
+    - 'location.admin2.name'
+    - 'location.admin3.name'
+    - 'location.admin4.name'
+    - 'location.admin5.name'
+    - 'location.healthcentre.hospital' # if retained
+    - 'event.test.sampleCollectionCentre' # if retained
+    - 'event.test.testingLab' # if retained
+  thresholds: # to add state if we retain multiple states
+    district: 65
+    subdistrict: 65
+    village: 95
+  pii:
+    - 'metadata.nameAddress'
+    - 'metadata.contact'
+    - 'demographics.age'
+    - 'metadata.patientSpecimenID'
+
+ # to add 'pathogen_name', 'test_performed_date', facility_name', 'facility_name_pform', 'facility_name_lform'
+
+column_mapping:
+    test_method:
+      - 'test_performed'
+    result:
+      - 'test_result'
+    metadata.patientSpecimenID:
+      - 'patient_specimen_id'
+    name:
+      - 'patient_name'
+    address:
+      - 'patient_address'
+    metadata.contact:
+      - 'contact_number'
+    demographics.age:
+      - 'age'
+    demographics.gender:
+      - 'gender'
+    location.admin1.name:
+      - 'state'
+    location.admin2.name:
+      - 'district'
+    location.admin3.name:
+      - 'ulb'
+    location.admin4.name: # zone is recorded in sub-district
+      - 'sub_district'
+    location.admin5.name:
+      - village_or_ward
+    location.geometry.latitude.provided:
+      - latitude
+    location.geometry.longitude.provided: 
+      - longitude
+    location.healthcentre.hospital:
+    event.symptomOnsetDate:
+      - 'date_of_onset'
+    event.test.sampleCollectionDate:
+      - sample_collected_date
+    event.test.sampleCollectionCentre:
+    event.test.testingLab:
+    event.test.sampleType:
+      - sample_type
+    event.test.resultDate:
+    case.opdOrIpd:
+      - 'opd_ipd'

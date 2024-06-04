@@ -1,28 +1,90 @@
 multiple_tables: False
 
-fields:
-  metadata.recordID: 'UUID generated from UUID4 on python3'
-  metadata.diseaseName: 'WHO ICD-11 Disease Name'
-  metadata.diseaseCode: 'WHO ICD-11 Disease Code'
-  metadata.year: 'Year of the survey'
-  location.country.ID: 'LGD Country Code'
-  location.country.name: 'LGD Country Name'
-  location.admin.hierarchy:	'Whether ULB/Revenue administrative hierarchy'
-  location.state.ID: 'LGD State Code'
-  location.state.name: 'LGD State Name'
-  location.district.ID:	'LGD District Code'
-  location.district.name:	'LGD District Name'
-  location.subdistrict.ID: 'LGD Sub-district Code'
-  location.subdistrict.name: 'LGD Sub-district Name'
-  location.zone.ID:	'PCMC Zone ID'
-  location.zone.name: 'PCMC Zone Name'
-  location.ward.ID: 'LGD Ward Code'
-  location.ward.name: 'Ward Name'
-  location.geometry.latitude: 'Latitude position of breeding spot geocoded from address, using GMaps API'
-  location.geometry.longitude: 'Longitude position of breeding spot geocoded from address, using GMaps API'
-  survey.breedingSpot.type: 'Whether Breeding Spot is Temporary or Permanent'
+tables:
+  pimpri-chinchwad-breeding-spots:
+    fields:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of the survey'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID: 
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 44 out of 255 observations (17%) where zone ID is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 44 out of 255 observations (17%) where zone name is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        access: True
+      location.admin5.ID: 
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 44 out of 255 observations (17%) where ward ID is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 44 out of 255 observations (17%) where ward name is unknown (admin_0) have lat, long positions that are not within the boundary of the shape file.
+        access: True
+      location.geometry.latitude:
+        description: 'Latitude of breeding spot, from geocoding PHC Name using Google Maps API'
+        commments:
+        access: True
+      location.geometry.longitude:
+        description: 'Longitude of breeding spot, from geocoding PHC Name using Google Maps API'
+        commments:
+        access: True
+      survey.breedingSpot.type:
+        description: 'Whether Breeding Spot is Temporary or Permanent'
+        comments:
+        access: True
 
-info:
-  source: 'PKC'
-  comments: 
-  references:
+    info:
+      source: 'PKC'
+      comments: 
+      references:

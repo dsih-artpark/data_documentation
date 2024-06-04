@@ -1,8 +1,8 @@
 multiple_tables: False
 
 tables:
-  nivedi-serosurv-district-sum:
-    fields:
+  ka-nifmd-outbreaks:
+    fields:  
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -15,8 +15,8 @@ tables:
         description: 'WHO ICD-11 disease code'
         comments:
         access: True
-      metadata.reportDate:
-        description: 'Date of report in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+      metadata.month:
+        description: 'Month of summary'
         comments:
         access: True
       metadata.year:
@@ -24,7 +24,7 @@ tables:
         comments:
         access: True
       metadata.species:
-        description: 'Species'
+        description: 'Type of Species - Cattle or Buffalo'
         comments:
         access: True
       location.country.ID:
@@ -55,24 +55,40 @@ tables:
         description: 'District Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
-      sero.test:
-        description: 'Type of ELISA test'
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID:
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if known'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      serology.test.result:
+        description: 'Test result - Positive/Negative'
         comments:
-        access: True
-      sero.sample:
-        description: 'Number of samples collected'
+        access:
+      serology.test.name:
+        description: 'Test name, if available'
         comments:
-        access: True
-      sero.positive.cnt:
-        description: 'Number of samples that tested positive'
-        comments:
-        access: True
-      sero.positive.pct:
-        description: 'Percentage of samples that tested positive (calc)'
-        comments: 'computed as sero.positive.cnt/sero.sample * 100'
-        access: True
+        access:
+
     info:
-      source: NIVEDI
-      comments:
-        - Buffalo & Cattle Sampling (2023) - Number of Villages Having 200 + (Cattle + Buffalo) = 12082, Knowledge level = 0.1, Cluster Level = 0.036, Sensitivity of the test used = 0.9, Total No of Villages (Clusters) Selected = 91 (+5 Reserved Villages), Total No of Animals to be Sampled = 2330							
+      source: 'NIVEDI'
+      comments: 'Duplicates with identical values across all columns have been removed. There are still duplicates when grouped by month, year, district and species, but these have different outbreaks, deaths, susceptible values mostly data entry errors.'
       references:

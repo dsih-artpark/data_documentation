@@ -1,22 +1,18 @@
 multiple_tables: False
 
 tables:
-  prism-app:
+  ka-dengue-daily-summary:
     fields:
       metadata.recordID:
-        description: 'UUID generated from UUID4 on python3'
+        description: 'Universally Unique Identifier (UUID) for each district, generated using uuid4 from python3'
         comments:
         access: True
-      metadata.formID:
-        description: 'Unique Survey Form ID'
-        comments:
+      metadata.recordDate:
+        description: 'Date of daily summary report. Compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Manual errors in date entry, may be corrected'
         access: True
-      metadata.customerID:
-        description: 'Customer ID (ID through which form was submitted)'
-        comments:
-        access: True
-      metadata.primaryDate:
-        description: 'Date of survey in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+      metadata.ISOWeek:
+        description: 'ISO week generated from the recordDate'
         comments:
         access: True
       metadata.diseaseName:
@@ -63,56 +59,63 @@ tables:
         description: 'Subdistrict or ULB Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
-      location.admin4.ID: 
-        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
-        comments: 'Currently not mapped for BBMP and other ULBs'
-        access: True
-      location.admin4.name:
-        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
-        comments: 'Currently not mapped for BBMP and other ULBs'
-        access: True
-      location.admin5.ID: 
-        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
-        comments: 'admin_0 if unknown'
-        access: True
-      location.admin5.name:
-        description: 'Village or Ward Name, as per Local Government Directory'
-        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
-        access: True
-      location.geometry.latitude.provided:
-        description: 'Latitude position of breeding spot collected through the survey'
+      daily.suspected:
+        description: 'Number of suspected cases, reported on the day'
         comments:
         access: True
-      location.geometry.longitude.provided:
-        description: 'Longitude position of breeding spot collected through the survey'
+      daily.tested:
+        description: 'Number of tests conducted, reported on the day'
         comments:
         access: True
-      survey.breedingSpot.wasteType:
-        description: 'Whether Breeding Spot is a Drum, Sump or Other'
+      daily.positive.igm:
+        description: 'Number of IgM tests positive, reported on the day'
         comments:
         access: True
-      survey.breedingSpot.image:
-        description: 'Image of Breeding Spot'
+      daily.positive.ns1: 
+        description: 'Number of NS1 tests positive, reported on the day'
+        comments: 
+        access: True
+      daily.positive.other: 
+        description: 'Number of other tests positive, reported on the day'
+        comments: 'Available for some years'
+        access: True
+      daily.positive.total:
+        description: 'Total tests positive, reported on the day'
         comments:
         access: True
-      survey.breedingSpot.description:
-        description: 'Description of Breeding Spot'
+      daily.deaths:
+        description: 'Number of deaths, reported on the day'
         comments:
         access: True
-      survey.breedingSpot.present:
-        description: 'Whether a Breeding Spot is present'
+      cumulative.suspected:
+        description: 'Cumulative number of suspected cases, reported as of the day'
         comments:
         access: True
-      survey.sourceReduction.present:
-        description: 'Whether Source Reduction was carried out at the Breeding Spot'
+      cumulative.tested:
+        description: 'Cumulative number of tests conducted, reported as of the day'
         comments:
         access: True
-      survey.sourceReduction.image:
-        description: 'Image after Source Reduction'
+      cumulative.positive.igm:
+        description: 'Cumulative number of positive IgM tests, reported as of the day'
         comments:
         access: True
-
+      cumulative.positive.ns1:
+        description: 'Cumulative number of positive NS1 tests, reported as of the day'
+        comments:
+        access: True
+      cumulative.positive.other:
+        description: 'Cumulative number of other tests positive, reported as of the day'
+        comments: 'Available for some years'
+        access: True
+      cumulative.positive.total:
+        description: 'Cumulative number of positives from all tests, reported as of the day'
+        comments: 
+        access: True
+      cumulative.deaths:
+        description: 'Cumulative number of deaths, reported as of the day'
+        comments:
+        access: True
     info:
-      source: 'PRISM-H Mobile App'
-      comments: 'Data collected through the App is yet to reach stability on ASHA worker training & uptake.'
+      source: GoK
+      comments:
       references:
