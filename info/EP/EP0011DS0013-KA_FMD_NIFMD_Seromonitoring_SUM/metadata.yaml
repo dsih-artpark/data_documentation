@@ -1,8 +1,7 @@
-multiple_tables: True
 
 tables:
   ka-nifmd-seromon-district:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -281,6 +280,7 @@ tables:
         comments: 'computed as postvac.positive.all.cnt/postvac.sample * 100'
         access: True
     info:
+      about:
       source: NIFMD & NADCP
       comments: 
         - 2011 - Asia1 re-emerged after 5 years.

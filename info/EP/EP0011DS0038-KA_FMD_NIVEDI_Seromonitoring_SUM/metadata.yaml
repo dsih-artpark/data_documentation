@@ -1,8 +1,7 @@
-multiple_tables: True
 
 tables:
   ka-nivedi-seromon-monthly-sum:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -108,12 +107,13 @@ tables:
         comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
         access: True
     info:
+      about: Pre and post-vaccination O, A & Asia 1 positive tests by month
       source: 'NIVEDI'
       comments: 'Reports are only partially accessed. They do not cover all districts'
       references:
 
   ka-nivedi-seromon-yearly-sum:
-    fields:
+    data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
         comments:
@@ -215,6 +215,7 @@ tables:
         comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
         access: True
     info:
+      about: Pre and post-vaccination O, A & Asia 1 positive tests by year
       source: 'NIVEDI'
       comments: 'Reports are only partially accessed. They do not cover all districts'
       references:
