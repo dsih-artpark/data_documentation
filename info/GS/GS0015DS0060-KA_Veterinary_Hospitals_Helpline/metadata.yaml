@@ -1,0 +1,70 @@
+
+tables:
+  ka-helpline:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.recordDate:
+        description: 'Date on which data was extracted from source in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      name:
+        description: 'Name of Veterinary Officer'
+        comments:
+        access: True
+      designation:
+        description: 'Designation of Veterinary Officer'
+        comments:
+        access: True
+      mobile:
+        description: 'Mobile number of Veterinary Officer'
+        comments: 'publicly available data'
+        access: True
+      address:
+        description: 'Address of Veterinary Hospital'
+        comments:
+        access: True
+    info:
+      about: Helpline information for selected veterinary hospitals in some sub-districts and districts of KA
+      source: 'https://www.nivedi.res.in/Nadres_v2/kar_vet/index.php'
+      comments: 'Duplicates have been dropped'
+      references:
+    
