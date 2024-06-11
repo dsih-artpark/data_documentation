@@ -7,6 +7,9 @@ column_values:
   metadata.primaryDate:
     value:
     comments:
+  metadata.name:
+    value:
+    comments:
   metadata.address:
     value:
     comments:
@@ -103,7 +106,7 @@ column_values:
   event.test.sampleCollectionDate:
     value:
     comments:
-  event.test.sampleCollectionCentre: 
+  event.test.testingLabID:
     value:
     comments:
   event.test.testingLab:
@@ -130,22 +133,10 @@ column_values:
   event.test.resultDate:
     value:
     comments:
-  event.test.value:
-    value:
-    comments:
   event.test.sampleType:
     value:
     comments:
   event.test.numberOfTests:
-    value:
-    comments:
-  event.test.additionalTests.notes:
-    value:
-    comments:
-  event.notes:
-    value:
-    comments:
-  case.urbanOrRural:
     value:
     comments:
   case.opdOrIpd:
