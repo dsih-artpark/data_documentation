@@ -1,25 +1,25 @@
 multiple_tables: False
 
-# confirm if we need to add: pathogen name - dengue1,dengue2, dengue3
-
-
 column_values:
   metadata.recordID:
     value:
     comments:
-  metadata.patientID: # Generate using patient specimen ID as name is not available?
+  metadata.primaryDate:
     value:
     comments:
-  metadata.primaryDate: # Re-generate order after confirming that test performed date = result date
+  metadata.address:
     value:
     comments:
-  metadata.nameAddress:
+  metadata.contact:
     value:
     comments:
-  metadata.contact: # available for some files
+  metadata.patientTransactionID: # remove if not required
     value:
     comments:
-  metadata.patientSpecimenID: # added as patient specimen ID uniquely identifies patients
+  metadata.patientSpecimenID: # remove if not required
+    value:
+    comments:
+  metadata.number: # remove if not required
     value:
     comments:
   metadata.diseaseName: 
@@ -43,34 +43,34 @@ column_values:
   location.country.name: 
     value: 'INDIA'
     comments:
-  location.admin.hierarchy: # set default to ulb if only bbmp
-    value:
+  location.admin.hierarchy:
+    value: 'ULB'
     comments:
   location.admin1.ID: 
     value: 'state_29'
     comments:
-  location.admin1.name: # state - should we filter to karnataka only?
-    value: 'KARNATAKA'
-    comments:
-  location.admin2.ID: # district - should we filter to bengaluru urban only?
+  location.admin1.name:
     value:
+    comments:
+  location.admin2.ID:
+    value: 'district_525'
     comments:
   location.admin2.name: 
     value:
     comments:
-  location.admin3.ID: # subdistrict/ulb - if filtered to bengaluru urban, is BBMP the default?
-    value:
+  location.admin3.ID:
+    value: 'ulb_276600'
     comments:
   location.admin3.name:
-    value:
+    value: 'BBMP'
     comments:
-  location.admin4.ID: #zone for ulb (if applicable) - provided in subdistrict field and as third digit sequence in Patient Health Id
+  location.admin4.ID:
     value:
     comments:
   location.admin4.name:
     value:
     comments:
-  location.admin5.ID: # village or ward - information not accurate for BBMP cases
+  location.admin5.ID:
     value:
     comments:
   location.admin5.name:
@@ -91,12 +91,6 @@ column_values:
   location.geometry.longitude.provided: # added provided as dataset contains lat, long
     value:
     comments:
-  location.geometry.coarseness.provided: # to confirm coarseness for raw data
-    value: 
-    comments:
-  location.healthcentre.hospital: # to confirm if this corresponds to Facility Name Pform
-    value:
-    comments:
   event.symptomOnset:
     value: 'True'
     comments:
@@ -109,10 +103,10 @@ column_values:
   event.test.sampleCollectionDate:
     value:
     comments:
-  event.test.sampleCollectionCentre: # to confirm if this corresponds to Facility Name Pform
+  event.test.sampleCollectionCentre: 
     value:
     comments:
-  event.test.testingLab: # to confirm if this corresponds to Facility Name Pform
+  event.test.testingLab:
     value:
     comments:
   event.test.test1.code: 
@@ -133,13 +127,13 @@ column_values:
   event.test.test2.result:
     value:
     comments:
-  event.test.resultDate: # to confirm if this corresponds to test performed date/replace with new date var
+  event.test.resultDate:
     value:
     comments:
   event.test.value:
     value:
     comments:
-  event.test.sampleType: # blood/serum/gel/plasma - to write a function
+  event.test.sampleType:
     value:
     comments:
   event.test.numberOfTests:
@@ -151,7 +145,7 @@ column_values:
   event.notes:
     value:
     comments:
-  case.urbanOrRural: # does this default to urban if we filter for bbmp?
+  case.urbanOrRural:
     value:
     comments:
   case.opdOrIpd:
@@ -160,26 +154,22 @@ column_values:
 config:
   str_cols:
     - 'metadata.nameAddress'
-    - 'location.admin1.name' # remove if filtered to KA
+    - 'location.admin1.name'
     - 'location.admin2.name'
     - 'location.admin3.name'
     - 'location.admin4.name'
     - 'location.admin5.name'
-    - 'location.healthcentre.hospital' # if retained
-    - 'event.test.sampleCollectionCentre' # if retained
-    - 'event.test.testingLab' # if retained
-  thresholds: # to add state if we retain multiple states
+    - 'event.test.testingLab'
+  thresholds:
     district: 65
     subdistrict: 65
     village: 95
   pii:
-    - 'metadata.nameAddress'
+    - 'metadata.name'
+    - 'metadata.address'
     - 'metadata.contact'
     - 'demographics.age'
-    - 'metadata.patientSpecimenID'
-
- # to add 'pathogen_name', 'test_performed_date', facility_name', 'facility_name_pform', 'facility_name_lform'
-
+    
 column_mapping:
     test_method:
       - 'test_performed'
@@ -187,9 +177,9 @@ column_mapping:
       - 'test_result'
     metadata.patientSpecimenID:
       - 'patient_specimen_id'
-    name:
+    metadata.name:
       - 'patient_name'
-    address:
+    metadata.address:
       - 'patient_address'
     metadata.contact:
       - 'contact_number'
@@ -206,20 +196,20 @@ column_mapping:
     location.admin4.name: # zone is recorded in sub-district
       - 'sub_district'
     location.admin5.name:
-      - village_or_ward
+      - 'village_or_ward'
     location.geometry.latitude.provided:
-      - latitude
+      - 'latitude'
     location.geometry.longitude.provided: 
-      - longitude
-    location.healthcentre.hospital:
+      - 'longitude'
     event.symptomOnsetDate:
       - 'date_of_onset'
     event.test.sampleCollectionDate:
-      - sample_collected_date
-    event.test.sampleCollectionCentre:
+      - 'sample_collected_date'
     event.test.testingLab:
+      - 'facility_name_pform'
     event.test.sampleType:
-      - sample_type
+      - 'sample_type'
     event.test.resultDate:
+      - 'test_performed_date'
     case.opdOrIpd:
       - 'opd_ipd'
