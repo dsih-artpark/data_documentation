@@ -67,16 +67,16 @@ column_values:
   location.admin3.name:
     value: 'BBMP'
     comments:
-  location.admin4.ID:
+  location.admin4.ID: # to be imputed
     value:
     comments:
-  location.admin4.name:
+  location.admin4.name: # to be imputed
     value:
     comments:
-  location.admin5.ID:
+  location.admin5.ID: # to be imputed
     value:
     comments:
-  location.admin5.name:
+  location.admin5.name: # to be imputed
     value:
     comments:
   location.geometry.latitude: # this is the default for imputed values - added provided
@@ -184,10 +184,6 @@ column_mapping:
       - 'district'
     location.admin3.name:
       - 'ulb'
-    location.admin4.name: # zone is recorded in sub-district
-      - 'sub_district'
-    location.admin5.name:
-      - 'village_or_ward'
     location.geometry.latitude.provided:
       - 'latitude'
     location.geometry.longitude.provided: 
