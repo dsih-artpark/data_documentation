@@ -52,7 +52,7 @@ tables:
         description: 'Country name from ISO 3166'
         comments:
         access: True
-        default_value: 'India'
+        default_value: 'INDIA'
       location.admin.hierarchy:
         description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
         comments: 'Codes detailed at https://lgdirectory.gov.in.'
