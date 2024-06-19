@@ -90,6 +90,6 @@ tables:
         access: True
     info:
       about: Animal tags for serosurveillance
-      source: NIVEDI
+      source: INAPH
       comments:
       references:
