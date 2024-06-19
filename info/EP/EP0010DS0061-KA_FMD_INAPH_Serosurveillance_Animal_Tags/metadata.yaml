@@ -80,6 +80,14 @@ tables:
         description: 'Subdistrict or ULB Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
+      location.admin4.ID:
+        description: 'Zone ID' 
+        comments: 'Currently only available for selected BBMP datasets'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name'
+        comments: 'Currently only available for selected BBMP datasets'
+        access: True
       location.admin5.ID:
         description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
         comments: 'admin_0 if unknown'
