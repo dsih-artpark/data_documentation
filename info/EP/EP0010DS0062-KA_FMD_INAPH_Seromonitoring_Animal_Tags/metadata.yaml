@@ -1,1 +1,107 @@
+tables:
+  seromon-animal-tags:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      owner:
+        description: 'Name of the owner'
+        comments: 'Available in raw data'
+        access: False
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+        default_value: 'FOOT AND MOUTH DISEASE'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+        default_value: 'ICD11_1F05'
+      metadata.round:
+        description: 'Round of Seromonitoring'
+        comments: 'Retrieved from merging with EP0010DS0058'
+        access: True
+      metadata.reportPeriod:
+        description: 'Start and End year'
+        comments: 'Retrieved from merging with EP0010DS0058'
+        access: True
+      metadata.animalTag:
+        description: 'ID_Animal Tag Number'
+        comments:
+        access: True
+      metadata.registrationDate:
+        description: 'Date of Registration in ISO format'
+        comments:
+        access: True
+      metadata.vaccinationDate:
+        description: 'Date of Vaccination in ISO format'
+        comments:
+        access: True
+      demographics.dateOfBirth:
+        description: 'Date of Birth in ISO format'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID:
+        description: 'Zone ID' 
+        comments: 'Currently only available for selected BBMP datasets'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name'
+        comments: 'Currently only available for selected BBMP datasets'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+    info:
+      about: 'Animal tags for seromonitoring'
+      source: 'INAPH'
+      comments:
+      references:
 
