@@ -10,10 +10,12 @@ tables:
         description: 'WHO ICD-11 Disease Name'
         comments:
         access: True
+        default_value: 'FOOT AND MOUTH DISEASE'
       metadata.diseaseCode:
         description: 'WHO ICD-11 Disease Code'
         comments:
         access: True
+        default_value: 'ICD11_1F05'
       metadata.round:
         description: 'NADCP Vaccination Round'
         comments:
@@ -34,10 +36,12 @@ tables:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
+        default_value: 'country_IN'
       location.country.name:
         description: 'Country Name from ISO 3166'
         comments:
         access: True
+        default_value: 'INDIA'
       location.admin.hierarchy:
         description: 'Whether Revenue or ULB admin hierarchy'
         comments: 'admin_0 if unknown'
@@ -46,10 +50,12 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
+        default_value: 'state_29'
       location.admin1.name:
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
+        default_value: 'KARNATAKA'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
