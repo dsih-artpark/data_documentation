@@ -10,10 +10,12 @@ tables:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
+        default_value: 'country_IN'
       location.country.name: 
         description: 'Country name from ISO 3166'
         comments: 
         access: True
+        default_value: 'INDIA'
       location.admin.hierarchy:
         description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
         comments: 'Codes detailed at https://lgdirectory.gov.in.'
@@ -22,26 +24,32 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
         access: True
+        default_value: 'state_27'
       location.admin1.name: 
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
+        default_value: 'MAHARASHTRA'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
         access: True
+        default_value: 'district_490'
       location.admin2.name: 
         description: 'District Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
+        default_value: 'PUNE'
       location.admin3.ID:
         description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
         access: True
+        default_value: 'ulb_251528'
       location.admin3.name:
         description: 'Subdistrict or ULB Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
+        default_value: 'PIMPRI CHINCHWAD'
       location.admin4.ID: 
         description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
         comments: 
