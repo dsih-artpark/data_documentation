@@ -1,6 +1,6 @@
 
 tables:
-  seromon-animal-tags:
+  prevac-seromon-animal-tags:
     data_dictionary:
       metadata.recordID:
         description: 'UUID generated using UUID4 from Python 3'
@@ -18,10 +18,6 @@ tables:
         description: 'Round of Seromonitoring'
         comments:
         access: True
-      metadata.reportDate:
-        description: 'Date of Report in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments:
-        access: True
       metadata.reportPeriod:
         description: 'Period (start, end year) of report'
         comments:
@@ -30,10 +26,12 @@ tables:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
+        default_value: 'country_IN'
       location.country.name:
         description: 'Country Name from ISO 3166'
         comments:
         access: True
+        default_value: 'INDIA'
       location.admin.hierarchy:
         description: 'Whether Revenue or ULB admin hierarchy'
         comments: 'admin_0 if unknown'
@@ -42,10 +40,12 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
+        default_value: 'state_29'
       location.admin1.name:
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
+        default_value: 'KARNATAKA'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
@@ -62,14 +62,6 @@ tables:
         description: 'Subdistrict or ULB Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
-      location.admin4.ID:
-        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
-        comments: 'Currently not mapped for BBMP and other ULBs'
-        access: True
-      location.admin4.name:
-        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
-        comments: 'Currently not mapped for BBMP and other ULBs'
-        access: True
       location.admin5.ID:
         description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
         comments: 'admin_0 if unknown'
@@ -79,7 +71,7 @@ tables:
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
       prevac.sample:
-        description: 'Pre-Vaccination Sample Count (calc)'
+        description: 'Pre-Vaccination Sample'
         comments:
         access: True
       prevac.sample.buffalo:
@@ -90,16 +82,92 @@ tables:
         description: 'Pre-Vaccination Sample Count for Cattle'
         comments:
         access: True
-      prevac.sample.collectionDate:
-        description: 'Pre-Vaccination Sample Collection Date in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments:
-        access: True
       prevac.animalTag:
         description: 'Animal Tag of animals tested pre-vaccination'
         comments:
         access: True
+      prevac.sampleDate:
+        description: 'Pre-Vaccination Sample Collection Date in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access: True
+    info:
+      about: Pre-vac samples with animal tags for rounds 1, 2, 3 and 4
+      source: NIVEDI
+      comments: Merge with postvac-seromon-animal-tags on animal tags to check if an animal was tested pre and post
+      references:
+
+  postvac-seromon-animal-tags:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+      metadata.round:
+        description: 'Round of Seromonitoring'
+        comments:
+        access: True
+      metadata.reportPeriod:
+        description: 'Period (start, end year) of report'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
       postvac.sample:
-        description: 'Post-Vaccination Sample Count (calc)'
+        description: 'Post-Vaccination Sample'
         comments:
         access: True
       postvac.sample.buffalo:
@@ -110,16 +178,16 @@ tables:
         description: 'Post-Vaccination Sample Count for Cattle'
         comments:
         access: True
-      postvac.sample.collectionDate:
-        description: 'Post-Vaccination Sample Collection Date in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
-        comments:
-        access: True
       postvac.animalTag:
         description: 'Animal Tag of animals tested post-vaccination'
         comments:
         access: True
+      postvac.sampleDate:
+        description: 'Post-Vaccination Sample Collection Date in ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments:
+        access: True
     info:
-      about: Pre and Post samples with animal tags for rounds 1, 2, 3 and 4
+      about: Post-vac samples with animal tags for rounds 1, 2, 3 and 4
       source: NIVEDI
-      comments:
+      comments: Merge with prevac-seromon-animal-tags on animal tags to check if an animal was tested pre and post
       references:
