@@ -244,12 +244,7 @@ tables:
           district: 65
           subdistrict: 65
           village: 95
-        # pii fields to be removed at standardisation
-        pii:
-          - 'metadata.name'
-          - 'metadata.address'
-          - 'metadata.contact'
-          - 'demographics.age'
+          
         header_mapper:
           test_method:
             - 'test_performed'
