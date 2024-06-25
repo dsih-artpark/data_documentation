@@ -1,0 +1,140 @@
+tables:
+  ka_dengue_serotype:
+    data_dictionary:
+      metadata.recordID:
+        description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 based on RFC4112. unstable.'
+        comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+        access: True
+      metadata.sampleID:
+        description: 'Sample ID'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'DENGUE'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1D2Z'
+      demographics.age:
+        description: 'Age of the patient in years (restricted access)'
+        comments: 'Standardisation includes converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: False
+      demographics.ageRange:
+        description: 'Age bins that the patients age is classified into'
+        comments: 'Generated after standardisation of age entries, including converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: True
+      demographics.gender:
+        description: 'Patient gender - Male, Female or Unknown'
+        comments: 'Entries are standardised. Those that do not match with one of the following variations and their abbreviations: boy (B), male/man (M), female (F), girl (G), woman (W) are invalidated.'
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      event.test:
+        description: 'Boolean. True if patient was tested'
+        comments:
+        access: True
+        default_value: True
+      event.test.sampleCollectionDate:
+        description: 'Date of test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.test1.code:
+        description: 'LOINC Code of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: '91064-6'
+      event.test.test1.name:
+        description: 'LOINC Name of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: 'Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay'
+      event.test.test1.result.lab:
+        description: 'Result of test1 reported by the lab'
+        comments:
+        access: True
+      event.test.test1.result.NIV:
+        description: 'Result of test1 reported by NIV'
+        comments:
+        access: True
+      event.test.test2.code:
+        description: 'LOINC Code of the second test conducted'
+        comments:
+        access: True
+        default_value: '25338-5'
+      event.test.test2.name:
+        description: 'LOINC Name of the second test conducted'
+        comments:
+        access: True
+        default_value: 'Dengue virus IgM Ab [Presence] in Serum'
+      event.test.test2.result.lab:
+        description: 'Result of test2 reported by the lab'
+        comments:
+        access: True
+      event.test.test2.result.NIV:
+        description: 'Result of test2 reported by NIV'
+        comments:
+        access: True
+      event.test.test3.code:
+        description: 'LOINC Code of the third test conducted'
+        comments:
+        access: True
+        default_value: ''
+      event.test.test3.name:
+        description: 'Name of the third test conducted'
+        comments:
+        access: True
+        default_value: 'Reverse Transcription-Polymerase Chain Reaction'
+      event.test.test3.result:
+        description: 'Result of test 3'
+        comments:
+        access: True
+      event.test.test3.serotype:
+        description: 'Serotype from test 3 '
+        comments:
+        access: True     
+      event.test.numberOfTests:
+        description: 'Number of tests reported for the patient'
+        comments:
+        access: True
+
+    info:
+      about: "This dataset contains sample-wise results for IgM, NS1, RT-PCR with RT-PCR serotype"
+      source: "GoK RT-PCR reports"
+      comments:
+          - Raw data contains report date, patient name that have not been included in the standardised dataset
+      references:
+
