@@ -179,7 +179,7 @@ tables:
         standardised:
             v3:
                 Bucket: "dsih-artpark-03-standardised-data"
-                DSID: "EP0006DS0015"
+                Prefix: "EP0006DS0015-KA_Dengue_Daily_SUM/"
                 URI: "s3://dsih-artpark-03-standardised-data/EP0006DS0015-KA_Dengue_Daily_SUM/"
             v2:
                 Bucket: "artpark-1health-hh-live-data"
