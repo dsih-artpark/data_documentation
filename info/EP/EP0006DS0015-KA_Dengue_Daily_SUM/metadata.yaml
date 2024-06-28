@@ -123,19 +123,19 @@ tables:
       skip_rows: 2
       max_col_index: 19
       min_cols:
-        - location.admin2.name
-        - daily.suspected
-        - daily.tested
-        - daily.positive.igm
-        - daily.positive.ns1
-        - daily.positive.total
-        - daily.deaths
-        - cumulative.suspected
-        - cumulative.tested
-        - cumulative.positive.igm
-        - cumulative.positive.ns1
-        - cumulative.positive.total
-        - cumulative.deaths
+        - 'location.admin2.name'
+        - 'daily.suspected'
+        - 'daily.tested'
+        - 'daily.positive.igm'
+        - 'daily.positive.ns1'
+        - 'daily.positive.total'
+        - 'daily.deaths'
+        - 'cumulative.suspected'
+        - 'cumulative.tested'
+        - 'cumulative.positive.igm'
+        - 'cumulative.positive.ns1'
+        - 'cumulative.positive.total'
+        - 'cumulative.deaths'
       thresholds:
         district: 65
         subdistrict: 65
@@ -178,14 +178,14 @@ tables:
             Suffix: '.xlsx'
         standardised:
             v3:
-                Bucket: "dsih-artpark-03-standardised-data"
-                Prefix: "EP0006DS0015-KA_Dengue_Daily_SUM/"
-                URI: "s3://dsih-artpark-03-standardised-data/EP0006DS0015-KA_Dengue_Daily_SUM/"
+                Bucket: 'dsih-artpark-03-standardised-data'
+                Prefix: 'EP0006DS0015-KA_Dengue_Daily_SUM/'
+                URI: 's3://dsih-artpark-03-standardised-data/EP0006DS0015-KA_Dengue_Daily_SUM/'
             v2:
-                Bucket: "artpark-1health-hh-live-data"
-                Prefix: "state-karnataka/summaries_daily_v2/"
-                URI: "s3://artpark-1health-hh-live-data/state-karnataka/summaries_daily_v2/"
+                Bucket: 'artpark-1health-hh-live-data'
+                Prefix: 'state-karnataka/summaries_daily_v2/'
+                URI: 's3://artpark-1health-hh-live-data/state-karnataka/summaries_daily_v2/'
             v1: 
-                Bucket: "artpark-1health-hh-live-data"
-                Prefix: "state-karnataka/summaries-daily/"
-                URI: "s3://artpark-1health-hh-live-data/state-karnataka/summaries-daily/"
+                Bucket: 'artpark-1health-hh-live-data'
+                Prefix: 'state-karnataka/summaries-daily/'
+                URI: 's3://artpark-1health-hh-live-data/state-karnataka/summaries-daily/'
