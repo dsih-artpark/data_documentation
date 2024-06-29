@@ -13,7 +13,7 @@ tables:
         description: 'WHO ICD-11 Disease Name'
         comments:
         access: True
-        default_value: 'DENGUE'
+        default_value: 'Dengue'
       metadata.diseaseCode:
         description: 'WHO ICD-11 Disease Code'
         comments:
@@ -40,7 +40,7 @@ tables:
         description: 'Country name from ISO 3166'
         comments:
         access: True
-        default_value: 'INDIA'
+        default_value: 'India'
       location.admin.hierarchy:
         description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
         comments: 'Codes detailed at https://lgdirectory.gov.in.'
@@ -54,7 +54,7 @@ tables:
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-        default_value: 'KARNATAKA'
+        default_value: 'Karnataka'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
@@ -112,12 +112,12 @@ tables:
         description: 'LOINC Code of the third test conducted'
         comments:
         access: True
-        default_value: ''
+        default_value: '7855-0'
       event.test.test3.name:
         description: 'Name of the third test conducted'
-        comments:
+        comments: RT-PCR
         access: True
-        default_value: 'Reverse Transcription-Polymerase Chain Reaction'
+        default_value: 'Dengue virus 1+2+3+4 RNA [Presence] in Serum by NAA with probe detection'
       event.test.test3.result:
         description: 'Result of test 3'
         comments:
