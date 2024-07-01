@@ -17,18 +17,22 @@ tables:
         description: 'WHO ICD-11 Disease Name'
         comments:
         access: True
+        default_value: 'Dengue'
       metadata.diseaseCode:
         description: 'WHO ICD-11 Disease Code'
         comments:
         access: True
+        default_value: 'ICD11_1D2Z'
       location.country.ID: 
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
         access: True
+        default_value: 'country_IN'
       location.country.name: 
         description: 'Country name from ISO 3166'
         comments: 
         access: True
+        default_value: 'India'
       location.admin.hierarchy:
         description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
         comments: 'Codes detailed at https://lgdirectory.gov.in.'
@@ -37,10 +41,12 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
         access: True
+        default_value: 'state_29'
       location.admin1.name: 
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
+        default_value: 'Karnataka'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
@@ -140,6 +146,8 @@ tables:
         district: 65
         subdistrict: 65
       column_mapping:
+        sl_no:
+          - 'sl_no'
         location.admin2.name:
           - 'district'   
         daily.suspected:
