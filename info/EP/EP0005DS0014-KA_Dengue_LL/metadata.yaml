@@ -402,22 +402,22 @@ admin:
         district_specific_errors:
             district_543:
                 event.test.sampleCollectionCenter: 
-                - 'date of sampl collected at'
+                  - 'date_of_sampl_collected_at'
 
         standard_mapper: # missed cases to handle directly in code: Kolar (542) and Raichur (546) test result
             metadata.nameAddress:
-              - 'name and address of the patient'
-              - 'name & address of the patient'
+              - 'name_and_address_of_the_patient'
+              - 'name_address_of_the_patient'
             metadata.name:
               - 'name'
             metadata.address:
-              - 'address of the patient'
+              - 'address_of_the_patient'
             metadata.contact:
-              - 'contact no'
-              - 'phone no'
+              - 'contact_no'
+              - 'phone_no'
             demographics.age:
               - 'age'
-              - 'age in years'
+              - 'age_in_years'
             demographics.gender:
               - 'sex'
               - 'gender'
@@ -431,39 +431,39 @@ admin:
             location.healthcentre.subcentre:
               - 'subcentere'
               - 'subcentre'
-              - 'sub centre'
+              - 'sub_centre'
             event.symptomOnsetDate:
-              - 'date of onset of fever'
-              - 'date of onset of symptom'
-              - 'date of onset of symptoms'
+              - 'date_of_onset_of_fever'
+              - 'date_of_onset_of_symptom'
+              - 'date_of_onset_of_symptoms'
             event.test.sampleCollectionCenter:
-              - 'sample collected'
-              - 'sample collected at'
+              - 'sample_collected'
+              - 'sample_collected_at'
             event.test.sampleCollectionDate:
-              - 'date of samples collected'
-              - 'date of samples collection'
+              - 'date_of_samples_collected'
+              - 'date_of_samples_collection'
             event.test.resultDate:
-              - 'date of test ferformed'
-              - 'date of detection'
+              - 'date_of_test_ferformed'
+              - 'date_of_detection'
             event.test.test1.result:
-              - 'dengue elisa result'
-              - 'dengue elisa result ns1 positive'
-              - 'dengue elisa ns1 positive'
-              - 'dengue result (ns1 elisa)'
+              - 'dengue_elisa_result'
+              - 'dengue_elisa_result_ns1_positive'
+              - 'dengue_elisa_ns1_positive'
+              - 'dengue_result_ns1_elisa'
             event.test.test2.result:
-              - 'ig m positive'
-              - 'igm positive'
-              - 'dengue elisa ig m positive'
+              - 'ig_m_positive'
+              - 'igm_positive'
+              - 'dengue_elisa_ig_m_positive'
             event.test.testingLab:
-              - 'lab where the test is confirmed'
+              - 'lab_where_the_test_is_confirmed'
             case.urbanOrRural:
-              - 'case belongs to rural urban'
+              - 'case_belongs_to_rural_urban'
             case.publicOrPrivate:
-              - 'case reported from public private'
+              - 'case_reported_from_public_private'
             case.surveillance:
-              - 'case detected in active passive'
+              - 'case_detected_in_active_passive'
             case.opdOrIpd:
-              - 'opd ipd'
+              - 'opd_ipd'
 
         required_headers:
           - 'metadata.nameAddress'
