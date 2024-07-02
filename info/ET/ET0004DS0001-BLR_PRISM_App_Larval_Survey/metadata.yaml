@@ -141,6 +141,10 @@ tables:
         description: 'Customer ID (ID through which form was submitted)'
         comments:
         access: True
+      metadata.name:
+        description: 'ASHA worker name (restricted access)'
+        comments: 'In raw data'
+        access: False
       metadata.primaryDateTime:
         description: 'Date and time of survey in ISO 8601 format'
         comments:
