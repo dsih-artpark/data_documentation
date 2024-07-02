@@ -1,7 +1,6 @@
 
-
 tables:
-  prism-app:
+  prism-app-v0:
     data_dictionary:
       metadata.recordID:
         description: 'UUID generated from UUID4 on python3'
@@ -124,6 +123,203 @@ tables:
 
     info:
       about: List of spots surveyed by BBMP ASHA workers through the PRISM-H app, along with latitude & longitude coordinates, whether it is a breeding spot, and type of breeding spot
-      source: 'PRISM-H Mobile App'
+      source: 'PRISM-H Mobile App v1'
       comments: 'Data collected through the App is yet to reach stability on ASHA worker training & uptake.'
       references:
+
+  prism-app-v1:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      metadata.formID:
+        description: 'Unique Survey Form ID'
+        comments:
+        access: True
+      metadata.customerID:
+        description: 'Customer ID (ID through which form was submitted)'
+        comments:
+        access: True
+      metadata.primaryDateTime:
+        description: 'Date and time of survey in ISO 8601 format'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'Dengue'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1D2Z'
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+        default_value: 'India'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+        default_value: 'ULB'
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Karnataka'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+        default_value: 'district_525'
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+        default_value: 'Bengaluru Urban'
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+        default_value: 'ulb_276600'
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+        default_value: 'BBMP'
+      location.admin4.ID: 
+        description: 'Zone ID (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), provided by the ULB/State'
+        comments: 'Currently not mapped for BBMP and other ULBs'
+        access: True
+      location.admin5.ID: 
+        description: 'Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.geometry.latitude.provided:
+        description: 'Latitude position of breeding spot collected through the survey'
+        comments: 'Not checked for bounds'
+        access: True
+      location.geometry.longitude.provided:
+        description: 'Longitude position of breeding spot collected through the survey'
+        comments: 'Not checked for bounds'
+        access: True
+      survey.breedingSpot.wasteType:
+        description: 'Whether Breeding Spot is a Drum, Sump or Other'
+        comments:
+        access: True
+      survey.breedingSpot.image:
+        description: 'Image of Breeding Spot'
+        comments:
+        access: True
+      survey.breedingSpot.imageURL:
+        description: 'URL of Breeding Spot Image'
+        comments:
+        access: True
+      survey.breedingSpot.present:
+        description: 'Whether a Breeding Spot is present'
+        comments:
+        access: True
+      survey.breedingSpot.indoor:
+        description: 'Whether Breeding Spot is indoor'
+        comments: 'Present if atleast one non-null value exists'
+        access: True
+      survey.breedingSpot.outdoor:
+        description: 'Whether Breeding Spot is outdoor'
+        comments: 'Present if atleast one non-null value exists'
+        access: True
+      survey.sourceReduction.present:
+        description: 'Whether Source Reduction was carried out at the Breeding Spot'
+        comments:
+        access: True
+      survey.remarks:
+        description: 'Additional remarks'
+        comments: 'Present if atleast one non-null value exists'
+        access: True
+    info:
+      about: List of spots surveyed by BBMP ASHA workers through the PRISM-H app, along with latitude & longitude coordinates, whether it is a breeding spot, and type of breeding spot
+      source: 'PRISM-H Mobile App v2'
+      comments: 'Data collected through the App is yet to reach stability on ASHA worker training & uptake.'
+      references:
+
+    config:
+      column_mapper:
+        metadata.formID:
+          - 'id'
+        metadata.customerID:
+          - 'uid'
+        metadata.name:
+          - 'asha_worker'
+        metadata.primaryDateTime:
+          - 'date_and_time'
+        location.geometry.latitude.provided:
+          - 'latitude'
+        location.geometry.longitude.provided:
+          - 'longitude'
+        survey.breedingSpot.present:
+          - 'breeding_spot'
+        survey.breedingSpot.wasteType:
+          - 'container_type'
+        survey.breedingSpot.indoor:
+          - 'indoor'
+        survey.breedingSpot.outdoor:
+          - 'outdoor'
+        survey.breedingSpot.image:
+          - 'image'
+        survey.breedingSpot.imageURL:
+          - 'image_url'
+        location.admin5.name:
+          - 'ward_name'
+        location.admin5.ID:
+          - 'ward_number'
+        survey.sourceReduction.present:
+          - 'source_reduction'
+        survey.remarks:
+          - 'remarks'
+
+      str_vars:
+        - 'survey.breedingSpot.present'
+        - 'survey.breedingSpot.wasteType'
+        - 'survey.breedingSpot.indoor'
+        - 'survey.breedingSpot.outdoor'
+        - 'survey.sourceReduction.present'
+        - 'location.admin5.name'
+      
+      required_cols:
+        - 'metadata.customerID'
+        - 'metadata.name'
+        - 'metadata.primaryDateTime'
+        - 'location.geometry.latitude.provided'
+        - 'location.geometry.longitude.provided'
+        - 'survey.breedingSpot.present'
+        - 'survey.breedingSpot.wasteType'
+        - 'survey.breedingSpot.image'
+        - 'survey.breedingSpot.imageURL'
+        - 'location.admin5.name'
+        - 'location.admin5.ID'
+        - 'survey.sourceReduction.present'
+
+        
+        
+        
+        
