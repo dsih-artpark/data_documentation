@@ -242,6 +242,9 @@ admin:
     # Columns that are strings
     str_cols:
       - 'metadata.nameAddress'
+      - 'location.admin2.name'
+      - 'location.admin3.name'
+      - 'location.admin5.name'
       - 'location.healthcentre.phc'
       - 'location.healthcentre.subcentre'
       - 'location.healthcentre.ssh'
