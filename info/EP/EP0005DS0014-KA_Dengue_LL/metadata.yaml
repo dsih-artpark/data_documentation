@@ -239,6 +239,14 @@ admin:
         Prefix: 'state-karnataka/line-lists/'
 
   config:
+  # Columns & districts where "" has been used to indicate ffill
+    ffill:
+      district_532:
+        - 'location.healthcentre.phc'
+        - 'location.healthcentre.subcentre'
+        - 'location.admin3.name'
+        - 'location.admin5.name'
+      
     # Columns that are strings
     str_cols:
       - 'location.admin2.name'
