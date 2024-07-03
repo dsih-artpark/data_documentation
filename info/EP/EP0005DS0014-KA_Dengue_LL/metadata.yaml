@@ -240,7 +240,7 @@ admin:
 
   config:
   # Columns & districts where "" has been used to indicate ffill
-    ffill:
+    ffill_cols:
       district_532:
         - 'location.healthcentre.phc'
         - 'location.healthcentre.subcentre'
