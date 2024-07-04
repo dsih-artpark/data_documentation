@@ -1,5 +1,5 @@
 tables:
-  std-bbmp_line_list:
+  bbmp_line_list:
     data_dictionary:
       metadata.recordID:
         description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 based on RFC4112. unstable.'
