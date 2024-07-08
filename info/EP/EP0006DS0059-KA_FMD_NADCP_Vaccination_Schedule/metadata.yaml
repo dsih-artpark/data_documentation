@@ -1,0 +1,73 @@
+tables:
+  nadcp-vaccination-schedule:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'FOOT AND MOUTH DISEASE'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1F05'
+      metadata.round:
+        description: 'NADCP Vaccination Schedule Round'
+        comments:
+        access: True
+      metadata.vaccinationSchedule:
+        description: 'Date on which vaccinations are scheduled in ISO 8601 format. Multiple dates are split into separate rows.'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict/ULB ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5251, the ID is subdistrict_5251. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict/ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin5.ID:
+        description: 'Village/ward ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a village has LGD code 268832, the ID is village_268832. admin_0 if unknown.'
+        access: True
+      location.admin5.name:
+        description: 'Village/ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
