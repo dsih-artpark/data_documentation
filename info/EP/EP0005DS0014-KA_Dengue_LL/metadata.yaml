@@ -228,257 +228,519 @@ tables:
           - 'The preprocessing and standardisation code can be found on GitHub at dsih-artpark/epipipeline.'
       references:
 
-# For Adming Purposes Only
-admin:
-  dsid:
-    raw: 'EPRDS7'
-    preprocessed: 'EP0005DS0014'
-    standardised: 'EP0005DS0014'
-    v1:
-        Bucket: 'artpark-1health-hh-live-data'
-        Prefix: 'state-karnataka/line-lists/'
+      # For Adming Purposes Only
+    admin:
+      dsid:
+        raw: 'EPRDS7'
+        preprocessed: 'EP0005DS0014'
+        standardised: 'EP0005DS0014'
+        v1:
+            Bucket: 'artpark-1health-hh-live-data'
+            Prefix: 'state-karnataka/line-lists/'
 
-  config:
-  # Columns & districts where "" has been used to indicate ffill
-    ffill_cols:
-      district_532:
-        - 'location.healthcentre.phc'
-        - 'location.healthcentre.subcentre'
-        - 'location.admin3.name'
-        - 'location.admin5.name'
-      
-    # Columns that are strings
-    str_cols:
-      - 'location.admin2.name'
-      - 'location.admin3.name'
-      - 'location.admin5.name'
-      - 'location.healthcentre.phc'
-      - 'location.healthcentre.subcentre'
-      - 'event.test.testingLab'
-    
-    # Thresholds for fuzzy matching
-    thresholds:
-      district: 65
-      subdistrict: 65
-      village: 95
-
-    # Expected Files for data from 2023 onwards
-    expected_files:
-      2023:
-        - '2023A1.xlsx'
-        - '2023A2.xlsx'
-        - '2023B1.xlsx'
-        - '2023B2.xlsx'
-        
-      2024:
-        - '2024A1.xlsx'
-        - '2024A2.xlsx'
-        - '2024B1.xlsx'
-        - '2024B2.xlsx'
-        
-    # codes to map sheets to districts. unstable.
-    sheet_codes:
-        BKT: 'district_524'
-        BLR: 'district_528'
-        BGM: 'district_527'
-        BANRURAL: 'district_526'
-        BURB: 'district_525'
-        BDR: 'district_529'
-        CRG: 'district_531'
-        CBP: 'district_630'
-        CMG: 'district_532'
-        CTC: 'district_533'
-        DK: 'district_534'
-        DVG: 'district_535'
-        DWD: 'district_536'
-        GDG: 'district_537'
-        HSN: 'district_539'
-        HVR: 'district_540'
-        KLB: 'district_538'
-        KDG: 'district_541'
-        KLR: 'district_542'
-        KPL: 'district_543'
-        MAND: 'district_544'
-        MYS: 'district_545'
-        RCH: 'district_546'
-        RMG: 'district_631'
-        SMG: 'district_547'
-        TMK: 'district_548'
-        UDP: 'district_549'
-        UK: 'district_550'
-        VNR: 'district_738'
-        VJP: 'district_530'
-        YDR: 'district_635'
-
-    header_mapper:
-      historical: # 2015-2022
-        name:
-          - 'name'
-        address:
-          - 'address'
-        test_method:
-          - 'igm_ns1'
-        metadata.nameAddress:
-          - 'name_address_of_the_patient'
-        metadata.contact:
-          - 'contact_number'
-          - 'phone_number'
-          - 'mobile_number'
-          - 'patient_mobile'
-          - 'contact'
-          - 'mobile'
-        demographics.age:
-          - 'age'
-        demographics.gender:
-          - 'gender'
-          - 'sex'
-        agegender:
-          - 'agegender'
-        location.admin2.name:
-          - 'district'
-        location.admin3.name:
-          - 'taluk'
-          - 'subdistrict'
-        location.admin4.name:
-          - 'zone'
-        location.admin5.ID:
-          - 'ward_number'
-        location.admin5.name:
-          - 'village'
-          - 'villagge'
-          - 'ward_name'
-        location.healthcentre.phc:
-          - 'phc'
-          - 'name_of_the_p_hc_case_belong'
-        location.healthcentre.subcentre:
-          - 'subcenter'
-          - 'subcentre'
-          - 'ssubcenter'
-        location.healthcentre.hospital:
-          - 'hospital_name'
-          - 'reported_institution'
-          - 'referred_from'
-          - 'hospital'
-        event.symptomOnsetDate:
-          - 'symptom_date'
-          - 'date_of_onset_of_fever'
-          - 'date_of_onset_of_symptom'
-        event.test.sampleCollectionDate:
-          - 'sample_date'
-          - 'date_of_samples_collection'
-          - 'date_of_samples_collected'
-          - 'date_of_collection'
-        event.test.sampleCollectionCentre:
-          - 'sample_collected_at'
-        event.test.testingLab:
-          - 'lab'
-          - 'lab_where_the_test_is_confirmed'
-        event.test.test1.result:
-          - 'ns1'
-          - 'ns1_positive'
-          - 'dengue_elisa_result'
-        event.test.test2.result:
-          - 'igm'
-          - 'ig_m_positive'
-        event.test.resultDate:
-          - 'result_date'
-          - 'date_of_detection'
-        event.notes:
-          - 'remarks'
-          - 'remark'
-        case.urbanRural:
-          - 'case_belongs_to_rural_urban'
-        case.publicOrPrivate:
-          - 'case_reported_from_public_private'
-          - 'private_public'
-          - 'private'
-          - 'public_private'
-        case.surveillance:
-          - 'case_detected_in_active_passive'
-        case.opdOrIpd:
-          - 'opdip'
-      
-      live: # 2023 onwards
-        # Districts where the header is only one row - Kolar, Raichur, Udupi
-        no_merge_headers:
-          district_542: 'merged_ns1_igm_col_header'
-          district_546: 'merged_ns1_igm_cols'
-          district_549: None
+      config:
+      # Columns & districts where "" has been used to indicate ffill
+        ffill_cols:
+          district_532:
+            - 'location.healthcentre.phc'
+            - 'location.healthcentre.subcentre'
+            - 'location.admin3.name'
+            - 'location.admin5.name'
           
-        district_specific_errors:
-            district_543:
-                event.test.sampleCollectionCenter: 
-                  - 'date_of_sampl_collected_at'
-
-        standard_mapper: # missed cases to handle directly in code: Kolar (542) and Raichur (546) test result
-            metadata.nameAddress:
-              - 'name_and_address_of_the_patient'
-              - 'name_address_of_the_patient'
-            metadata.name:
-              - 'name'
-            metadata.address:
-              - 'address_of_the_patient'
-            metadata.contact:
-              - 'contact_no'
-              - 'phone_no'
-            demographics.age:
-              - 'age'
-              - 'age_in_years'
-            demographics.gender:
-              - 'sex'
-              - 'gender'
-            location.admin3.name:
-              - 'taluk'
-            location.admin5.name:
-              - 'village'
-              - 'villege'
-            location.healthcentre.phc:
-              - 'phc'
-            location.healthcentre.subcentre:
-              - 'subcentere'
-              - 'subcentre'
-              - 'sub_centre'
-            event.symptomOnsetDate:
-              - 'date_of_onset_of_fever'
-              - 'date_of_onset_of_symptom'
-              - 'date_of_onset_of_symptoms'
-            event.test.sampleCollectionCenter:
-              - 'sample_collected'
-              - 'sample_collected_at'
-            event.test.sampleCollectionDate:
-              - 'date_of_samples_collected'
-              - 'date_of_samples_collection'
-            event.test.resultDate:
-              - 'date_of_test_ferformed'
-              - 'date_of_detection'
-            event.test.test1.result:
-              - 'dengue_elisa_result'
-              - 'dengue_elisa_result_ns1_positive'
-              - 'dengue_elisa_ns1_positive'
-              - 'dengue_result_ns1_elisa'
-            event.test.test2.result:
-              - 'ig_m_positive'
-              - 'igm_positive'
-              - 'dengue_elisa_ig_m_positive'
-            event.test.testingLab:
-              - 'lab_where_the_test_is_confirmed'
-            case.urbanOrRural:
-              - 'case_belongs_to_rural_urban'
-            case.publicOrPrivate:
-              - 'case_reported_from_public_private'
-            case.surveillance:
-              - 'case_detected_in_active_passive'
-            case.opdOrIpd:
-              - 'opd_ipd'
-
-        required_headers:
-          - 'metadata.nameAddress'
-          - 'demographics.age'
-          - 'demographics.gender'
+        # Columns that are strings
+        str_cols:
+          - 'location.admin2.name'
           - 'location.admin3.name'
           - 'location.admin5.name'
           - 'location.healthcentre.phc'
           - 'location.healthcentre.subcentre'
+          - 'event.test.testingLab'
+        
+        # Thresholds for fuzzy matching
+        thresholds:
+          district: 65
+          subdistrict: 65
+          village: 95
+
+        # Expected Files for data from 2023 onwards
+        expected_files:
+          2023:
+            - '2023A1.xlsx'
+            - '2023A2.xlsx'
+            - '2023B1.xlsx'
+            - '2023B2.xlsx'
+            
+          2024:
+            - '2024A1.xlsx'
+            - '2024A2.xlsx'
+            - '2024B1.xlsx'
+            - '2024B2.xlsx'
+            
+        # codes to map sheets to districts. unstable.
+        sheet_codes:
+            BKT: 'district_524'
+            BLR: 'district_528'
+            BGM: 'district_527'
+            BANRURAL: 'district_526'
+            BURB: 'district_525'
+            BDR: 'district_529'
+            CRG: 'district_531'
+            CBP: 'district_630'
+            CMG: 'district_532'
+            CTC: 'district_533'
+            DK: 'district_534'
+            DVG: 'district_535'
+            DWD: 'district_536'
+            GDG: 'district_537'
+            HSN: 'district_539'
+            HVR: 'district_540'
+            KLB: 'district_538'
+            KDG: 'district_541'
+            KLR: 'district_542'
+            KPL: 'district_543'
+            MAND: 'district_544'
+            MYS: 'district_545'
+            RCH: 'district_546'
+            RMG: 'district_631'
+            SMG: 'district_547'
+            TMK: 'district_548'
+            UDP: 'district_549'
+            UK: 'district_550'
+            VNR: 'district_738'
+            VJP: 'district_530'
+            YDR: 'district_635'
+
+        header_mapper:
+          historical: # 2015-2022
+            name:
+              - 'name'
+            address:
+              - 'address'
+            test_method:
+              - 'igm_ns1'
+            metadata.nameAddress:
+              - 'name_address_of_the_patient'
+            metadata.contact:
+              - 'contact_number'
+              - 'phone_number'
+              - 'mobile_number'
+              - 'patient_mobile'
+              - 'contact'
+              - 'mobile'
+            demographics.age:
+              - 'age'
+            demographics.gender:
+              - 'gender'
+              - 'sex'
+            agegender:
+              - 'agegender'
+            location.admin2.name:
+              - 'district'
+            location.admin3.name:
+              - 'taluk'
+              - 'subdistrict'
+            location.admin4.name:
+              - 'zone'
+            location.admin5.ID:
+              - 'ward_number'
+            location.admin5.name:
+              - 'village'
+              - 'villagge'
+              - 'ward_name'
+            location.healthcentre.phc:
+              - 'phc'
+              - 'name_of_the_p_hc_case_belong'
+            location.healthcentre.subcentre:
+              - 'subcenter'
+              - 'subcentre'
+              - 'ssubcenter'
+            location.healthcentre.hospital:
+              - 'hospital_name'
+              - 'reported_institution'
+              - 'referred_from'
+              - 'hospital'
+            event.symptomOnsetDate:
+              - 'symptom_date'
+              - 'date_of_onset_of_fever'
+              - 'date_of_onset_of_symptom'
+            event.test.sampleCollectionDate:
+              - 'sample_date'
+              - 'date_of_samples_collection'
+              - 'date_of_samples_collected'
+              - 'date_of_collection'
+            event.test.sampleCollectionCentre:
+              - 'sample_collected_at'
+            event.test.testingLab:
+              - 'lab'
+              - 'lab_where_the_test_is_confirmed'
+            event.test.test1.result:
+              - 'ns1'
+              - 'ns1_positive'
+              - 'dengue_elisa_result'
+            event.test.test2.result:
+              - 'igm'
+              - 'ig_m_positive'
+            event.test.resultDate:
+              - 'result_date'
+              - 'date_of_detection'
+            event.notes:
+              - 'remarks'
+              - 'remark'
+            case.urbanRural:
+              - 'case_belongs_to_rural_urban'
+            case.publicOrPrivate:
+              - 'case_reported_from_public_private'
+              - 'private_public'
+              - 'private'
+              - 'public_private'
+            case.surveillance:
+              - 'case_detected_in_active_passive'
+            case.opdOrIpd:
+              - 'opdip'
+          
+          live: # 2023 onwards
+            # Districts where the header is only one row - Kolar, Raichur, Udupi
+            no_merge_headers:
+              district_542: 'merged_ns1_igm_col_header'
+              district_546: 'merged_ns1_igm_cols'
+              district_549: None
+              
+            district_specific_errors:
+                district_543:
+                    event.test.sampleCollectionCenter: 
+                      - 'date_of_sampl_collected_at'
+
+            standard_mapper: # missed cases to handle directly in code: Kolar (542) and Raichur (546) test result
+                metadata.nameAddress:
+                  - 'name_and_address_of_the_patient'
+                  - 'name_address_of_the_patient'
+                metadata.name:
+                  - 'name'
+                metadata.address:
+                  - 'address_of_the_patient'
+                metadata.contact:
+                  - 'contact_no'
+                  - 'phone_no'
+                demographics.age:
+                  - 'age'
+                  - 'age_in_years'
+                demographics.gender:
+                  - 'sex'
+                  - 'gender'
+                location.admin3.name:
+                  - 'taluk'
+                location.admin5.name:
+                  - 'village'
+                  - 'villege'
+                location.healthcentre.phc:
+                  - 'phc'
+                location.healthcentre.subcentre:
+                  - 'subcentere'
+                  - 'subcentre'
+                  - 'sub_centre'
+                event.symptomOnsetDate:
+                  - 'date_of_onset_of_fever'
+                  - 'date_of_onset_of_symptom'
+                  - 'date_of_onset_of_symptoms'
+                event.test.sampleCollectionCenter:
+                  - 'sample_collected'
+                  - 'sample_collected_at'
+                event.test.sampleCollectionDate:
+                  - 'date_of_samples_collected'
+                  - 'date_of_samples_collection'
+                event.test.resultDate:
+                  - 'date_of_test_ferformed'
+                  - 'date_of_detection'
+                event.test.test1.result:
+                  - 'dengue_elisa_result'
+                  - 'dengue_elisa_result_ns1_positive'
+                  - 'dengue_elisa_ns1_positive'
+                  - 'dengue_result_ns1_elisa'
+                event.test.test2.result:
+                  - 'ig_m_positive'
+                  - 'igm_positive'
+                  - 'dengue_elisa_ig_m_positive'
+                event.test.testingLab:
+                  - 'lab_where_the_test_is_confirmed'
+                case.urbanOrRural:
+                  - 'case_belongs_to_rural_urban'
+                case.publicOrPrivate:
+                  - 'case_reported_from_public_private'
+                case.surveillance:
+                  - 'case_detected_in_active_passive'
+                case.opdOrIpd:
+                  - 'opd_ipd'
+
+            required_headers:
+              - 'metadata.nameAddress'
+              - 'demographics.age'
+              - 'demographics.gender'
+              - 'location.admin3.name'
+              - 'location.admin5.name'
+              - 'location.healthcentre.phc'
+              - 'location.healthcentre.subcentre'
+              - 'event.symptomOnsetDate'
+              - 'event.test.resultDate'
+              - 'event.test.sampleCollectionDate'
+              - 'event.test.test1.result'
+              - 'event.test.test2.result'
+  ka_ihip:
+    data_dictionary:
+      metadata.recordID:
+        description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 based on RFC4112. unstable.'
+        comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+        access: True
+      metadata.primaryDate:
+        description: 'Primary date associated with the case, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Generated based on date available, event.symptomOnset.date is given first preference. If not available, event.test.date is used. If that is not available, event.test.resultDate is used.'
+        access: True
+      metadata.patientHealthID:
+        description: 'IHIP Health ID'
+        comments:
+        access: True
+      metadata.patientTransactionID:
+        description: 'IHIP Transaction ID'
+        comments:
+        access: True
+      metadata.patientSpecimenID: 
+        description: 'IHIP Specimen ID'
+        comments:
+        access: True
+      metadata.diseaseName: 
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'DENGUE'
+      metadata.diseaseCode: 
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1D2Z'
+      demographics.age:
+        description: 'Age of the patient in years (restricted access)'
+        comments: 'Standardisation includes converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: False
+      demographics.ageRange:
+        description: 'Age bins that the patients age is classified into'
+        comments: 'Generated after standardisation of age entries, including converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: True
+      demographics.gender:
+        description: 'Patient gender - Male, Female or Unknown'
+        comments: 'Entries are standardised. Those that do not match with one of the following variations and their abbreviations: boy (B), male/man (M), female (F), girl (G), woman (W) are invalidated.'
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID: #district
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID: # sub-dist or ulb
+        description: 'Subdistrict ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID: # to be imputed
+        description: 'Zone ID (if Urban Local Body), imputed from lat/long of patient address'
+        comments:
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), imputed from lat/long of patient address'
+        comments: 
+        access: True
+      location.admin5.ID:
+        description: 'Ward ID, imputed from lat/long of patient address'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Ward Name, imputed from lat/long of patient address'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin.coarseness:
+        description: 'Lowest granularity of geography admin unit available'
+        comments:
+        access: True
+      location.geometry.latitude.provided: 
+        description: 'Patient Latitude provided in the IHIP data'
+        comments: 'Bounds are not checked for validity'
+        access: True
+      location.geometry.longitude.provided: 
+        description: 'Patient Longitude provided in the IHIP data'
+        comments: 'Bounds are not checked for validity'
+        access: True
+      event.symptomOnset:
+        description: 'Boolean. True if symptom onset was recorded'
+        comments: 'Set to True for confirmed cases'
+        access: True
+        default_value: True
+      event.symptomOnsetDate:
+        description: 'Date of symptom onset, compliant with the ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test:
+        description: 'Boolean. True if patient was tested'
+        comments: 'Set to True for confirmed cases'
+        access: True
+        default_value: True
+      event.test.sampleCollectionDate:
+        description: 'Date of test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.testingLab:
+        description: 'Name of the Laboratory where sample was tested'
+        comments: 'Formatted, not standardised'
+        access: True
+      event.test.test1.code: 
+        description: 'Code of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: '91064-6'
+      event.test.test1.name: 
+        description: 'Name of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: 'Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay'
+      event.test.test1.result:
+        description: 'Result of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+      event.test.test2.code: 
+        description: 'Code of the second test conducted'
+        comments:
+        access: True
+        default_value: '25338-5'
+      event.test.test2.name: 
+        description: 'Name of the second test conducted'
+        comments:
+        access: True
+        default_value: 'Dengue virus IgM Ab [Presence] in Serum'
+      event.test.test2.result:
+        description: 'Result of the second test conducted'
+        comments:
+        access: True
+      event.test.resultDate:
+        description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.sampleType:
+        description: 'Type of sample - blood or serum'
+        comments:
+        access: True
+      case.opdOrIpd:
+        description: 'Whether case was detected through OPD or IPD, if provided'
+        comments:
+        access: True
+      
+    info:
+        about: 'This dataset contains standardised, anonymised line lists from IHIP, where ULB is BBMP.'
+        source: 'IHIP'
+        comments:
+          - 'Raw BBMP Line lists contain other neighbouring districts. We filter for ULB is BBMP.'
+        references:
+    
+    # for admin purposes only
+    admin:
+      dsid:
+        raw: 'EPRDS7'
+        preprocessed: 'EP0005DS0014'
+        standardised: 'EP0005DS0014'
+
+      config:
+        # columns that are passed through standard string cleaning
+        str_cols:
+          - 'event.test.sampleType'
+          - 'event.test.testingLab'
+
+        # fuzzy matching thresholds
+        thresholds:
+          district: 65
+          subdistrict: 65
+          village: 95
+          
+        header_mapper:
+          test_method:
+            - 'test_performed'
+          result:
+            - 'test_result'
+          demographics.age:
+            - 'age'
+          demographics.gender:
+            - 'gender'
+          location.admin1.name:
+            - 'state'
+          location.admin2.name:
+            - 'district'
+            - 'distrct'
+          location.admin3.name:
+            - 'sub_district'
+          ulb:
+            - 'ulb'
+          location.admin5.name:
+            - 'village_or_ward'
+          location.geometry.latitude.provided:
+            - 'latitude'
+          location.geometry.longitude.provided: 
+            - 'longitude'
+          event.symptomOnsetDate:
+            - 'date_of_onset'
+            - 'dateofonset'
+          event.test.sampleCollectionDate:
+            - 'sample_collected_date'
+          event.test.testingLab:
+            - 'facility_name_pform'
+          event.test.sampleType:
+            - 'sample_type'
+          event.test.resultDate:
+            - 'test_performed_date'
+          case.opdOrIpd:
+            - 'opd_ipd'
+          metadata.patientHealthID:
+            - 'patient_health_id'
+          metadata.patientTransactionID:
+            - 'patient_transaction_id'
+          metadata.patientSpecimenID:
+            - 'patient_specimen_id'
+          location.geometry.latitude.provided:
+            - 'latitude'
+            - 'lattitude'
+          location.geometry.longitude.provided:
+            - 'longitude'
+
+        min_cols: # name, address not present in all files
+          - 'demographics.age'
+          - 'demographics.gender'
+          - 'location.admin2.name'
+          - 'location.admin3.name'
+          - 'ulb'
+          - 'event.test.testingLab'
           - 'event.symptomOnsetDate'
           - 'event.test.resultDate'
           - 'event.test.sampleCollectionDate'
