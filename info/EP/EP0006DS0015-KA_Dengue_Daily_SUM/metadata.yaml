@@ -154,6 +154,7 @@ tables:
           - 'dengueontheday_suspectedcases'
         daily.tested:
           - 'dengueontheday_bloodsamplecollected'
+          - 'dengueontheday_bloodsamplestested'
         daily.positive.igm:
           - 'dengueontheday_samplespositive_igmmacelisa'
         daily.positive.ns1: 
@@ -162,22 +163,30 @@ tables:
           - 'dengueontheday_samplespositive_other'
         daily.positive.total:
           - 'dengueontheday_samplespositive_totalves'
+          - 'dengueontheday_samplespositive_total_ves'
         daily.deaths:
           - 'dengueontheday_death'
         cumulative.suspected:
-          - 'denguecumalativefrom_suspectedcases'
+          - 'denguecumalativefrom_suspectedcases' 
+          - 'denguecumulativefrom_suspectedcases'
         cumulative.tested:
           - 'denguecumalativefrom_bloodsamplecollected'
+          - 'denguecumulativefrom_bloodsamplecollected'
+          - 'denguecumulativefrom_bloodsamplestested'
         cumulative.positive.igm:
           - 'denguecumalativefrom_noofsamplespositive_igmmacelisa'
+          - 'denguecumulativefrom_noofsamplespositive_igmmacelisa'
         cumulative.positive.ns1:
           - 'denguecumalativefrom_noofsamplespositive_nsantign'
+          - 'denguecumulativefrom_noofsamplespositive_nsantign'
         cumulative.positive.other:
           - 'denguecumalativefrom_noofsamplespositive_other'
         cumulative.positive.total:
           - 'denguecumalativefrom_noofsamplespositive_totalves'
+          - 'denguecumulativefrom_noofsamplespositive_total_ves'
         cumulative.deaths:
           - 'denguecumalativefrom_death'
+          - 'denguecumulativefrom_death'
 
       dataset_info:
         raw:
