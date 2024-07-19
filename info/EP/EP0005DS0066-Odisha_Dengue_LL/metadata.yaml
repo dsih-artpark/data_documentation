@@ -1,0 +1,251 @@
+tables:
+  odisha_dengue_ll:
+    data_dictionary:
+      metadata.recordID:
+        description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 based on RFC4112. unstable.'
+        comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+        access: True
+      metadata.primaryDate:
+        description: 'Primary date associated with the case, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Generated based on date available, event.symptomOnset.date is given first preference. If not available, event.test.date is used. If that is not available, event.test.resultDate is used.'
+        access: True
+      metadata.nameAddress:
+        description: 'Patient name and Address (restricted access)'
+        comments: 'Patient name and Address are concatenated where available as separate fields.'
+        access: False
+      metadata.diseaseName:
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'Dengue'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1D2Z'
+      demographics.age:
+        description: 'Age of the patient in years (restricted access)'
+        comments: 'Standardisation includes converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: False
+      demographics.ageRange:
+        description: 'Age bins that the patients age is classified into'
+        comments: 'Generated after standardisation of age entries, including converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: True
+      demographics.gender:
+        description: 'Patient gender - Male, Female or Unknown'
+        comments: 'Entries are standardised. Those that do not match with one of the following variations and their abbreviations: boy (B), male/man (M), female (F), girl (G), woman (W) are invalidated.'
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'India'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Karnataka'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin5.ID:
+        description: 'Village (for Revenue) or Ward ID (for ULB), constructed from Local Government Directory in India.'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village or Ward Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin.coarseness:
+        description: 'Maximum granularity of location admin unit - state, district, sub-district, ulb, ward or village'
+        comments:
+        access: True
+      location.geometry.latitude:
+        description: 'Latitude imputed using Google Maps API'
+        comments: 'Currently not imputed'
+        access: True
+      location.geometry.longitude:
+        description: 'Longitude imputed using Google Maps API'
+        comments: 'Currently not imputed'
+        access: True
+      location.geometry.coarseness:
+        description: 'Coarseness of the latitude/longitude. e.g., admin3, admin5, address, PHC, etc.'
+        comments: 'Currently not imputed'
+        access: True
+      location.healthcentre.chc:
+        description: 'Name of the Community Health Centre associated with the case'
+        comments: 'Formatted, not standardised'
+        access: True
+      location.healthcentre.subcentre:
+        description: 'Name of the Health Subcentre associated with the case'
+        comments: 'Formatted, not standardised'
+        access: True
+      location.healthcentre.ssh:
+        description: 'Sentinel Surveillance Hospital where the case was reported'
+        comments: 'Formatted, not standardised'
+        access: True
+      location.healthcentre.hospital:
+        description: 'Name of the hospital where the case was reported'
+        comments: 'Formatted, not standardised'
+        access: True
+      event.test:
+        description: 'Boolean. True if patient was tested'
+        comments: 'Set to True for confirmed cases'
+        access: True
+        default_value: True
+      event.test.test1.code:
+        description: 'LOINC Code of the test conducted - By default, NS1 is the first test'
+        comments: 
+        access: True
+        default_value: '91064-6'
+      event.test.test1.name:
+        description: 'LOINC Name of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: 'Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay'
+      event.test.test1.result:
+        description: 'Result of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+      event.test.test2.code:
+        description: 'LOINC Code of the second test conducted'
+        comments:
+        access: True
+        default_value: '25338-5'
+      event.test.test2.name:
+        description: 'LOINC Name of the second test conducted'
+        comments:
+        access: True
+        default_value: 'Dengue virus IgM Ab [Presence] in Serum'
+      event.test.test2.result:
+        description: 'Result of the second test conducted'
+        comments:
+        access: True
+      event.test.resultDate:
+        description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.numberOfTests:
+        description: 'Number of tests reported for the patient'
+        comments:
+        access: True
+      case.urbanOrRural:
+        description: 'Whether case was reported in an Urban or Rural area, if provided'
+        comments:
+        access: True
+      case.surveillance:
+        description: 'Whether case was detected through Active or Passive surveillance, if provided'
+        comments:
+        access: True
+
+    info:
+      about: 'This dataset contains standardised, anonymised linelists from the Government of Odisha.'
+      source: 'Government of Odisha LL dump (2013-2023)'
+      comments:
+      references:
+
+# For Adming Purposes Only
+admin:
+  dsid:
+    raw: 'EPRDS33'
+    preprocessed: 'EP0005DS0014'
+    standardised: 'EP0005DS0014'
+
+  config:
+    # Columns that are strings
+    str_cols:
+      - 'location.admin2.name'
+      - 'location.admin3.name'
+      - 'location.admin5.name'
+      - 'location.healthcentre.subcentre'
+      - 'metadata.nameAddress'
+      - 'location.healthcentre.ssh'
+      - 'location.healthcentre.hospital'
+    
+    # Thresholds for fuzzy matching
+    thresholds:
+      district: 65
+      subdistrict: 65
+      village: 95
+
+    standard_mapper:
+      test_method:
+        - 'type_of_test_igm_elisa_ns1_elisa'
+        - 'type_of_test_igm_ns1'
+      result:
+        - 'dengue_result'
+        - 'dengue_positive_y_n'
+      metadata.nameAddress:
+        - 'adress'
+        - 'address'
+      demographics.age:
+        - 'age'
+      demographics.gender:
+        - 'sex'
+        - 'sex_m_f'
+      location.admin2.name:
+        - 'district'
+        - 'name_of_the_district'
+      location.admin3.name:
+        - 'block'
+      location.admin5.name:
+        - 'village'
+      location.healthcentre.chc:
+        - 'chc'
+      location.healthcentre.subcentre:
+        - 'sub_centre'
+        - 'sc'
+      location.healthcentre.ssh:
+        - 'from_sentinel_site_hospital'
+        - 'ss_name'
+      location.healthcentre.hospital:
+        - 'reffered_by'
+      event.test.resultDate:
+        - 'date_of_testing'
+        - 'date_0f_testing'
+      case.urbanRural:
+        - 'urban_rural'
+    required_headers:
+      - 'metadata.nameAddress'
+      - 'demographics.age'
+      - 'demographics.gender'
+      - 'location.admin2.name'
+      - 'location.admin3.name'
+      - 'location.admin5.name'
+      - 'location.healthcentre.subcentre'
+      - 'event.test.resultDate'
+      - 'event.test.test1.result'
+      - 'event.test.test2.result'
+
+# cols to add:
+#  'death_due_to_dengue',
+#  'death_due_to_dengue_y_n',
+#  sparse cols: 'with_travel_history',   'travel_history', 'cured_non_cured', 'investing_done_y_n', 'reffered_by_asha_anm_aww_hw_mo','asha_anm_name_and_mobile_ph_number_any_other_contact_details'
+ 
