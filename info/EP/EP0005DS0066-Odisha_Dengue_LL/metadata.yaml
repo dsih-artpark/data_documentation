@@ -196,7 +196,7 @@ admin:
       village: 95
 
     standard_mapper:
-      test_method:
+      test_method: # merged pre 2020
         - 'type_of_test_igm_elisa_ns1_elisa'
         - 'type_of_test_igm_ns1'
       result:
