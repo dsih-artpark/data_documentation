@@ -249,9 +249,6 @@ tables:
           
         # Columns that are strings
         str_cols:
-          - 'location.admin2.name'
-          - 'location.admin3.name'
-          - 'location.admin5.name'
           - 'location.healthcentre.phc'
           - 'location.healthcentre.subcentre'
           - 'event.test.testingLab'
