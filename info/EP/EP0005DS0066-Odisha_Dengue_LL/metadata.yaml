@@ -156,6 +156,10 @@ tables:
         description: 'Number of tests reported for the patient'
         comments:
         access: True
+      event.death:
+        description: 'Whether death occured'
+        comments:
+        access: True
       case.urbanOrRural:
         description: 'Whether case was reported in an Urban or Rural area, if provided'
         comments:
@@ -232,6 +236,9 @@ admin:
         - 'date_0f_testing'
       case.urbanRural:
         - 'urban_rural'
+      event.death:
+        - 'death_due_to_dengue'
+        - 'death_due_to_dengue_y_n'
     required_headers:
       - 'metadata.nameAddress'
       - 'demographics.age'
@@ -243,9 +250,3 @@ admin:
       - 'event.test.resultDate'
       - 'event.test.test1.result'
       - 'event.test.test2.result'
-
-# cols to add:
-#  'death_due_to_dengue',
-#  'death_due_to_dengue_y_n',
-#  sparse cols: 'with_travel_history',   'travel_history', 'cured_non_cured', 'investing_done_y_n', 'reffered_by_asha_anm_aww_hw_mo','asha_anm_name_and_mobile_ph_number_any_other_contact_details'
- 
