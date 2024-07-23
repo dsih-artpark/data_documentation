@@ -253,7 +253,7 @@ tables:
           event.test.resultDate:
             - 'date_of_testing'
             - 'date_0f_testing'
-          case.urbanRural:
+          case.urbanOrRural:
             - 'urban_rural'
           event.death:
             - 'death_due_to_dengue'
