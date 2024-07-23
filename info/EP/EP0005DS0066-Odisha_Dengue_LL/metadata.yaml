@@ -185,9 +185,29 @@ tables:
       config:
         expected_files:
           - "Odisha Dengue Line Listing 2013-2023.xlsx"
-        skip_rows: 1
+        skip_rows:
+          "2013": 1
+          "2014": 1
+          "2015": 1
+          "2016": 1
+          "2017": 1
+          "2018": 1
+          "2019": 1
+          "2020": 1
+          "2021": 2
+          "2022": 1
+          "2023": 1
         dropna_cols:
           - 'metadata.nameAddress'
+        merged_headers: # enter iloc start if merged headers - some are vertically merged, others horizontally
+          "2013": 1
+          "2014": 1
+          "2015": 1
+          "2016": 1
+          "2017": 1
+          "2018": 0
+          "2019": 0
+
         # Columns that are strings
         str_cols:
           - 'location.healthcentre.subcentre'
