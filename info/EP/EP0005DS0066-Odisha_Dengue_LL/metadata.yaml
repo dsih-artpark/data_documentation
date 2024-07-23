@@ -183,6 +183,8 @@ tables:
         standardised: 'EP0005DS0066'
 
       config:
+        expected_files:
+          - "Odisha Dengue Line Listing 2013-2023.xlsx"
         skip_rows: 1
         dropna_cols:
           - 'metadata.nameAddress'
