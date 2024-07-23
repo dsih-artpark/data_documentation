@@ -53,12 +53,12 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
         access: True
-        default_value: 'state_29'
+        default_value: 'state_21'
       location.admin1.name:
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-        default_value: 'Karnataka'
+        default_value: 'Odisha'
       location.admin2.ID:
         description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
@@ -87,18 +87,18 @@ tables:
         description: 'Maximum granularity of location admin unit - state, district, sub-district, ulb, ward or village'
         comments:
         access: True
-      location.geometry.latitude:
-        description: 'Latitude imputed using Google Maps API'
-        comments: 'Currently not imputed'
-        access: True
-      location.geometry.longitude:
-        description: 'Longitude imputed using Google Maps API'
-        comments: 'Currently not imputed'
-        access: True
-      location.geometry.coarseness:
-        description: 'Coarseness of the latitude/longitude. e.g., admin3, admin5, address, PHC, etc.'
-        comments: 'Currently not imputed'
-        access: True
+      # location.geometry.latitude:
+      #   description: 'Latitude imputed using Google Maps API'
+      #   comments: 'Currently not imputed'
+      #   access: True
+      # location.geometry.longitude:
+      #   description: 'Longitude imputed using Google Maps API'
+      #   comments: 'Currently not imputed'
+      #   access: True
+      # location.geometry.coarseness:
+      #   description: 'Coarseness of the latitude/longitude. e.g., admin3, admin5, address, PHC, etc.'
+      #   comments: 'Currently not imputed'
+      #   access: True
       location.healthcentre.chc:
         description: 'Name of the Community Health Centre associated with the case'
         comments: 'Formatted, not standardised'
@@ -152,10 +152,10 @@ tables:
         description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
         access: True
-      event.test.numberOfTests:
-        description: 'Number of tests reported for the patient'
-        comments:
-        access: True
+      # event.test.numberOfTests:
+      #   description: 'Number of tests reported for the patient'
+      #   comments:
+      #   access: True
       event.death:
         description: 'Whether death occured'
         comments:
@@ -164,10 +164,10 @@ tables:
         description: 'Whether case was reported in an Urban or Rural area, if provided'
         comments:
         access: True
-      case.surveillance:
-        description: 'Whether case was detected through Active or Passive surveillance, if provided'
-        comments:
-        access: True
+      # case.surveillance:
+      #   description: 'Whether case was detected through Active or Passive surveillance, if provided'
+      #   comments:
+      #   access: True
 
     info:
       about: 'This dataset contains standardised, anonymised linelists from the Government of Odisha.'
@@ -221,11 +221,9 @@ tables:
           village: 95
 
         standard_mapper:
-          test_method: # merged pre 2020
-            - 'type_of_test_igm_elisa_ns1_elisa'
+          test_method:
             - 'type_of_test_igm_ns1'
           result:
-            - 'dengue_result'
             - 'dengue_positive_y_n'
           metadata.nameAddress:
             - 'adress'
@@ -260,6 +258,13 @@ tables:
           event.death:
             - 'death_due_to_dengue'
             - 'death_due_to_dengue_y_n'
+          event.test.test1.result:
+            - 'ns1_elisa'
+            - 'type_of_test_igm_elisa_ns1_elisa'
+          event.test.test2.result:
+            - 'igm_elisa'
+            - 'type_of_test_igm_elisa_ns1_elisa_2'
+
         required_headers:
           - 'metadata.nameAddress'
           - 'demographics.age'
