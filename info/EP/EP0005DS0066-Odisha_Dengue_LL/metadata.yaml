@@ -213,6 +213,7 @@ tables:
           - 'metadata.nameAddress'
           - 'location.healthcentre.ssh'
           - 'location.healthcentre.hospital'
+          - 'location.healthcentre.chc'
         
         # Thresholds for fuzzy matching
         thresholds:
