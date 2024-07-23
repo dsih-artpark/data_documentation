@@ -179,15 +179,12 @@ tables:
 admin:
   dsid:
     raw: 'EPRDS33'
-    preprocessed: 'EP0005DS0014'
-    standardised: 'EP0005DS0014'
+    preprocessed: 'EP0005DS0066'
+    standardised: 'EP0005DS0066'
 
   config:
     # Columns that are strings
     str_cols:
-      - 'location.admin2.name'
-      - 'location.admin3.name'
-      - 'location.admin5.name'
       - 'location.healthcentre.subcentre'
       - 'metadata.nameAddress'
       - 'location.healthcentre.ssh'
