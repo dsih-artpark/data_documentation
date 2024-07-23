@@ -175,75 +175,78 @@ tables:
       comments:
       references:
 
-# For Adming Purposes Only
-admin:
-  dsid:
-    raw: 'EPRDS33'
-    preprocessed: 'EP0005DS0066'
-    standardised: 'EP0005DS0066'
+    # For Adming Purposes Only
+    admin:
+      dsid:
+        raw: 'EPRDS33'
+        preprocessed: 'EP0005DS0066'
+        standardised: 'EP0005DS0066'
 
-  config:
-    # Columns that are strings
-    str_cols:
-      - 'location.healthcentre.subcentre'
-      - 'metadata.nameAddress'
-      - 'location.healthcentre.ssh'
-      - 'location.healthcentre.hospital'
-    
-    # Thresholds for fuzzy matching
-    thresholds:
-      district: 65
-      subdistrict: 65
-      village: 95
+      config:
+        skip_rows: 1
+        dropna_cols:
+          - 'metadata.nameAddress'
+        # Columns that are strings
+        str_cols:
+          - 'location.healthcentre.subcentre'
+          - 'metadata.nameAddress'
+          - 'location.healthcentre.ssh'
+          - 'location.healthcentre.hospital'
+        
+        # Thresholds for fuzzy matching
+        thresholds:
+          district: 65
+          subdistrict: 65
+          village: 95
 
-    standard_mapper:
-      test_method: # merged pre 2020
-        - 'type_of_test_igm_elisa_ns1_elisa'
-        - 'type_of_test_igm_ns1'
-      result:
-        - 'dengue_result'
-        - 'dengue_positive_y_n'
-      metadata.nameAddress:
-        - 'adress'
-        - 'address'
-      demographics.age:
-        - 'age'
-      demographics.gender:
-        - 'sex'
-        - 'sex_m_f'
-      location.admin2.name:
-        - 'district'
-        - 'name_of_the_district'
-      location.admin3.name:
-        - 'block'
-      location.admin5.name:
-        - 'village'
-      location.healthcentre.chc:
-        - 'chc'
-      location.healthcentre.subcentre:
-        - 'sub_centre'
-        - 'sc'
-      location.healthcentre.ssh:
-        - 'from_sentinel_site_hospital'
-        - 'ss_name'
-      location.healthcentre.hospital:
-        - 'reffered_by'
-      event.test.resultDate:
-        - 'date_of_testing'
-        - 'date_0f_testing'
-      case.urbanRural:
-        - 'urban_rural'
-      event.death:
-        - 'death_due_to_dengue'
-        - 'death_due_to_dengue_y_n'
-    required_headers:
-      - 'metadata.nameAddress'
-      - 'demographics.age'
-      - 'demographics.gender'
-      - 'location.admin2.name'
-      - 'location.admin3.name'
-      - 'location.admin5.name'
-      - 'location.healthcentre.subcentre'
-      - 'event.test.resultDate'
-      - 'event.test.test1.result'
-      - 'event.test.test2.result'
+        standard_mapper:
+          test_method: # merged pre 2020
+            - 'type_of_test_igm_elisa_ns1_elisa'
+            - 'type_of_test_igm_ns1'
+          result:
+            - 'dengue_result'
+            - 'dengue_positive_y_n'
+          metadata.nameAddress:
+            - 'adress'
+            - 'address'
+          demographics.age:
+            - 'age'
+          demographics.gender:
+            - 'sex'
+            - 'sex_m_f'
+          location.admin2.name:
+            - 'district'
+            - 'name_of_the_district'
+          location.admin3.name:
+            - 'block'
+          location.admin5.name:
+            - 'village'
+          location.healthcentre.chc:
+            - 'chc'
+          location.healthcentre.subcentre:
+            - 'sub_centre'
+            - 'sc'
+          location.healthcentre.ssh:
+            - 'from_sentinel_site_hospital'
+            - 'ss_name'
+          location.healthcentre.hospital:
+            - 'reffered_by'
+          event.test.resultDate:
+            - 'date_of_testing'
+            - 'date_0f_testing'
+          case.urbanRural:
+            - 'urban_rural'
+          event.death:
+            - 'death_due_to_dengue'
+            - 'death_due_to_dengue_y_n'
+        required_headers:
+          - 'metadata.nameAddress'
+          - 'demographics.age'
+          - 'demographics.gender'
+          - 'location.admin2.name'
+          - 'location.admin3.name'
+          - 'location.admin5.name'
+          - 'location.healthcentre.subcentre'
+          - 'event.test.resultDate'
+          - 'event.test.test1.result'
+          - 'event.test.test2.result'
