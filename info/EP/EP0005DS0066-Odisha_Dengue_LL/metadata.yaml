@@ -152,10 +152,10 @@ tables:
         description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
         comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
         access: True
-      # event.test.numberOfTests:
-      #   description: 'Number of tests reported for the patient'
-      #   comments:
-      #   access: True
+      event.test.numberOfTests:
+        description: 'Number of tests reported for the patient'
+        comments:
+        access: True
       event.death:
         description: 'Whether death occured'
         comments:
