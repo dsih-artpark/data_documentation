@@ -1,0 +1,336 @@
+tables:
+  ka_ihip:
+    data_dictionary:
+      # metadata.recordID:
+      #   description: 'Universally Unique Identifier (UUID) for each record, generated using uuid4 based on RFC4112. unstable.'
+      #   comments: 'Duplicates (across all variables) for the reporting year (December of the previous year - January of the next year) are dropped prior to the generation of the recordID.'
+      #   access: True
+      metadata.primaryDate:
+        description: 'Primary date associated with the case, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Generated based on date available, event.symptomOnset.date is given first preference. If not available, event.test.date is used. If that is not available, event.test.resultDate is used.'
+        access: True
+      metadata.patientID:
+        description: 'UUID created by grouping patients on name, address, contact, gender and age (+/-1)'
+        comments:
+        access: True
+      metadata.name:
+        description: 'Patient Name'
+        comments:
+        access: False
+      metadata.address:
+        description: 'Patient Address (restricted access)'
+        comments:
+        access: False
+      metadata.contact:
+        description: 'Patient mobile/phone number (restricted access)'
+        comments: 'Patient mobile is extracted from the address where available.'
+        access: False
+      metadata.patientHealthID:
+        description: 'IHIP Health ID'
+        comments:
+        access: True
+      metadata.patientTransactionID:
+        description: 'IHIP Transaction ID'
+        comments:
+        access: True
+      metadata.patientSpecimenID: 
+        description: 'IHIP Specimen ID'
+        comments:
+        access: True
+      metadata.diseaseName: 
+        description: 'WHO ICD-11 Disease Name'
+        comments:
+        access: True
+        default_value: 'Dengue'
+      metadata.diseaseCode: 
+        description: 'WHO ICD-11 Disease Code'
+        comments:
+        access: True
+        default_value: 'ICD11_1D2Z'
+      demographics.age:
+        description: 'Age of the patient in years (restricted access)'
+        comments: 'Standardisation includes converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: False
+      demographics.ageRange:
+        description: 'Age bins that the patients age is classified into'
+        comments: 'Generated after standardisation of age entries, including converting months to year, invalidating string entries with no digits, invalidating ages <0, and extracting the first two digits if age >105.'
+        access: True
+      demographics.gender:
+        description: 'Patient gender - Male, Female or Unknown'
+        comments: 'Entries are standardised. Those that do not match with one of the following variations and their abbreviations: boy (B), male/man (M), female (F), girl (G), woman (W) are invalidated.'
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'India'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Karnataka'
+      location.admin2.ID: #district
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID: # sub-dist or ulb
+        description: 'Subdistrict ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin4.ID: # to be imputed
+        description: 'Zone ID (if Urban Local Body), imputed from lat/long of patient address'
+        comments:
+        access: True
+      location.admin4.name:
+        description: 'Zone Name (if Urban Local Body), imputed from lat/long of patient address'
+        comments: 
+        access: True
+      location.admin5.ID:
+        description: 'Ward ID, imputed from lat/long of patient address'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Ward Name, imputed from lat/long of patient address'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin.coarseness:
+        description: 'Lowest granularity of geography admin unit available'
+        comments:
+        access: True
+      location.geometry.latitude.provided: 
+        description: 'Patient Latitude provided in the IHIP data'
+        comments: 'Bounds are not checked for validity'
+        access: True
+      location.geometry.longitude.provided: 
+        description: 'Patient Longitude provided in the IHIP data'
+        comments: 'Bounds are not checked for validity'
+        access: True
+      event.symptomOnset:
+        description: 'Boolean. True if symptom onset was recorded'
+        comments: 'Set to True for confirmed cases'
+        access: True
+        default_value: True
+      event.symptomOnsetDate:
+        description: 'Date of symptom onset, compliant with the ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test:
+        description: 'Boolean. True if patient was tested'
+        comments: 'Set to True for confirmed cases'
+        access: True
+        default_value: True
+      event.test.sampleCollectionDate:
+        description: 'Date of test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.testingLab:
+        description: 'Name of the Laboratory where sample was tested'
+        comments: 'Formatted, not standardised'
+        access: True
+      event.test.test1.code: 
+        description: 'Code of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: '91064-6'
+      event.test.test1.name: 
+        description: 'Name of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+        default_value: 'Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay'
+      event.test.test1.result:
+        description: 'Result of the test conducted - By default, NS1 is the first test'
+        comments:
+        access: True
+      event.test.test2.code: 
+        description: 'Code of the second test conducted'
+        comments:
+        access: True
+        default_value: '25338-5'
+      event.test.test2.name: 
+        description: 'Name of the second test conducted'
+        comments:
+        access: True
+        default_value: 'Dengue virus IgM Ab [Presence] in Serum'
+      event.test.test2.result:
+        description: 'Result of the second test conducted'
+        comments:
+        access: True
+      event.test.resultDate:
+        description: 'Result date of the third test, compliant with ISO 8601 format (YYYY-MM-DD or %Y-%m-%d on python3)'
+        comments: 'Corrected to ensure that date is within the reporting period (December of previous year to January of next year), and with month-day swap to maintain that symptomOnsetDate<=sampleCollectionDate<=event.test.resultDate.'
+        access: True
+      event.test.sampleType:
+        description: 'Type of sample - blood or serum'
+        comments:
+        access: True
+      case.opdOrIpd:
+        description: 'Whether case was detected through OPD or IPD, if provided'
+        comments:
+        access: True
+      
+    info:
+        about: 'This dataset contains standardised, anonymised line lists from IHIP, where ULB is BBMP.'
+        source: 'IHIP'
+        comments:
+          - 'Raw BBMP Line lists contain other neighbouring districts. We filter for ULB is BBMP.'
+        references:
+    
+    # for admin purposes only
+    admin:
+      dsid:
+        raw: 'EPRDS7'
+        preprocessed: 'EP0005DS0014'
+        standardised: 'EP0005DS0014'
+
+      config:
+        gsheet: 'Dengue Line Listing in Karnataka for GEO-COORDINATES'
+        expected_sheets:
+          - 'Ballari'
+          - 'Bengaluru Urban'
+          - 'Belagavi'
+          - 'Bagalkot'
+          - 'Bengaluru Rural'
+          - 'Bidar'
+          - 'Chamarajanagara'
+          - 'Dharward'
+          - 'Chikkaballapura'
+          - 'Chikkamagalur'
+          - 'BBMP'
+          - 'Chitraduraga'
+          - 'Dakshina Kannada'
+          - 'Davangere'
+          - 'Raichuru'
+          - 'Shivamogga'
+          - 'Kodagu'
+          - 'Mandya'
+          - 'Hassan'
+          - 'Udupi'
+          - 'Gadag'
+          - 'Kalaburagi'
+          - 'Yadagiri'
+          - 'Vijayanagara'
+          - 'Koppala'
+          - 'Mysuru'
+          - 'Ramanagara'
+          - 'Kolar'
+          - 'Vijayapura'
+          - 'Tumakuru'
+          - 'Uttara Kannada'
+          - 'Haveri'
+
+        # columns that are passed through standard string cleaning
+        str_cols:
+          - 'event.test.sampleType'
+          - 'event.test.testingLab'
+          - 'metadata.name'
+          - 'metadata.address'
+
+        date_vars:
+          - 'event.symptomOnsetDate'
+          - 'event.test.sampleCollectionDate'
+          - 'event.test.resultDate'
+        
+        id_vars:
+          - 'metadata.patientHealthID'
+          - 'metadata.patientTransactionID'
+          - 'metadata.patientSpecimenID'
+        
+        geo_vars:
+          - 'location.country.ID'
+          - 'location.admin1.ID'
+          - 'location.admin2.ID'
+          - 'location.admin3.ID'
+          - 'location.admin4.ID'
+          - 'location.admin5.ID'
+
+        # fuzzy matching thresholds
+        thresholds:
+          district: 65
+          subdistrict: 65
+          village: 95
+          
+        header_mapper:
+          test_method:
+            - 'test_performed'
+          result:
+            - 'test_result'
+          metadata.name:
+            - 'patient_name'
+            - 'name'
+          metadata.address:
+            - 'patient_address'
+          metadata.contact:
+            - 'contact_number'
+          demographics.age:
+            - 'age'
+          demographics.gender:
+            - 'gender'
+          location.admin2.name:
+            - 'district'
+            - 'distrct'
+          location.admin3.name:
+            -  'sub_district'
+          ulb:
+            - 'ulb'
+          location.admin5.name:
+            - 'village_or_ward'
+          event.symptomOnsetDate:
+            - 'date_of_onset'
+          event.test.sampleCollectionDate:
+            - 'sample_collected_date'
+          event.test.testingLab:
+            - 'facility_name_pform'
+          event.test.sampleType:
+            - 'sample_type'
+          event.test.resultDate:
+            - 'test_performed_date'
+          case.opdOrIpd:
+            - 'opd_ipd'
+          metadata.patientHealthID:
+            - 'patient_health_id'
+          metadata.patientTransactionID:
+            - 'patient_transaction_id'
+          metadata.patientSpecimenID:
+            - 'patient_specimen_id'
+          location.geometry.latitude.provided:
+            - 'latitude'
+          location.geometry.longitude.provided:
+            - 'longitude'
+          remark:
+            - 'remark'
+            - 'reamrk'
+        min_cols:
+          - 'demographics.age'
+          - 'demographics.gender'
+          - 'location.admin2.name'
+          - 'location.admin3.name'
+          - 'ulb'
+          - 'event.test.testingLab'
+          - 'event.symptomOnsetDate'
+          - 'event.test.resultDate'
+          - 'event.test.sampleCollectionDate'
+          - 'event.test.test1.result'
+          - 'event.test.test2.result'
+        credentials: 'credentials.json'
