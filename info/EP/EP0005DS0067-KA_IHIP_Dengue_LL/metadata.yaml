@@ -262,8 +262,6 @@ tables:
           - 'metadata.patientSpecimenID'
         
         geo_vars:
-          - 'location.country.ID'
-          - 'location.admin1.ID'
           - 'location.admin2.ID'
           - 'location.admin3.ID'
           - 'location.admin4.ID'
