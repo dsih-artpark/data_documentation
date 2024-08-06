@@ -263,12 +263,6 @@ tables:
           - 'location.healthcentre.phc'
           - 'location.healthcentre.subcentre'
           - 'event.test.testingLab'
-        
-        # Thresholds for fuzzy matching
-        thresholds:
-          district: 65
-          subdistrict: 65
-          village: 95
 
         # Expected Files for data from 2023 onwards
         expected_files:
