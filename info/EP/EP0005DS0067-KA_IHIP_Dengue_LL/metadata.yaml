@@ -272,6 +272,11 @@ tables:
           district: 65
           subdistrict: 65
           village: 95
+
+        upload:
+          bucket: 'dsih-artpark-03-standardised-data'
+          prefix: 'KA_IHIP_Dengue_LL'
+          file_name: 'ka-ihip-ll.csv'
           
         header_mapper:
           test_method:
