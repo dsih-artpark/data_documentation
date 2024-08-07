@@ -87,18 +87,6 @@ tables:
         description: 'Maximum granularity of location admin unit - state, district, sub-district, ulb, ward or village'
         comments:
         access: True
-      # location.geometry.latitude:
-      #   description: 'Latitude imputed using Google Maps API'
-      #   comments: 'Currently not imputed'
-      #   access: True
-      # location.geometry.longitude:
-      #   description: 'Longitude imputed using Google Maps API'
-      #   comments: 'Currently not imputed'
-      #   access: True
-      # location.geometry.coarseness:
-      #   description: 'Coarseness of the latitude/longitude. e.g., admin3, admin5, address, PHC, etc.'
-      #   comments: 'Currently not imputed'
-      #   access: True
       location.healthcentre.chc:
         description: 'Name of the Community Health Centre associated with the case'
         comments: 'Formatted, not standardised'
@@ -164,10 +152,6 @@ tables:
         description: 'Whether case was reported in an Urban or Rural area, if provided'
         comments:
         access: True
-      # case.surveillance:
-      #   description: 'Whether case was detected through Active or Passive surveillance, if provided'
-      #   comments:
-      #   access: True
 
     info:
       about: 'This dataset contains standardised, anonymised linelists from the Government of Odisha.'
