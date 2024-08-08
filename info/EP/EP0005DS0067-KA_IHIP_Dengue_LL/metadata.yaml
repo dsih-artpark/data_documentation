@@ -204,9 +204,9 @@ tables:
     # for admin purposes only
     admin:
       dsid:
-        raw: 'EPRDS7'
-        preprocessed: 'EP0005DS0014'
-        standardised: 'EP0005DS0014'
+        raw: 'EPRDS34'
+        preprocessed: 'EP0005DS0067'
+        standardised: 'EP0005DS0067'
 
       config:
         gsheet: 'Dengue Line Listing in Karnataka for GEO-COORDINATES'
