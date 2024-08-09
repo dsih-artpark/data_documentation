@@ -28,10 +28,6 @@ tables:
         description: 'Date of the Daily Progress Report in ISO 8601 format or %Y-%m-%d on python3'
         comments:
         access: True
-      metadata.reportPeriod:
-        description: 'Period (start, end year) of report/round'
-        comments:
-        access: True
       location.country.ID:
         description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
         comments:
@@ -42,10 +38,6 @@ tables:
         comments:
         access: True
         default_value: 'India'
-      location.admin.hierarchy:
-        description: 'Whether Revenue or ULB admin hierarchy'
-        comments: 'admin_0 if unknown'
-        access: True
       location.admin1.ID:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
