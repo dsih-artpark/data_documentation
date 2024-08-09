@@ -117,7 +117,7 @@ tables:
         comments:
         access: True
     info:
-      about: District-level vaccination & Tagging progress reports for Rounds 1,2,3,4,5
+      about: 'District-level vaccination & Tagging progress reports for Rounds 1,2,3,4,5'
       source: 'https://ahvs.karnataka.gov.in/info-2/NADCP'
       comments: 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
       references:
