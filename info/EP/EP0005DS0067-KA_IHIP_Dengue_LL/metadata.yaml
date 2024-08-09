@@ -195,7 +195,7 @@ tables:
         access: True
       
     info:
-        about: 'This dataset contains standardised, anonymised line lists from IHIP, where ULB is BBMP.'
+        about: 'This dataset contains standardised, anonymised line lists from IHIP, where ULB is BBMP starting 16th July, 2024. Combine with EP0005DS0014 for consolidated KA data.'
         source: 'IHIP'
         comments:
           - 'Raw BBMP Line lists contain other neighbouring districts. We filter for ULB is BBMP.'
