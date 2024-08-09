@@ -111,7 +111,9 @@ tables:
     info:
       about: 'District-level vaccination & Tagging progress reports for Rounds 1,2,3,4,5'
       source: 'https://ahvs.karnataka.gov.in/info-2/NADCP'
-      comments: 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
+      comments: 
+      - 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
+      - 'In FMD Vaccine Report (Round 1), date 19-10-2020, Bengaluru Rural and Urban districts have been entered as Bengaluru. This has been fixed to Bengaluru Rural and Bengaluru Urban using the order in other files for the same round, and based on counts - rural > urban.'
       references:
 
 
