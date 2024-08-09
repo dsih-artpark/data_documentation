@@ -121,3 +121,23 @@ tables:
       source: 'https://ahvs.karnataka.gov.in/info-2/NADCP'
       comments: 'Raw pdfs are in multiple formats. As discussed with Jagadish, we have retained variables that are common to the majority of reports'
       references:
+
+
+    admin:
+      header_mapper:
+        location.admin2.name:
+          - 'location.district.name'
+        daily.farmersCovered:
+          - '\xa0daily.farmers_covered'
+          - 'daily.farmers_covered'
+        daily.vaccinated.cattle4to5m:
+          - 'daily.vaccinated.cattle_4to5m'
+        daily.vaccinated.buffalo4to5m:
+          - '\xa0daily.vaccinated.buffalo_4to5m'
+          - 'daily.vaccinated.buffalo_4to5m'
+        daily.booster.cattle4to5m:
+          - 'daily.booster.cattle_4to5m'
+        daily.booster.buffalo4to5m:
+          - 'daily.booster.buffalo_4to5m'
+        cumulative.tagged.all_programs:
+          - 'cumulative.tagged.total'
