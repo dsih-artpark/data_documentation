@@ -1,5 +1,5 @@
 tables:
-  serum-stations:
+  semen-stations:
     data_dictionary:
       metadata.name:
         description: 'Name of the station'
