@@ -1,0 +1,62 @@
+tables:
+  serum-stations:
+    data_dictionary:
+      metadata.name:
+        description: 'Name of the station'
+        comments:
+        access: True
+      metadata.grade:
+        description: 'CMU Grade of the station - A,B or NG'
+        comments:
+        access: True
+      metadata.category:
+        description: 'Category of the station - Govt, Pvt, NGO or NDS'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
+        comments: 'Codes detailed at https://lgdirectory.gov.in.'
+        access: True
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_29'
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Karnataka'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      
+    info:
+      about: 'List of semen stations for livestock'
+      source: 'Dr. VA Srinivasan, National Dairy Development Board'
+      comments: 'Additional public data available at https://www.dairyknowledge.in/sites/default/files/pdfs/List_of_Semen_Stations.pdf, https://www.dairyknowledge.in/sites/default/files/pdfs/Semen_Stations_Producing_semen_from_Indigenous_cattle_breeds.pdf, https://www.dairyknowledge.in/sites/default/files/pdfs/Semen_Stations_Graded_A_&_B_by_the_Central_Monitoring_Unit_of_GoI.pdf'
+      references:
+    
