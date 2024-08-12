@@ -184,6 +184,7 @@ tables:
         cumulative.positive.total:
           - 'denguecumalativefrom_noofsamplespositive_totalves'
           - 'denguecumulativefrom_noofsamplespositive_total_ves'
+          - 'denguecumalativefrom_noofsamplespositive_total_ves'
         cumulative.deaths:
           - 'denguecumalativefrom_death'
           - 'denguecumulativefrom_death'
