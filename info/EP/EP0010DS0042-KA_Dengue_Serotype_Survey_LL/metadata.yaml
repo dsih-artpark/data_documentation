@@ -172,5 +172,6 @@ tables:
             - "tested_for_den_ns1_ag"
           event.test.test2.result.NIV:
            - "tested_for_chik_den_igm_antibodies"
+           - "tested_for_chik_den_and_je_igm_antibodies"
           event.test.test3.serotype:
            - "tested_for_dengue_sero_type_1_2_3_4_by_rt_pcr"
