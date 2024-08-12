@@ -45,6 +45,10 @@ tables:
         description: 'Administrative hierarchy for the record - Revenue (if sub-district), ULB (if urban local body) or admin_0 (if unknown)'
         comments: 'Codes detailed at https://lgdirectory.gov.in.'
         access: True
+      location.admin.coarseness:
+        description: 'Lowest admin unit for which geography is mapped'
+        comments: 'country, state or district'
+        access: True
       location.admin1.ID:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
