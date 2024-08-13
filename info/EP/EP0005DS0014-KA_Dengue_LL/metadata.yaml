@@ -404,6 +404,7 @@ tables:
             # Districts where the header is only one row - Kolar, Raichur, Udupi
             no_merge_headers:
               district_542: 'merged_ns1_igm_col_header'
+              district_525: 'merged_ns1_igm_col_header'
               district_546: 'merged_ns1_igm_cols'
               district_549: None
               
