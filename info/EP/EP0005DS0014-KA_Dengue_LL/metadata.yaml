@@ -459,6 +459,7 @@ tables:
                   - 'dengue_elisa_result_ns1_positive'
                   - 'dengue_elisa_ns1_positive'
                   - 'dengue_result_ns1_elisa'
+                  - 'dengue_elisa_result_ns1_ag_elisa'
                 event.test.test2.result:
                   - 'ig_m_positive'
                   - 'igm_positive'
