@@ -88,3 +88,29 @@ tables:
       source: 'Animal Husbandry Department, Government of Maharashtra'
       comments:
       references:
+    admin:
+      header_mapper:
+        metadata.year:
+          - "year"
+        metadata.month:
+          - "month"
+        location.admin2.name:
+          - "district"
+        location.admin3.name:
+          - "taluka"
+        location.admin5.name:
+          - "village"
+        location.geometry.latitude:
+          - "latitude"
+        location.geometry.longitude:
+          - "longitude"
+        summary.outbreaks:
+          - "number_of_outbreaks"
+        summary.villagesAffected:
+          - "number_of_villages_affected"
+        summary.birdsAffected:
+          - "birds_affected"
+        summary.deaths:
+          - "deaths"
+        summary.riskPopulation:
+          - "population_at_risk"
