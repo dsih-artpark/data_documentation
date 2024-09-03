@@ -191,7 +191,7 @@ tables:
         comments:
         access: True
     info:
-      about: Post-vac samples with animal tags for rounds 1, 2, 3 and 4
-      source: NIVEDI
-      comments: Merge with prevac-seromon-animal-tags on animal tags to check if an animal was tested pre and post
+      about: 'Post-vac samples with animal tags for rounds 1, 2, 3 and 4'
+      source: 'NIVEDI'
+      comments: 'Merge with prevac-seromon-animal-tags on animal tags to check if an animal was tested pre and post'
       references:

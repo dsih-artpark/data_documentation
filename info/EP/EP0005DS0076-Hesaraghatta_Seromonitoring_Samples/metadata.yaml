@@ -1,0 +1,121 @@
+
+tables:
+  seromon-samples:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+        default_value: 'Foot And Mouth Disease'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+        default_value: 'ICD11_1F05'
+      metadata.reportDate:
+        description: 'Date of report (if available)'
+        comments:
+        access: True
+      metadata.titre:
+        description: 'Titre (concentration) threshold'
+        comments:
+        access: True
+      metadata.senderID:
+        description: 'Sender Number'
+        comments:
+        access: True
+      metadata.centreID:
+        description: 'FMD Centre Number'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID: # sub-dist or ulb
+        description: 'Subdistrict ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin5.ID:
+        description: 'Village/Ward ID, imputed from lat/long of patient address'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Village/Ward Name, imputed from lat/long of patient address'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      prevac.A:
+        description: 'Protected/Unprotected against A, prevac'
+        comments:
+        access: True
+      prevac.O:
+        description: 'Protected/Unprotected against O, prevac'
+        comments:
+        access: True
+      prevac.asia1:
+        description: 'Protected/Unprotected against asia1, prevac'
+        comments:
+        access: True
+      prevac.all:
+        description: ''Protected/Unprotected against all three, prevac''
+        comments:
+        access: True
+      postvac.A:
+        description: 'Protected/Unprotected against A, postvac'
+        comments:
+        access: True
+      postvac.O:
+        description: 'Protected/Unprotected against O, postvac'
+        comments:
+        access: True
+      postvac.asia1:
+        description: 'Protected/Unprotected against O, postvac'
+        comments:
+        access: True
+      postvac.all:
+        description: 'Protected/Unprotected against all, postvac'
+        comments:
+        access: True
+     
+    info:
+      about: 'Seromonitoring samples for bulls in a farm in Hesaraghatta'
+      source: 'KVAFSU/Hesaraghatta farm'
+      comments: 
+      references:
+  

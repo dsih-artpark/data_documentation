@@ -108,11 +108,11 @@ tables:
         comments: 
         access: True
       location.admin5.ID:
-        description: 'Ward ID, imputed from lat/long of patient address'
+        description: 'Village/Ward ID, imputed from lat/long of patient address'
         comments: 'admin_0 if unknown'
         access: True
       location.admin5.name:
-        description: 'Ward Name, imputed from lat/long of patient address'
+        description: 'Village/Ward Name, imputed from lat/long of patient address'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
       location.admin.coarseness:
