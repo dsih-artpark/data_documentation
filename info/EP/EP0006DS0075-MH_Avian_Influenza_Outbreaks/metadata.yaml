@@ -55,6 +55,22 @@ tables:
         description: 'District Name, as per Local Government Directory'
         comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
         access: True
+      location.admin3.ID: # sub-dist or ulb
+        description: 'Subdistrict ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin5.ID:
+        description: 'Ward ID, imputed from lat/long of patient address'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin5.name:
+        description: 'Ward Name, imputed from lat/long of patient address'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
       location.geometry.latitude:
         description:
         comments:
