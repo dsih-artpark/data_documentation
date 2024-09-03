@@ -105,6 +105,15 @@ tables:
       comments:
       references:
     admin:
+      dsid:
+        raw: 'EPRDS41'
+        preprocessed: 'EP0006DS0075'
+        standardised: 'EP0006DS0075'
+      config:
+        upload:
+          bucket: 'dsih-artpark-03-standardised-data'
+          prefix: 'MH_Avian_Influenza_Outbreaks'
+          file_name: 'mh-avian-outbreaks.csv'
       header_mapper:
         metadata.year:
           - "year"
