@@ -1,0 +1,115 @@
+
+tables:
+  nivedi-india-seromonitoring-sum:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from Python 3'
+        comments:
+        access: True
+      metadata.diseaseName:
+        description: 'WHO ICD-11 disease name'
+        comments:
+        access: True
+        default_value: 'Foot And Mouth Disease'
+      metadata.diseaseCode:
+        description: 'WHO ICD-11 disease code'
+        comments:
+        access: True
+        default_value: 'ICD11_1F05'
+      metadata.round:
+        description: 'Seromonitoring Round'
+        comments:
+        access: True
+      metadata.month:
+        description: 'Month of summary'
+        comments:
+        access: True
+      metadata.year:
+        description: 'Year of summary'
+        comments:
+        access: True
+      metadata.designLevel:
+        description: 'Design Level'
+        comments:
+        access: True
+      metadata.clusterLevel:
+        description: 'Cluster Level'
+        comments:
+        access: True
+      metadata.sensitivity:
+        description: 'Sensitivity'
+                comments:
+        access: True
+      metadata.specificity:
+        description: 'Specificity'
+        comments:
+        access: True
+      metadata.confidenceLevel:
+        description: 'Confidence Level Percentage'
+        comments:
+        access: True
+      metadata.villagesSampled:
+        description: 'Number of villages sampled'
+        comments:
+        access: True
+      metadata.animalsSampled:
+        description: 'Number of animals sampled'
+        comments:
+        access: True
+      location.country.ID:
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+        default_value: 'INDIA'
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+        default_value: 'state_29'
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'KARNATAKA'
+      prevac.sample:
+        description: 'Number of samples tested pre-vaccination'
+        comments:
+        access: True
+      prevac.positive.A.pct:
+        description: 'Percentage of pre-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as prevac.positive.A.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.O.pct:
+        description: 'Percentage of pre-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as prevac.positive.O.cnt/prevac.sample * 100'
+        access: True
+      prevac.positive.asia1.pct:
+        description: 'Percentage of pre-vaccination samples positive for Asia1-type virus (calc)'
+        comments: 'computed as prevac.positive.asia1.cnt/prevac.sample * 100'
+        access: True
+      postvac.sample:
+        description: 'Number of samples tested post-vaccination'
+        comments:
+        access: True
+      postvac.positive.A.pct:
+        description: 'Percentage of post-vaccination samples positive for A-type virus (calc)'
+        comments: 'computed as postvac.positive.A.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.O.pct:
+        description: 'Percentage of post-vaccination samples positive for O-type virus (calc)'
+        comments: 'computed as postvac.positive.O.cnt/postvac.sample * 100'
+        access: True
+      postvac.positive.asia1.pct:
+        description: 'Percentage of post-vaccination samples positive for Asia1-type virus'
+        comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
+        access: True
+    info:
+      about: 'Pre and post-vaccination O, A & Asia 1 positive tests by state'
+      source: 'NIVEDI'
+      comments: 
+      references:

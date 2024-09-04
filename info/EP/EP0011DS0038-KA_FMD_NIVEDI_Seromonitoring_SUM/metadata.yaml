@@ -227,7 +227,7 @@ tables:
         comments: 'computed as postvac.positive.Asia1.cnt/postvac.sample * 100'
         access: True
     info:
-      about: Pre and post-vaccination O, A & Asia 1 positive tests by year
+      about: 'Pre and post-vaccination O, A & Asia 1 positive tests by year'
       source: 'NIVEDI'
       comments: 'Reports are only partially accessed. They do not cover all districts'
       references:
