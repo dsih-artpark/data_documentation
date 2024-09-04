@@ -258,3 +258,7 @@ tables:
           - 'event.test.resultDate'
           - 'event.test.test1.result'
           - 'event.test.test2.result'
+        upload:
+          pp_bucket: 'dsih-artpark-02-preprocessed-data'
+          std_bucket: 'dsih-artpark-03-standardised-data'
+          prefix: 'Odisha_Dengue_LL'
