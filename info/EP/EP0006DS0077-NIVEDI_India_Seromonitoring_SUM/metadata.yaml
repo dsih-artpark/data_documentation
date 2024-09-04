@@ -70,12 +70,10 @@ tables:
         description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
         comments:
         access: True
-        default_value: 'state_29'
       location.admin1.name:
         description: 'State or Union Territory Name, as per Local Government Directory in India'
         comments:
         access: True
-        default_value: 'KARNATAKA'
       prevac.sample:
         description: 'Number of samples tested pre-vaccination'
         comments:
