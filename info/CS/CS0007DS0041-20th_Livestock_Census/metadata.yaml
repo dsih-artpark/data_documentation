@@ -151,3 +151,87 @@ tables:
       source: 'https://www.ahvs.kar.nic.in/en-reportsstat.html'
       comments:
       references:
+
+  mh-district-livestock-pop-2019:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated using UUID4 from python3'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+      location.country.name:
+        description: 'Country Name from ISO 3166'
+        comments:
+        access: True
+      location.admin.hierarchy:
+        description: 'Whether Revenue or ULB admin hierarchy'
+        comments: 'admin_0 if unknown'
+        access: True
+      location.admin1.ID:
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments:
+        access: True
+      location.admin1.name:
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name:
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      metadata.category:
+        description: 'Whether Commercial or Backyard'
+        comments:
+        access: True
+      metadata.type:
+        description: 'Whether Indigenous, Improved or Other'
+        comments:
+        access: True
+      population.cocks:
+        description: 'Cocks population'
+        comments:
+        access: True
+      population.hens:
+        description: 'Hens population'
+        comments:
+        access: True
+      population.chickens:
+        description: 'Chickens population'
+        comments:
+        access: True
+      population.drakes:
+        description: 'Drakes population'
+        comments:
+        access: True
+      population.ducks:
+        description: 'Ducks population'
+        comments:
+        access: True
+      population.ducklings:
+        description: 'Ducklings population'
+        comments:
+        access: True
+      population.turkey:
+        description: 'Turkey population'
+        comments:
+        access: True
+      population.quails:
+        description: 'Quails population'
+        comments:
+        access: True
+      population.poultyBirds:
+        description: 'Poultry birds (Gini Fowl, Ostrich, Emu,Geese) population'
+        comments:
+        access: True
+    info:
+      about: '20th Maharashra livestock census'
+      source: 'Pune Knowledge Cluster (PKC)'
+      comments:
+      references:
