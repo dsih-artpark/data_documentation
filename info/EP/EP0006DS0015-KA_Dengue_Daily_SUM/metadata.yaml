@@ -129,6 +129,9 @@ tables:
       config:
         skip_rows: 2
         max_col_index: 19
+        total_row_index: 35
+        total_col_index_start: 7
+        total_col_index_end: 13
         min_cols:
           - 'location.admin2.name'
           - 'daily.suspected'
