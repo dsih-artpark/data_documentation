@@ -189,7 +189,10 @@ tables:
           cumulative.deaths:
             - 'denguecumalativefrom_death'
             - 'denguecumulativefrom_death'
-
+        upload:
+          bucket: 'dsih-artpark-03-standardised-data'
+          prefix: 'KA_Dengue_Daily_SUM'
+          
       dsid:
         raw: 'EPRDS8'
         preprocessed: 'EP0006DS0015'
