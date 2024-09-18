@@ -174,19 +174,23 @@ tables:
             - 'denguecumalativefrom_suspectedcases' 
             - 'denguecumulativefrom_suspectedcases'
             - 'cumalativefrom_suspectedcases'
+            - 'cumulativefrom_suspectedcases'
           cumulative.tested:
             - 'denguecumalativefrom_bloodsamplecollected'
             - 'denguecumulativefrom_bloodsamplecollected'
             - 'denguecumulativefrom_bloodsamplestested'
             - 'cumalativefrom_bloodsamplecollected'
+            - 'cumulativefrom_bloodsamplecollected'
           cumulative.positive.igm:
             - 'denguecumalativefrom_noofsamplespositive_igmmacelisa'
             - 'denguecumulativefrom_noofsamplespositive_igmmacelisa'
             - 'cumalativefrom_noofsamplespositive_igmmacelisa'
+            - 'cumulativefrom_noofsamplespositive_igmmacelisa'
           cumulative.positive.ns1:
             - 'denguecumalativefrom_noofsamplespositive_nsantign'
             - 'denguecumulativefrom_noofsamplespositive_nsantign'
             - 'cumalativefrom_noofsamplespositive_nsantign'
+            - 'cumulativefrom_noofsamplespositive_nsantign'
           cumulative.positive.other:
             - 'denguecumalativefrom_noofsamplespositive_other'
           cumulative.positive.total:
@@ -194,10 +198,12 @@ tables:
             - 'denguecumulativefrom_noofsamplespositive_total_ves'
             - 'denguecumalativefrom_noofsamplespositive_total_ves'
             - 'cumalativefrom_noofsamplespositive_total_ves'
+            - 'cumulativefrom_noofsamplespositive_total_ves'
           cumulative.deaths:
             - 'denguecumalativefrom_death'
             - 'denguecumulativefrom_death'
             - 'cumalativefrom_death'
+            - 'cumulativefrom_death'
         upload:
           bucket: 'dsih-artpark-03-standardised-data'
           prefix: 'KA_Dengue_Daily_SUM'
