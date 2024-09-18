@@ -1,0 +1,147 @@
+
+tables:
+  path-ssh:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+        default_value: 'India'
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_21'
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Odisha'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.healthcentre.ssh:
+        description: 'Name of the District Sentinel Surveillance Hospital'
+        comments:
+        access: True
+    info:
+      about: 'List of 40 SSHs in Odisha'
+      source: 'PATH'
+      comments: 'SSHs are at the district-level in Odisha'
+      references:
+  path-health-centres:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+        default_value: 'India'
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_21'
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Odisha'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.healthcentre.chc:
+        description: 'Name of the Community Health Centre'
+        comments:
+        access: True
+      location.healthcentre.subcentre:
+        description: 'Name of the Subcentre'
+        comments:
+        access: True
+    info:
+      about: 'List of Community health centres and Subcentres in Odisha, mapped to blocks and districts'
+      source: 'PATH'
+      comments:
+      references:
+  path-blocks-ulbs:
+    data_dictionary:
+      metadata.recordID:
+        description: 'UUID generated from UUID4 on python3'
+        comments:
+        access: True
+      location.country.ID: 
+        description: 'Country ID constructed using ISO 3166 alpha-2 code. e.g. country_IN for India'
+        comments:
+        access: True
+        default_value: 'country_IN'
+      location.country.name: 
+        description: 'Country name from ISO 3166'
+        comments: 
+        access: True
+        default_value: 'India'
+      location.admin1.ID: 
+        description: 'State ID or Union Territory ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a state has LGD code 29, the ID is state_29. admin_0 if unknown.'
+        access: True
+        default_value: 'state_21'
+      location.admin1.name: 
+        description: 'State or Union Territory Name, as per Local Government Directory in India'
+        comments:
+        access: True
+        default_value: 'Odisha'
+      location.admin2.ID:
+        description: 'District ID constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a district has LGD code 525, the ID is district_525. admin_0 if unknown.'
+        access: True
+      location.admin2.name: 
+        description: 'District Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+      location.admin3.ID:
+        description: 'Subdistrict or ULB ID, constructed from Local Government Directory in India. Unique across the country.'
+        comments: 'If a subdistrict has LGD code 5587, the ID is subdistrict_5587. If a ULB has LGD code 251963, the ID is ulb_251963. admin_0 if unknown.'
+        access: True
+      location.admin3.name:
+        description: 'Subdistrict or ULB Name, as per Local Government Directory'
+        comments: 'If corresponding ID is admin_0 (unknown), the name provided in the raw dataset is retained.'
+        access: True
+    info:
+      about: 'List of Blocks and ULBs in Odisha'
+      source: 'PATH'
+      comments: 'Is a subset of LGD, some Blocks do not map to LGD'
+      references:

@@ -83,7 +83,7 @@ tables:
         commments:
         access: True
     info:
-      about: Name, Address, Imputed Latitude & Longitude positions of Hospitals in Pune City and some PHCs in Pune District
-      source: PKC
+      about: 'Name, Address, Imputed Latitude & Longitude positions of Hospitals in Pune City and some PHCs in Pune District'
+      source: 'PKC'
       comments:
       references:

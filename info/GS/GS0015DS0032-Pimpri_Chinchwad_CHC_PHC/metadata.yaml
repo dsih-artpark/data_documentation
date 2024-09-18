@@ -83,7 +83,7 @@ tables:
         comments:
         access: True
     info:
-      about: Name, Address, Imputed Latitude & Longitude positions of CHC/PHC in Pimpri Chinchwad Municipality
-      source: PKC
+      about: 'Name, Address, Imputed Latitude & Longitude positions of CHC/PHC in Pimpri Chinchwad Municipality'
+      source: 'PKC'
       comments:
       references:
