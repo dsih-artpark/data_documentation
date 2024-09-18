@@ -4,7 +4,7 @@ This repository contains documentation for datasets that have been standardized 
 
 ## Usage
 
-To access the data documentation, locate the **DSID** in our [data catalogue] (https://docs.google.com/spreadsheets/d/1ra4AScicNs1u-WeDTMsnpbBc7OJ2nsA1rqWJfWOchhA/edit?usp=sharing). 
+To access the data documentation, locate the **DSID** in our [data catalogue](https://docs.google.com/spreadsheets/d/1ra4AScicNs1u-WeDTMsnpbBc7OJ2nsA1rqWJfWOchhA/edit?usp=sharing). 
 
 If the *Status* of the dataset in the data catalog is set to **"Standardized and in S3"**, you will find the documentation in this repository.
 
