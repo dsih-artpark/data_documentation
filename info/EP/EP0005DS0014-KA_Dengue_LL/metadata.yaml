@@ -269,9 +269,9 @@ tables:
         preprocessed: EP0005DS0014
         raw: EPRDS7
         standardised: EP0005DS0014
-        v1:
-          Bucket: artpark-1health-hh-live-data
-          Prefix: state-karnataka/line-lists/
+      upload:
+        bucket: 'dsih-artpark-03-standardised-data'
+        prefix: 'KA_Dengue_LL'
     data_dictionary:
       case.opdOrIpd:
         access: true
