@@ -261,6 +261,10 @@ tables:
         - location.healthcentre.phc
         - location.healthcentre.subcentre
         - event.test.testingLab
+        date_cols:
+        - event.symptomOnsetDate
+        - event.test.sampleCollectionDate
+        - event.test.resultDate
       dsid:
         preprocessed: EP0005DS0014
         raw: EPRDS7
