@@ -13,6 +13,11 @@ tables:
           - 2024A2.xlsx
           - 2024B1.xlsx
           - 2024B2.xlsx
+          2025:
+          - 2025A1.xlsx
+          - 2025A2.xlsx
+          - 2025B1.xlsx
+          - 2025B2.xlsx
         ffill_cols:
           district_532:
           - location.healthcentre.phc
